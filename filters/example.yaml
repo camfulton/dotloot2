@@ -1,0 +1,945 @@
+config:
+  name: marchfilter
+  version: 0.1
+  league: Expedition
+
+colors:
+  black: &black 13 14 6 222
+  green: &green 82 220 65 240
+  yellow: &yellow 250 252 168 240
+  white: &white 255 255 255 240
+  blue: &blue 125 125 247 240
+  brown: &brown 218 200 164 240
+  nocolor: &nocolor 255 255 255 0
+
+sounds:
+  bigdropsound: &bigdropsound questdone.wav
+  mapsound: &mapsound flippy.wav
+  itemsound: &itemsound amulet.wav
+  uniquesound: &uniquesound ring.wav
+  currencysound: &currencysound gold.wav
+  t16sound: &t16sound rare.wav
+  divsound: &divsound charm.wav
+
+styles:
+  basestyle: &basestyle
+    bg: *black
+    fontsize: 42
+    border: *nocolor
+
+  lvling: &lvling
+    <<: *basestyle
+    fg: *white
+    bg: 55 25 55 233
+
+  lvlingflask: &lvlingflask
+    <<: *lvling
+    fg: *black
+    border: *black
+    beam: Pink Temp
+
+  chaos: &chaos
+    <<: *basestyle
+    fg: *blue
+    bg: *yellow
+
+  chaosring: &chaosring
+    <<: *chaos
+    icon: 2 Yellow Circle
+    say: Chaos Ring
+
+  chaosbelt: &chaosbelt
+    <<: *chaos
+    icon: 2 Yellow Pentagon
+    say: Chaos Belt
+
+  chaosamulet: &chaosamulet
+    <<: *chaos
+    icon: 2 Yellow Raindrop
+    say: Chaos Amulet
+
+  greatunique: &greatunique
+    <<: *basestyle
+    customsound: *bigdropsound
+    fg: *brown
+    beam: Brown
+    icon: 0 Brown Hexagon
+
+  goodunique: &goodunique
+    <<: *basestyle
+    customsound: *itemsound
+    fg: *brown
+    beam: Brown
+    icon: 0 Brown Hexagon
+
+  unique: &unique
+    <<: *basestyle
+    fg: *brown
+    customsound: *uniquesound
+
+  greatcurrency: &greatcurrency
+    <<: *basestyle
+    customsound: *bigdropsound
+    fg: *white
+    border: *white
+    beam: Pink
+    icon: 0 White Star
+
+  goodcurrency: &goodcurrency
+    <<: *basestyle
+    fg: *white
+    border: *white
+    icon: 2 White Star
+    customsound: *currencysound
+
+  leaguecurrency: &leaguecurrency
+    <<: *basestyle
+    fg: *white
+    border: *white
+    icon: 2 White Cross
+    customsound: *currencysound
+
+  currency: &currency
+    <<: *basestyle
+    fg: *white
+
+  quest: &quest
+    <<: *basestyle
+    fg: *white
+    beam: Green
+
+  greatmap: &greatmap
+    <<: *basestyle
+    fg: *green
+    border: *green
+    beam: Green
+    icon: 2 Red Square
+    customsound: *bigdropsound
+
+  targetmap: &targetmap
+    <<: *basestyle
+    fg: *green
+    border: *green
+    beam: Pink
+    icon: 2 Pink Square
+
+  t16: &t16
+    <<: *basestyle
+    fg: *green
+    border: *green
+    beam: Green
+    icon: 1 Red Square
+    customsound: *t16sound
+
+  redmap: &redmap
+    <<: *basestyle
+    fg: *green
+    border: *green
+    beam: Red
+    icon: 0 Red Square
+    customsound: *mapsound
+
+  yellowmap: &yellowmap
+    <<: *basestyle
+    fg: *green
+    icon: 0 Yellow Square
+    customsound: *mapsound
+
+  whitemap: &whitemap
+    <<: *basestyle
+    fg: *green
+    icon: 0 White Square
+    customsound: *mapsound
+
+  greatitem: &greatitem
+    <<: *basestyle
+    fg: *yellow
+    beam: Yellow
+    border: *yellow
+    icon: 2 Yellow Triangle
+    customsound: *bigdropsound
+
+  gooditem: &gooditem
+    <<: *basestyle
+    fg: *yellow
+    border: *yellow
+    icon: 0 Yellow Triangle
+    customsound: *itemsound
+
+  otheritem: &otheritem
+    <<: *basestyle
+    fg: *yellow
+
+  greatdiv: &greatdiv
+    <<: *basestyle
+    customsound: *bigdropsound
+    fg: *blue
+    beam: Blue
+    border: *blue
+    icon: 2 Blue Diamond
+
+  gooddiv: &gooddiv
+    <<: *basestyle
+    customsound: *divsound
+    fg: *blue
+    border: *blue
+    icon: 0 Blue Diamond
+
+  div: &div
+    <<: *basestyle
+    fg: *blue
+
+  failsafe: &failsafe
+    <<: *basestyle
+    fg: *white
+    bg: *white
+    beam: White
+    icon: 2 White Circle
+    say: what the fuck is that?!
+
+blocks:
+  overrides:
+    # Atuzbi
+    gloves:
+      <<: *unique
+      rarity: Unique
+      bases: Vaal Gauntlets
+      ilvl: ">= 80"
+      customsound: axe.wav
+    axe:
+      <<: *unique
+      rarity: Unique
+      bases: Vaal Axe
+      ilvl: ">= 80"
+      customsound: axe.wav
+    oof:
+      <<: *unique
+      rarity: Unique
+      bases: Sacrificial Garb
+      customsound: roblox.wav
+    tabula:
+      <<: *goodunique
+      links: 6
+      colors: WWWWWW
+      rarity: Unique
+    sixlink:
+      <<: *greatitem
+      links: 6
+    jebait:
+      <<: *div
+      bases: The Wolf's Shadow, The Catalyst, The Demoness
+      show: false
+
+  league:
+    watchstone:
+      <<: *gooditem
+      bases: Watchstone
+    catalyst:
+      bases: Catalyst
+      <<: *gooditem
+    eyesandlivers:
+      bases: Metamorph Eye, Metamorph Liver
+      <<: *gooditem
+      beam: Blue
+    samples:
+      classes: Sample
+      <<: *gooditem
+    orbz:
+      <<: *gooditem
+      bases: Delirium Orb
+    simulacra:
+      <<: *gooditem
+      bases: Simulacrum
+    currency:
+      <<: *quest
+      bases: Awakener's Orb
+
+  leveling_currency:
+    whet:
+      <<: *lvling
+      fg: *white
+      border: *white
+      beam: White Temp
+      icon: 0 White Moon
+      bases: Blacksmith's Whetstone
+      say: Wet
+    trans:
+      <<: *lvling
+      fg: *white
+      border: *white
+      beam: White Temp
+      icon: 0 White Moon
+      bases: Orb of Transmutation
+      say: Trans
+    alt:
+      <<: *lvling
+      fg: *white
+      border: *white
+      beam: White Temp
+      icon: 0 White Moon
+      bases: Orb of Alteration
+      say: Alt
+    chance:
+      <<: *lvling
+      fg: *white
+      border: *white
+      beam: White Temp
+      icon: 0 White Moon
+      bases: Orb of Chance
+      say: Chance
+
+  currency:
+    maven:
+      <<: *greatcurrency
+      bases: Maven's Invitation
+    writs:
+      <<: *greatcurrency
+      bases: Maven's Writ
+    vessels:
+      <<: *goodcurrency
+      bases: Blood-filled Vessel
+    watchstones:
+      <<: *greatcurrency
+      classes: Atlas Region Upgrade Item
+      bases: Chromium, Platinum, Titanium
+    league:
+      <<: *leaguecurrency
+      bases: Expedition Logbook, Exotic Coinage, Scrap Metal, Astragali, Burial Medallion, Lesser Broken Circle Artifact, Common Broken Circle Artifact, Greater Broken Circle Artifact, Grand Broken Circle Artifact, Lesser Black Scythe Artifact, Common Black Scythe Artifact, Greater Black Scythe Artifact, Grand Black Scythe Artifact, Lesser Order Artifact, Common Order Artifact, Greater Order Artifact, Grand Order Artifact, Lesser Sun Artifact, Common Sun Artifact, Greater Sun Artifact, Grand Sun Artifact
+    weirdnewshit:
+      <<: *goodcurrency
+      bases: Enkindling Orb, Instilling Orb, Prime Regrading Lens, Secondary Regrading Lens, Tempering Orb, Tailoring Orb, Facetor's Lens, Specularity Scroll, Haemocombustion Scroll, Electroshock Scroll, Deregulation Scroll, Fragmentation Scroll, Time-light Scroll, Infused Engineer's Orb
+    markers:
+      <<: *otheritem
+      show: true
+      bases: Rogue's Marker
+    # goodprophecy:
+    #   <<: *gooditem
+    #   lookup: prophecies 2
+    #   classes: Currency
+    #   bases: Prophecy
+    prophecy:
+      <<: *otheritem
+      show: true
+      classes: Currency
+      bases: Prophecy
+    badoils:
+      <<: *otheritem
+      show: true
+      classes: Currency
+      bases: Clear Oil, Sepia Oil, Amber Oil, Verdant Oil, Azure Oil, Indigo Oil, Violet Oil, Crimson Oil
+    badshards:
+      <<: *otheritem
+      show: false
+      classes: Currency
+      bases: Binding Shard, Alteration Shard, Transmutation Shard, Alchemy Shard, Engineer's Shard, Regal Shard, Horizon Shard, Chaos Shard
+    coins:
+      <<: *otheritem
+      show: true
+      classes: Currency
+      bases: Perandus Coin
+    # goodfossils:
+    #   <<: *greatcurrency
+    #   lookup: fossils 20
+    # goodscarabs:
+    #   <<: *greatcurrency
+    #   lookup: scarabs 20
+    # okscarabs:
+    #   <<: *goodcurrency
+    #   lookup: scarabs 1
+    ritualshards:
+      <<: *goodcurrency
+      classes: Currency
+      bases: Ritual Splinter, Ritual Vessel, Crescent Splinter
+    godtier:
+      <<: *greatcurrency
+      classes: Currency
+      bases: Vaal Reliquary Key, Orb of Unmaking, Maven's Orb, Mirror of Kalandra, Mirror Shard, Exalted Shard, Exalted Orb, Divine Orb, Albino Rhoa Feather, Eternal Orb, Fishing Rod, Blessing, Ancient Reliquary Key, Timeworn Reliquary Key, Golden Oil, Silver Oil, Ancient Orb
+    goodcurrency:
+      <<: *goodcurrency
+      classes: Currency
+      bases: Opalescent Oil, Teal Oil, Black Oil, Orb of Fusing, Veiled Chaos Orb, Noxious Catalyst, Accelerating Catalyst, Unstable Catalyst, Tainted Oil, Chaos Orb, Orb of Alchemy, Gemcutter's Prism, Orb of Scouring, Orb of Regret, Vaal Orb, Sextant, Cartographer's Seal, Unshaping Orb, Remnant of Corruption, Orb of Annulment, Orb of Binding, Harbinger's Orb, Shard, Fossil, Regal Orb, Stacked Deck, Engineer's Shard, Timeless Karui Splinter, Timeless Maraketh Splinter, Timeless Eternal Empire Splinter, Timeless Templar Splinter, Timeless Vaal Splinter, Splinter of Chayula, Oil, Splinter
+    # biggestessence:
+    #   <<: *goodcurrency
+    #   lookup: essences 5
+    bigessence:
+      <<: *goodcurrency
+      bases: Deafening Essence, Essence of Hysteria, Essence of Insanity, Essence of Horror, Essence of Delirium
+    littleessence:
+      <<: *currency
+      show: true
+      classes: Currency
+      bases: Screaming Essence, Shrieking Essence
+    badessence:
+      <<: *otheritem
+      show: true
+      classes: Currency
+      bases: Essence
+    delve:
+      <<: *goodcurrency
+      classes: Delve Socketable Currency
+    # goodincubators:
+    #   <<: *goodcurrency
+    #   show: true
+    #   lookup: incubators 2
+    incubators:
+      <<: *currency
+      show: true
+      classes: Incubator
+    scarabs:
+      <<: *currency
+      show: true
+      bases: Scarab
+    fossils:
+      <<: *currency
+      show: true
+      classes: Currency
+      bases: Fossil
+    imprints:
+      <<: *goodcurrency
+      bases: Imprint
+    chances:
+      <<: *currency
+      show: true
+      bases: Orb of Chance
+    alts:
+      <<: *currency
+      show: true
+      bases: Orb of Alteration
+    baubles:
+      <<: *currency
+      show: true
+      bases: Glassblower's Bauble
+    wisdoms:
+      <<: *currency
+      show: true
+      bases: Scroll of Wisdom
+    portals:
+      <<: *currency
+      show: true
+      bases: Portal Scroll
+    okcurrency:
+      <<: *currency
+      show: true
+      bases:  Jeweller's Orb, Cartographer's Chisel, Orb of Horizons 
+    badcurrency:
+      <<: *currency
+      show: true
+      bases: Blessed Orb, Chromatic Orb, Blacksmith's Whetstone, Armourer's Scrap, Silver Coin, Engineer's Orb
+    worsecurrency:
+      <<: *currency
+      show: true
+      bases: Orb of Transmutation, Orb of Augmentation
+    currencycatch:
+      <<: *goodcurrency
+      show: true
+      classes: Currency
+
+  sortacurrency:
+    sixsocket:
+      <<: *goodcurrency
+      show: true
+      sockets: 6
+    quest:
+      <<: *quest
+      classes: Quest Items, Pantheon Soul, Piece
+    weird:
+      <<: *quest
+      bases: Flashpowder Keg, Stone of Passage
+    flaskrecipe:
+      show: false
+      <<: *currency
+      classes: Utility Flasks, Hybrid Flasks, Life Flasks, Mana Flasks
+      quality: ">= 10"
+      rarity: "<= Rare"
+    goodfrags:
+      <<: *gooditem
+      bases: Mortal Hope, Mortal Ignorance, Sacrifice at Midnight
+    badfrags:
+      <<: *otheritem
+      show: true
+      bases: Sacrifice at Dawn, Sacrifice at Dusk, Sacrifice at Noon
+    special:
+      <<: *unique
+      icon: 0 Green Moon
+      bases: Chronicle of Atzoatl, Inscribed Ultimatum
+    frags:
+      <<: *whitemap
+      classes: Map Fragments, Misc Map Items, Labyrinth, Atlas Region Upgrade Item
+
+  maps:
+    unique:
+      <<: *unique
+      icon: 0 Brown Moon
+      rarity: Unique
+      classes: Maps
+    blighted:
+      <<: *greatmap
+      classes: Maps
+      blighted: true
+    targetmap:
+      <<: *targetmap
+      say: Summit or Core
+      classes: Map
+      maptier: ">= 11"
+      bases: Summit, Core
+    # burial:
+    #   <<: *targetmap
+    #   say: Burial
+    #   classes: Map
+    #   bases: Burial Chamber
+    # tower:
+    #   <<: *targetmap
+    #   say: Tower
+    #   classes: Map
+    #   bases: Tower
+    t16:
+      <<: *t16
+      classes: Maps
+      say: t16
+      maptier: 16
+    reds:
+      <<: *redmap
+      say: red map
+      classes: Maps
+      maptier: ">= 11"
+    yellows:
+      show: true
+      <<: *yellowmap
+      classes: Maps
+      maptier: ">= 6"
+    whites:
+      show: true
+      <<: *whitemap
+      classes: Maps
+      maptier: "< 6"
+
+  # All of these rules shut off by maps.
+  leveling_crafts:
+    lvl8_wand_craft:
+      <<: *lvling
+      rarity: Normal
+      bases: Ruby Ring, Sapphire Ring, Iron Ring
+      say: White Ruby or Sapphire for wand craft
+      ilvl: "<= 8"
+    lvl20_wand_craft:
+      <<: *lvling
+      rarity: Rare
+      bases: Ruby Ring, Sapphire Ring, Iron Ring
+      say: Rare Ruby or Sapphire for wand craft
+      ilvl: "<= 30"
+    blue_wand:
+      <<: *lvling
+      rarity: Magic
+      classes: Wands
+      say: Blue wand for craft!
+      ilvl: "< 16"
+  leveling_links:
+    bbg:
+      <<: *lvling
+      links: 3
+      colors: BBG
+      say: blue blue green 3l
+      ilvl: "< 12"
+      fg: *brown
+      border: *brown
+      beam: Brown Temp
+      classes: Boots, Gloves, Helmets, Body Armours
+    bbb:
+      <<: *lvling
+      links: 3
+      colors: BBB
+      say: blue blue blue 3l
+      ilvl: "< 28"
+      fg: *brown
+      border: *brown
+      beam: Brown Temp
+      classes: Boots, Gloves, Helmets, Body Armours
+    bbbg4link:
+      <<: *lvling
+      links: 4
+      say: bbb g 4 link for cremation
+      colors: BBBG
+      classes: Boots, Gloves, Helmets, Body Armours
+    bbbb4link:
+      <<: *lvling
+      links: 4
+      say: bbbb 4 link for arma brand
+      colors: BBBB
+      classes: Boots, Gloves, Helmets, Body Armours
+    gbr4link:
+      <<: *lvling
+      links: 4
+      say: r b g 4 link for desecrate, wave of conviction, herald of ash
+      colors: RBG
+      classes: Boots, Gloves, Helmets, Body Armours
+    5link:
+      <<: *lvling
+      links: 5
+      say: 5 link 5 link 5 link!!! wowowowowowowowow
+      classes: Body Armours
+    belts:
+      <<: *lvling
+      bases: Leather Belt
+      rarity: Normal
+      say: White Leather Belt!
+    rbelts:
+      <<: *otheritem
+      bases: Leather Belt
+      rarity: Rare
+      say: Rare Leather Belt!
+    rrings:
+      <<: *otheritem
+      rarity: Rare
+      bases: Coral Ring, Two-Stone Ring, Topaz, Sapphire, Ruby
+      say: Rare Ring!
+    rnecks:
+      <<: *otheritem
+      rarity: Rare
+      bases: Amulet
+      say: Rare Neck!
+
+  leveling_rares:
+    good:
+      <<: *lvling
+      fg: *yellow
+      border: *yellow
+      beam: Yellow Temp
+      rarity: Rare
+      ilvl: "<= 68"
+      classes: Shields, Helmets, Boots, Gloves, Wands, Sceptres, Rings, Amulets, Belts
+      customsound: *itemsound
+    all:
+      <<: *lvling
+      fg: *yellow
+      border: *yellow
+      rarity: Rare
+      ilvl: "<= 68"
+
+  leveling_flasks:
+    three:
+      <<: *lvlingflask
+      droplvl: ">= 3"
+      ilvl: "< 6"
+      classes: Life Flasks, Mana Flasks
+    six:
+      <<: *lvlingflask
+      droplvl: ">= 6"
+      ilvl: "< 12"
+      classes: Life Flasks, Mana Flasks
+    twelve:
+      <<: *lvlingflask
+      droplvl: ">= 12"
+      ilvl: "< 18"
+      classes: Life Flasks, Mana Flasks
+    eighteen:
+      <<: *lvlingflask
+      droplvl: ">= 18"
+      ilvl: "< 24"
+      classes: Life Flasks, Mana Flasks
+    twentyfour:
+      <<: *lvlingflask
+      droplvl: ">= 24"
+      ilvl: "< 30"
+      classes: Life Flasks, Mana Flasks
+    thirty:
+      <<: *lvlingflask
+      droplvl: ">= 30"
+      ilvl: "< 36"
+      classes: Life Flasks, Mana Flasks
+    thirtysix:
+      <<: *lvlingflask
+      droplvl: ">= 36"
+      ilvl: "< 42"
+      classes: Life Flasks, Mana Flasks
+    fourtytwo:
+      <<: *lvlingflask
+      droplvl: ">= 42"
+      ilvl: "< 50"
+      classes: Life Flasks, Mana Flasks
+    fifty:
+      <<: *lvlingflask
+      droplvl: ">= 50"
+      ilvl: "< 60"
+      classes: Life Flasks, Mana Flasks
+    sixty:
+      <<: *lvlingflask
+      droplvl: ">= 60"
+      ilvl: "< 68"
+      classes: Life Flasks, Mana Flasks
+    quicksilver:
+      <<: *lvlingflask
+      ilvl: "< 68"
+      bases: Quicksilver Flask
+      say: Quicksilver
+      icon: 0 Grey Moon
+    util:
+      <<: *lvlingflask
+      ilvl: "< 68"
+      classes: Utility Flasks
+
+  leveling_blues:
+    all:
+      <<: *lvling
+      fg: *blue
+      border: *blue
+      fontsize: 24
+      rarity: Magic
+      ilvl: "<= 34"
+
+  uniques:
+    jebait:
+      <<: *unique
+      rarity: Unique
+      bases: Leather Belt
+      customsound: bobby.mp3
+    # alwaysgood:
+    #   <<: *greatunique
+    #   rarity: Unique
+    #   lookup: exclusive uniques 20
+    # sometimesgood:
+    #   <<: *goodunique
+    #   rarity: Unique
+    #   lookup: uniques 10
+    contracts:
+      <<: *goodunique
+      rarity: Unique
+      classes: Contract, Blueprint
+    Replica:
+      <<: *unique
+      rarity: Unique
+      replica: true
+    t2:
+      <<: *unique
+      show: true
+      rarity: Unique
+
+  # generate bases here
+  bases:
+    trinkets:
+      <<: *gooditem
+      classes: Trinket
+    targets:
+      <<: *gooditem
+      classes: Heist Target
+    bps:
+     <<: *gooditem
+     say: blueprint
+     classes: Blueprint
+    contracts:
+      <<: *gooditem
+      classes: Contract
+    hench_gear:
+      <<: *gooditem
+      show: true
+      classes: Heist Cloak, Heist Brooch, Heist Tool, Heist Gear
+    experimented:
+      <<: *gooditem
+      bases: Assembler Wand, Congregator Wand, Accumulator Wand, Hollowpoint Dagger, Pressurised Dagger, Pneumatic Dagger, Flickerflame Blade, Flashfire Blade, Infernal Blade, Shadow Fangs, Malign Fangs, Void Fangs, Maltreatment Axe, Disapprobation Axe, Psychotic Axe, Fickle Spiritblade, Capricious Spiritblade, Anarchic Spiritblade, Flare Mace, Crack Mace, Boom Mace, Oscillating Sceptre, Stabilising Sceptre, Alternating Sceptre, Hedron Bow, Foundry Bow, Solarine Bow, Transformer Staff, Reciprocation Staff, Battery Staff, Capacity Rod, Potentiality Rod, Eventuality Rod, Prime Cleaver, Honed Cleaver, Apex Cleaver, Rebuking Blade, Blasting Blade, Banishing Blade, Blunt Force Condenser, Crushing Force Magnifier, Impact Force Propagator, Exhausting Spirit Shield, Subsuming Spirit Shield, Transfer-attuned Spirit Shield, Endothermic Buckler, Polar Buckler, Cold-attuned Buckler, Exothermic Tower Shield, Magmatic Tower Shield, Heat-attuned Tower Shield, Micro-Distillery Belt, Mechalarm Belt, Astrolabe Amulet, Simplex Amulet, Cogwork Ring, Geodesic Ring
+    maven:
+      <<: *gooditem
+      bases: Blizzard Crown, Winter Crown, Gale Crown, Archdemon Crown, Demon Crown, Imp Crown, Atonement Mask, Penitent Mask, Sorrow Mask, Debilitation Gauntlets, Gruelling Gauntlets, Taxing Gauntlets, Sinistral Gloves, Southswing Gloves, Gauche Gloves, Nexus Gloves, Aetherwind Gloves, Leyline Gloves, Dreamquest Slippers, Cloudwhisper Boots, Brimstone Treads, Nightwind Slippers, Windbreak Boots, Darksteel Treads, Duskwalk Slippers, Stormrider Boots, Basemetal Treads
+    # machinelearning:
+    #   <<: *greatitem
+    #   lookup: bases 40
+    fractured:
+      <<: *gooditem
+      beam: Orange
+      fractured: true
+    synthesized:
+      <<: *gooditem
+      beam: Orange
+      synthesized: true
+    quanttalismans:
+      <<: *gooditem
+      bases: Spinefuse Talisman
+    badtalismans:
+      <<: *otheritem
+      show: false
+      rarity: Rare
+      classes: Amulet
+      bases: Talisman
+    goodveiled:
+      <<: *gooditem
+      beam: Orange
+      show: true
+      explicit: Catarina's Veiled, Elreon's Veiled, Leo's Veiled, Rin's Veiled, Vagan's Veiled, Vorici's Veiled
+    influenced:
+      <<: *otheritem
+      show: true
+      influence: Shaper Elder Crusader Redeemer Hunter Warlord
+    corruptedrare:
+      <<: *otheritem
+      rarity: Rare
+      corrupted: true
+    enchanted:
+      <<: *otheritem
+      beam: Blue
+      enchanted: true
+    identified:
+      <<: *otheritem
+      rarity: Rare
+      fg: *blue
+      identified: true
+    endgamerares:
+      <<: *gooditem
+      show: true
+      # ilvl: ">= 83"
+      ilvl: ">= 68"
+      rarity: Rare
+      # bases: Seaglass Amulet, Blessed Boots, Apothecary's Gloves, Artillery Quiver, Iolite Ring, Convoking Wand, Imbued Wand, Opal Wand, Bone Helmet, Opal Ring, Steel Ring, Vermillion Ring, Cerulean Ring, Stygian Vise, Two-Toned Boots, Diamond Ring, Onyx Amulet, Two-Stone Ring, Amber Amulet, Citrine Amulet, Jade Amulet, Prismatic Ring, Ruby Ring, Sapphire Ring, Topaz Ring, Turquoise Amulet
+      bases: Seaglass Amulet, Blessed Boots, Apothecary's Gloves, Artillery Quiver, Iolite Ring, Imperial Buckler, Harmonic Spirit Shield, Fossilised Spirit Shield, Imbued Wand, Opal Wand, Bone Helmet, Opal Ring, Steel Ring, Vermillion Ring, Blue Pearl Amulet, Cerulean Ring, Marble Amulet, Stygian Vise, Two-Toned Boots, Vanguard Belt, Diamond Ring, Onyx Amulet, Two-Stone Ring, Amber Amulet, Agate Amulet, Citrine Amulet, Coral Ring, Gold Ring, Jade Amulet, Lapis Amulet, Leather Belt, Moonstone Ring, Prismatic Ring, Ruby Ring, Sapphire Ring, Topaz Ring, Turquoise Amulet, Unset Ring
+    earlygamerares:
+      <<: *otheritem
+      show: true
+      ilvl: ">= 68"
+      rarity: Rare
+      classes: Boots, Rings, Amulets, Belts
+
+  # chaosrecipe:
+  #   amulets:
+  #     <<: *chaosamulet
+  #     show: true
+  #     rarity: Rare
+  #     ilvl: 60..74
+  #     classes: Amulets
+  #   rings:
+  #     <<: *chaosring
+  #     show: true
+  #     rarity: Rare
+  #     ilvl: 60..74
+  #     classes: Rings
+  #   belts:
+  #     <<: *chaosbelt
+  #     show: true
+  #     rarity: Rare
+  #     ilvl: 60..74
+  #     classes: Belts
+  #   weapons:
+  #     <<: *chaos
+  #     rarity: Rare
+  #     ilvl: 60..74
+  #     height: 3
+  #     width: 1
+  #   body:
+  #     <<: *chaos
+  #     rarity: Rare
+  #     ilvl: 60..74
+  #     classes: Body Armour
+  #   allother:
+  #     <<: *chaos
+  #     show: true
+  #     height: 2
+  #     width: 2
+  #     rarity: Rare
+  #     ilvl: 60..74
+
+  chromerecipes:
+    chromerecipe2by2:
+      show: true
+      <<: *currency
+      links: ">= 3"
+      colors: RGB
+      height: 2
+      width: 2
+    chromerecipe3by1:
+      show: true
+      <<: *currency
+      links: ">= 3"
+      colors: RGB
+      height: 3
+      width: 1
+
+  jewels:
+    goodabyss:
+      <<: *gooditem
+      show: true
+      ilvl: ">= 84"
+      classes: Abyss Jewel
+    abyss:
+      <<: *otheritem
+      show: true
+      classes: Abyss Jewel
+    clusters:
+      <<: *gooditem
+      bases: Cluster Jewel
+    jewels:
+      <<: *otheritem
+      show: true
+      # rarity: Rare
+      bases: Cobalt Jewel, Crimson Jewel, Viridian Jewel, Prismatic Jewel
+
+  div:
+    doctor:
+      <<: *greatdiv
+      classes: Divination Card
+      bases: The Doctor
+      customsound: doctor.mp3
+    badbutilikethemdiv:
+      <<: *gooddiv
+      show: true
+      classes: Divination Card
+      bases: Acclimatisation, Void, Prejudice, Traitor, Society's Remorse, The Tinkerer's Table, The Cacophony, Akil's Prophecy, The Cache, The Dreamland, The Chains that Bind, The Encroaching Darkness, The Journey, The Messenger, The Obscured, Demigod's Wager, The Garish Power, Arrogance of the Vaal, Humility, The Gambler, Cameria's Cut, Emperor's Luck, Three Voices, The Inventor, Scholar of the Seas, The Master Artisan
+    # greatdiv:
+    #   <<: *greatdiv
+    #   classes: Divination Card
+    #   lookup: divination cards 25
+    # gooddiv:
+    #   <<: *gooddiv
+    #   classes: Divination Card
+    #   lookup: divination cards 2
+    div:
+      show: true
+      <<: *div
+      classes: Divination Card
+
+  gems:
+    alt:
+      <<: *gooditem
+      altquality: true
+      classes: Active Skill Gems, Support Skill Gems
+    l4:
+      <<: *gooditem
+      classes: Active Skill Gems, Support Skill Gems
+      bases: Enlighten, Enhance, Empower
+    plus:
+      <<: *greatitem
+      classes: Active Skill Gems, Support Skill Gems
+      bases: Awakened
+    20qual:
+      <<: *gooditem
+      classes: Active Skill Gems, Support Skill Gems
+      quality: ">= 20"
+    medqual:
+      <<: *otheritem
+      show: true
+      classes: Active Skill Gems, Support Skill Gems
+      quality: ">= 10"
+    corrupted:
+      <<: *basestyle
+      classes: Active Skill Gems, Support Skill Gems
+      corrupted: true
+    gems:
+      show: true
+      <<: *otheritem
+      classes: Active Skill Gems, Support Skill Gems
+
+  catch:
+    flasks:
+      show: false
+      classes: Utility Flasks
+    lifemanaflasks:
+      show: false
+      classes: Life Flasks, Mana Flasks
+    yellows:
+      show: false
+      rarity: Rare
+      <<: *otheritem
+    blues:
+      show: false
+      rarity: Magic
+    whites:
+      show: false
+      rarity: Normal
+      classes: One Hand Swords, One Hand Swords, One Hand Axes, Two Hand Axes, Two Hand Swords, Body Armours, Helmets, Boots, Gloves, Belts, Amulets, Rings, Shields, Claws, Daggers, Wands, One Hand Maces, Two Hand Maces, Quivers, Bows, Sceptres, Staves, Hybrid Flasks, Mana Flasks, Life Flasks, Rune Daggers, Warstaves
+    failsafe:
+      <<: *failsafe
