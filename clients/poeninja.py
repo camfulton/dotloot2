@@ -103,19 +103,19 @@ class PoeNinjaClient():
         for key in group_by:
             items = self.group_by(items, key)
 
-        if lookup_type == self.ITEM_TYPES['exclusive uniques']:
-            items = self.trim_groups_for_exclusive_bases(groups_of_items, low_value_bases)
+        if lookup_type == self.ITEM_TYPES['exclusive uniques'].type:
+            items = self.trim_groups_for_exclusive_bases(items, low_value_bases)
 
         return items
 
-    def trim_groups_for_exclusive_bases(self, item_groups):
+    def trim_groups_for_exclusive_bases(self, item_groups, low_value_bases):
         new_groups = []
 
         for group in item_groups:
             new_group = []
 
             for item in group:
-                if item['baseType'] not in self.low_value_bases:
+                if item['baseType'] not in low_value_bases:
                     new_group.append(item)
 
             new_groups.append(new_group)
@@ -190,9 +190,9 @@ class PoeNinjaClient():
         for overview_and_type in overviews_and_types:
             url = self.generate_url(overview_and_type)
             data = self.get_item_data_from_api(url)
+            low_value_bases.update(self.get_low_value_bases(data, lookup_data))
             items = self.get_matching_items(data, lookup_data)
 
-            low_value_bases.update(self.get_low_value_bases(item_data, lookup_data))
             item_data.extend(items)
 
         return (item_data, low_value_bases)

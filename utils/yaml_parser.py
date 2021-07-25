@@ -151,13 +151,19 @@ class Parser():
         an_item = item_group[0] if item_group else None
         lines = []
 
-        if not an_item:
+        is_exclusive_lookup = self.client.parse_lookup(
+            block).type == self.client.ITEM_TYPES['exclusive uniques'].type
+
+        if not an_item and not is_exclusive_lookup:
             msg = (
-                f'  ! <Something went wrong when looking up {block.lines[0].block_name}, got no items back.\n'
-                'This category was skipped and will not appear in your filter.'
+                f'  ! Something went wrong when looking up <{block.lines[0].block_name}>, got no items back.\n'
+                '  ! This category was skipped and will not appear in your filter.'
             )
             self.warnings.append(msg)
 
+            return None
+        elif not an_item and is_exclusive_lookup:
+            # Sometimes there aren't any unique bases that are always worth your min chaos threshold
             return None
 
         category_name = block.lines[0].category_name
