@@ -5,6 +5,7 @@ CONFIG_KEYS = [
 ]
 
 # translate friendly syntax to filter syntax
+# https://www.pathofexile.com/item-filter/about
 SYNTAX = {
     'lookup': {
             'exclusive_uniques': 'BaseType',
@@ -38,6 +39,7 @@ SYNTAX = {
     'shapedmap': 'ShapedMap',
     'eldermap': 'ElderMap',
     'blighted': 'BlightedMap',
+    'uberblighted': 'UberBlightedMap',
     'maptier': 'MapTier',
     'border': 'SetBorderColor',
     'fg': 'SetTextColor',
@@ -50,6 +52,8 @@ SYNTAX = {
     'beam': 'PlayEffect',
     'altquality': 'AlternateQuality',
     'replica': 'Replica',
+    'defencepercentile': 'BaseDefencePercentile',
+    'scourged': 'Scourged',
 }
 # Avoid updating both if they change the customsound syntax
 SYNTAX['say'] = SYNTAX['customsound']

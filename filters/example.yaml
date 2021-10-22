@@ -1,7 +1,7 @@
 config:
   name: marchfilter
   version: 0.1
-  league: Expedition
+  league: Scourge
 
 colors:
   black: &black 13 14 6 222
@@ -20,6 +20,9 @@ sounds:
   currencysound: &currencysound gold.wav
   t16sound: &t16sound rare.wav
   divsound: &divsound charm.wav
+  mirrorsound: &mirrorsound mirror.mp3
+  exaltsound: &exaltsound exalt.mp3
+  divinesound: &divinesound divine.mp3
 
 styles:
   basestyle: &basestyle
@@ -106,6 +109,7 @@ styles:
   quest: &quest
     <<: *basestyle
     fg: *white
+    icon: 2 Green Cross
     beam: Green
 
   greatmap: &greatmap
@@ -254,43 +258,55 @@ blocks:
       <<: *quest
       bases: Awakener's Orb
 
-  leveling_currency:
-    whet:
-      <<: *lvling
-      fg: *white
-      border: *white
-      beam: White Temp
-      icon: 0 White Moon
-      bases: Blacksmith's Whetstone
-      say: Wet
-    trans:
-      <<: *lvling
-      fg: *white
-      border: *white
-      beam: White Temp
-      icon: 0 White Moon
-      bases: Orb of Transmutation
-      say: Trans
-    alt:
-      <<: *lvling
-      fg: *white
-      border: *white
-      beam: White Temp
-      icon: 0 White Moon
-      bases: Orb of Alteration
-      say: Alt
-    chance:
-      <<: *lvling
-      fg: *white
-      border: *white
-      beam: White Temp
-      icon: 0 White Moon
-      bases: Orb of Chance
-      say: Chance
+  # leveling_currency:
+  #   whet:
+  #     <<: *lvling
+  #     fg: *white
+  #     border: *white
+  #     beam: White Temp
+  #     icon: 0 White Moon
+  #     bases: Blacksmith's Whetstone
+  #     say: Wet
+  #   trans:
+  #     <<: *lvling
+  #     fg: *white
+  #     border: *white
+  #     beam: White Temp
+  #     icon: 0 White Moon
+  #     bases: Orb of Transmutation
+  #     say: Trans
+  #   alt:
+  #     <<: *lvling
+  #     fg: *white
+  #     border: *white
+  #     beam: White Temp
+  #     icon: 0 White Moon
+  #     bases: Orb of Alteration
+  #     say: Alt
+  #   chance:
+  #     <<: *lvling
+  #     fg: *white
+  #     border: *white
+  #     beam: White Temp
+  #     icon: 0 White Moon
+  #     bases: Orb of Chance
+  #     say: Chance
 
   currency:
-    maven:
+    mirror:
       <<: *greatcurrency
+      bases: Mirror of Kalandra
+      customsound: &mirrorsound
+    exalt:
+      <<: *greatcurrency
+      bases: Exalted Orb
+      customsound: &exaltsound
+    divine:
+      <<: *greatcurrency
+      bases: Divine Orb
+      customsound: &divinesound
+    maven:
+      <<: *goodcurrency
       bases: Maven's Invitation
     writs:
       <<: *greatcurrency
@@ -302,9 +318,14 @@ blocks:
       <<: *greatcurrency
       classes: Atlas Region Upgrade Item
       bases: Chromium, Platinum, Titanium
+    goodleague:
+      <<: *leaguecurrency
+      beam: Orange
+      icon: 2 Orange Star
+      bases: Expedition Logbook, Exotic Coinage, Burial Medallion
     league:
       <<: *leaguecurrency
-      bases: Expedition Logbook, Exotic Coinage, Scrap Metal, Astragali, Burial Medallion, Lesser Broken Circle Artifact, Common Broken Circle Artifact, Greater Broken Circle Artifact, Grand Broken Circle Artifact, Lesser Black Scythe Artifact, Common Black Scythe Artifact, Greater Black Scythe Artifact, Grand Black Scythe Artifact, Lesser Order Artifact, Common Order Artifact, Greater Order Artifact, Grand Order Artifact, Lesser Sun Artifact, Common Sun Artifact, Greater Sun Artifact, Grand Sun Artifact
+      bases: Scrap Metal, Astragali, Lesser Broken Circle Artifact, Common Broken Circle Artifact, Greater Broken Circle Artifact, Grand Broken Circle Artifact, Lesser Black Scythe Artifact, Common Black Scythe Artifact, Greater Black Scythe Artifact, Grand Black Scythe Artifact, Lesser Order Artifact, Common Order Artifact, Greater Order Artifact, Grand Order Artifact, Lesser Sun Artifact, Common Sun Artifact, Greater Sun Artifact, Grand Sun Artifact
     weirdnewshit:
       <<: *goodcurrency
       bases: Enkindling Orb, Instilling Orb, Prime Regrading Lens, Secondary Regrading Lens, Tempering Orb, Tailoring Orb, Facetor's Lens, Specularity Scroll, Haemocombustion Scroll, Electroshock Scroll, Deregulation Scroll, Fragmentation Scroll, Time-light Scroll, Infused Engineer's Orb
@@ -312,11 +333,11 @@ blocks:
       <<: *otheritem
       show: true
       bases: Rogue's Marker
-    # goodprophecy:
-    #   <<: *gooditem
-    #   lookup: prophecies 2
-    #   classes: Currency
-    #   bases: Prophecy
+    goodprophecy:
+      <<: *gooditem
+      lookup: prophecies 2
+      classes: Currency
+      bases: Prophecy
     prophecy:
       <<: *otheritem
       show: true
@@ -324,7 +345,7 @@ blocks:
       bases: Prophecy
     badoils:
       <<: *otheritem
-      show: true
+      show: false
       classes: Currency
       bases: Clear Oil, Sepia Oil, Amber Oil, Verdant Oil, Azure Oil, Indigo Oil, Violet Oil, Crimson Oil
     badshards:
@@ -332,20 +353,23 @@ blocks:
       show: false
       classes: Currency
       bases: Binding Shard, Alteration Shard, Transmutation Shard, Alchemy Shard, Engineer's Shard, Regal Shard, Horizon Shard, Chaos Shard
-    coins:
-      <<: *otheritem
-      show: true
+    breachstones:
+      <<: *greatcurrency
       classes: Currency
-      bases: Perandus Coin
-    # goodfossils:
-    #   <<: *greatcurrency
-    #   lookup: fossils 20
-    # goodscarabs:
-    #   <<: *greatcurrency
-    #   lookup: scarabs 20
-    # okscarabs:
-    #   <<: *goodcurrency
-    #   lookup: scarabs 1
+      bases: Breachstone
+    emblems:
+      <<: *greatcurrency
+      classes: Currency
+      bases: Emblem
+    goodfossils:
+      <<: *greatcurrency
+      lookup: fossils 5
+    goodscarabs:
+      <<: *greatcurrency
+      lookup: scarabs 5
+    okscarabs:
+      <<: *goodcurrency
+      lookup: scarabs 1
     ritualshards:
       <<: *goodcurrency
       classes: Currency
@@ -353,14 +377,26 @@ blocks:
     godtier:
       <<: *greatcurrency
       classes: Currency
-      bases: Vaal Reliquary Key, Orb of Unmaking, Maven's Orb, Mirror of Kalandra, Mirror Shard, Exalted Shard, Exalted Orb, Divine Orb, Albino Rhoa Feather, Eternal Orb, Fishing Rod, Blessing, Ancient Reliquary Key, Timeworn Reliquary Key, Golden Oil, Silver Oil, Ancient Orb
+      bases: Sacred Orb, Vaal Reliquary Key, Orb of Unmaking, Maven's Orb, Mirror Shard, Exalted Shard, Albino Rhoa Feather, Eternal Orb, Fishing Rod, Blessing, Ancient Reliquary Key, Timeworn Reliquary Key, Golden Oil, Silver Oil, Ancient Orb
+    greattainted:
+      <<: *greatcurrency
+      classes: Currency
+      bases: Tainted Chaos Orb, Tainted Exalted Orb, Tainted Divine Teardrop, Tainted Mythic Orb
+    goodtainted:
+      <<: *goodcurrency
+      classes: Currency
+      bases: Tainted Blessing, Tainted Chromatic Orb, Tainted Orb of Fusing, Tainted Jeweller's Orb
+    badtainted:
+      <<: *currency
+      classes: Currency
+      bases: Tainted Blacksmith's Whetstone, Tainted Armourer's Scrap
     goodcurrency:
       <<: *goodcurrency
       classes: Currency
-      bases: Opalescent Oil, Teal Oil, Black Oil, Orb of Fusing, Veiled Chaos Orb, Noxious Catalyst, Accelerating Catalyst, Unstable Catalyst, Tainted Oil, Chaos Orb, Orb of Alchemy, Gemcutter's Prism, Orb of Scouring, Orb of Regret, Vaal Orb, Sextant, Cartographer's Seal, Unshaping Orb, Remnant of Corruption, Orb of Annulment, Orb of Binding, Harbinger's Orb, Shard, Fossil, Regal Orb, Stacked Deck, Engineer's Shard, Timeless Karui Splinter, Timeless Maraketh Splinter, Timeless Eternal Empire Splinter, Timeless Templar Splinter, Timeless Vaal Splinter, Splinter of Chayula, Oil, Splinter
-    # biggestessence:
-    #   <<: *goodcurrency
-    #   lookup: essences 5
+      bases: Cartographer's Chisel, Orb of Horizons, Opalescent Oil, Teal Oil, Black Oil, Blessed Orb, Orb of Fusing, Veiled Chaos Orb, Noxious Catalyst, Accelerating Catalyst, Unstable Catalyst, Tainted Oil, Chaos Orb, Orb of Alchemy, Gemcutter's Prism, Orb of Scouring, Orb of Regret, Vaal Orb, Sextant, Cartographer's Seal, Unshaping Orb, Remnant of Corruption, Orb of Annulment, Orb of Binding, Harbinger's Orb, Shard, Fossil, Regal Orb, Stacked Deck, Engineer's Shard, Timeless Karui Splinter, Timeless Maraketh Splinter, Timeless Eternal Empire Splinter, Timeless Templar Splinter, Timeless Vaal Splinter, Splinter of Chayula, Oil, Splinter
+    biggestessence:
+      <<: *goodcurrency
+      lookup: essences 5
     bigessence:
       <<: *goodcurrency
       bases: Deafening Essence, Essence of Hysteria, Essence of Insanity, Essence of Horror, Essence of Delirium
@@ -371,16 +407,16 @@ blocks:
       bases: Screaming Essence, Shrieking Essence
     badessence:
       <<: *otheritem
-      show: true
+      show: false
       classes: Currency
       bases: Essence
     delve:
       <<: *goodcurrency
       classes: Delve Socketable Currency
-    # goodincubators:
-    #   <<: *goodcurrency
-    #   show: true
-    #   lookup: incubators 2
+    goodincubators:
+      <<: *goodcurrency
+      show: true
+      lookup: incubators 2
     incubators:
       <<: *currency
       show: true
@@ -399,7 +435,7 @@ blocks:
       bases: Imprint
     chances:
       <<: *currency
-      show: true
+      show: false
       bases: Orb of Chance
     alts:
       <<: *currency
@@ -411,7 +447,7 @@ blocks:
       bases: Glassblower's Bauble
     wisdoms:
       <<: *currency
-      show: true
+      show: false
       bases: Scroll of Wisdom
     portals:
       <<: *currency
@@ -419,15 +455,15 @@ blocks:
       bases: Portal Scroll
     okcurrency:
       <<: *currency
-      show: true
-      bases:  Jeweller's Orb, Cartographer's Chisel, Orb of Horizons 
+      show: false
+      bases:  Jeweller's Orb, Blacksmith's Whetstone
     badcurrency:
       <<: *currency
-      show: true
-      bases: Blessed Orb, Chromatic Orb, Blacksmith's Whetstone, Armourer's Scrap, Silver Coin, Engineer's Orb
+      show: false
+      bases: Chromatic Orb, Blacksmith's Whetstone, Armourer's Scrap, Silver Coin, Engineer's Orb
     worsecurrency:
       <<: *currency
-      show: true
+      show: false
       bases: Orb of Transmutation, Orb of Augmentation
     currencycatch:
       <<: *goodcurrency
@@ -476,12 +512,16 @@ blocks:
       <<: *greatmap
       classes: Maps
       blighted: true
+    uberblighted:
+      <<: *greatmap
+      classes: Maps
+      uberblighted: true
     targetmap:
       <<: *targetmap
-      say: Summit or Core
+      say: Tropical Island
       classes: Map
-      maptier: ">= 11"
-      bases: Summit, Core
+      maptier: ">= 14"
+      bases: Tropical Island
     # burial:
     #   <<: *targetmap
     #   say: Burial
@@ -495,125 +535,123 @@ blocks:
     t16:
       <<: *t16
       classes: Maps
-      say: t16
       maptier: 16
     reds:
       <<: *redmap
-      say: red map
       classes: Maps
       maptier: ">= 11"
     yellows:
-      show: true
+      show: false
       <<: *yellowmap
       classes: Maps
       maptier: ">= 6"
     whites:
-      show: true
+      show: false
       <<: *whitemap
       classes: Maps
       maptier: "< 6"
 
   # All of these rules shut off by maps.
-  leveling_crafts:
-    lvl8_wand_craft:
-      <<: *lvling
-      rarity: Normal
-      bases: Ruby Ring, Sapphire Ring, Iron Ring
-      say: White Ruby or Sapphire for wand craft
-      ilvl: "<= 8"
-    lvl20_wand_craft:
-      <<: *lvling
-      rarity: Rare
-      bases: Ruby Ring, Sapphire Ring, Iron Ring
-      say: Rare Ruby or Sapphire for wand craft
-      ilvl: "<= 30"
-    blue_wand:
-      <<: *lvling
-      rarity: Magic
-      classes: Wands
-      say: Blue wand for craft!
-      ilvl: "< 16"
-  leveling_links:
-    bbg:
-      <<: *lvling
-      links: 3
-      colors: BBG
-      say: blue blue green 3l
-      ilvl: "< 12"
-      fg: *brown
-      border: *brown
-      beam: Brown Temp
-      classes: Boots, Gloves, Helmets, Body Armours
-    bbb:
-      <<: *lvling
-      links: 3
-      colors: BBB
-      say: blue blue blue 3l
-      ilvl: "< 28"
-      fg: *brown
-      border: *brown
-      beam: Brown Temp
-      classes: Boots, Gloves, Helmets, Body Armours
-    bbbg4link:
-      <<: *lvling
-      links: 4
-      say: bbb g 4 link for cremation
-      colors: BBBG
-      classes: Boots, Gloves, Helmets, Body Armours
-    bbbb4link:
-      <<: *lvling
-      links: 4
-      say: bbbb 4 link for arma brand
-      colors: BBBB
-      classes: Boots, Gloves, Helmets, Body Armours
-    gbr4link:
-      <<: *lvling
-      links: 4
-      say: r b g 4 link for desecrate, wave of conviction, herald of ash
-      colors: RBG
-      classes: Boots, Gloves, Helmets, Body Armours
-    5link:
-      <<: *lvling
-      links: 5
-      say: 5 link 5 link 5 link!!! wowowowowowowowow
-      classes: Body Armours
-    belts:
-      <<: *lvling
-      bases: Leather Belt
-      rarity: Normal
-      say: White Leather Belt!
-    rbelts:
-      <<: *otheritem
-      bases: Leather Belt
-      rarity: Rare
-      say: Rare Leather Belt!
-    rrings:
-      <<: *otheritem
-      rarity: Rare
-      bases: Coral Ring, Two-Stone Ring, Topaz, Sapphire, Ruby
-      say: Rare Ring!
-    rnecks:
-      <<: *otheritem
-      rarity: Rare
-      bases: Amulet
-      say: Rare Neck!
+  # leveling_crafts:
+  #   lvl8_wand_craft:
+  #     <<: *lvling
+  #     rarity: Normal
+  #     bases: Ruby Ring, Sapphire Ring, Iron Ring
+  #     say: White Ruby or Sapphire for wand craft
+  #     ilvl: "<= 8"
+  #   lvl20_wand_craft:
+  #     <<: *lvling
+  #     rarity: Rare
+  #     bases: Ruby Ring, Sapphire Ring, Iron Ring
+  #     say: Rare Ruby or Sapphire for wand craft
+  #     ilvl: "<= 30"
+  #   blue_wand:
+  #     <<: *lvling
+  #     rarity: Magic
+  #     classes: Wands
+  #     say: Blue wand for craft!
+  #     ilvl: "< 16"
+  # leveling_links:
+  #   bbg:
+  #     <<: *lvling
+  #     links: 3
+  #     colors: BBG
+  #     say: blue blue green 3l
+  #     ilvl: "< 12"
+  #     fg: *brown
+  #     border: *brown
+  #     beam: Brown Temp
+  #     classes: Boots, Gloves, Helmets, Body Armours
+  #   bbb:
+  #     <<: *lvling
+  #     links: 3
+  #     colors: BBB
+  #     say: blue blue blue 3l
+  #     ilvl: "< 28"
+  #     fg: *brown
+  #     border: *brown
+  #     beam: Brown Temp
+  #     classes: Boots, Gloves, Helmets, Body Armours
+  #   bbbg4link:
+  #     <<: *lvling
+  #     links: 4
+  #     say: bbb g 4 link for cremation
+  #     colors: BBBG
+  #     classes: Boots, Gloves, Helmets, Body Armours
+  #   bbbb4link:
+  #     <<: *lvling
+  #     links: 4
+  #     say: bbbb 4 link for arma brand
+  #     colors: BBBB
+  #     classes: Boots, Gloves, Helmets, Body Armours
+  #   gbr4link:
+  #     <<: *lvling
+  #     links: 4
+  #     say: r b g 4 link for desecrate, wave of conviction, herald of ash
+  #     colors: RBG
+  #     classes: Boots, Gloves, Helmets, Body Armours
+  #   5link:
+  #     <<: *lvling
+  #     links: 5
+  #     say: 5 link 5 link 5 link!!! wowowowowowowowow
+  #     classes: Body Armours
+  #   belts:
+  #     <<: *lvling
+  #     bases: Leather Belt
+  #     rarity: Normal
+  #     say: White Leather Belt!
+  #   rbelts:
+  #     <<: *otheritem
+  #     bases: Leather Belt
+  #     rarity: Rare
+  #     say: Rare Leather Belt!
+  #   rrings:
+  #     <<: *otheritem
+  #     rarity: Rare
+  #     bases: Coral Ring, Two-Stone Ring, Topaz, Sapphire, Ruby
+  #     say: Rare Ring!
+  #   rnecks:
+  #     <<: *otheritem
+  #     rarity: Rare
+  #     bases: Amulet
+  #     say: Rare Neck!
 
-  leveling_rares:
-    good:
-      <<: *lvling
-      fg: *yellow
-      border: *yellow
-      beam: Yellow Temp
-      rarity: Rare
-      ilvl: "<= 68"
-      classes: Shields, Helmets, Boots, Gloves, Wands, Sceptres, Rings, Amulets, Belts
-      customsound: *itemsound
-    all:
-      <<: *lvling
-      fg: *yellow
-      border: *yellow
-      rarity: Rare
-      ilvl: "<= 68"
+  # leveling_rares:
+  #   good:
+  #     <<: *lvling
+  #     fg: *yellow
+  #     border: *yellow
+  #     beam: Yellow Temp
+  #     rarity: Rare
+  #     ilvl: "<= 68"
+  #     classes: Shields, Helmets, Boots, Gloves, Wands, Sceptres, Rings, Amulets, Belts
+  #     customsound: *itemsound
+  #   all:
+  #     <<: *lvling
+  #     fg: *yellow
+  #     border: *yellow
+  #     rarity: Rare
+  #     ilvl: "<= 68"
 
   leveling_flasks:
     three:
@@ -692,14 +730,14 @@ blocks:
       rarity: Unique
       bases: Leather Belt
       customsound: bobby.mp3
-    # alwaysgood:
-    #   <<: *greatunique
-    #   rarity: Unique
-    #   lookup: exclusive uniques 20
-    # sometimesgood:
-    #   <<: *goodunique
-    #   rarity: Unique
-    #   lookup: uniques 10
+    alwaysgood:
+      <<: *greatunique
+      rarity: Unique
+      lookup: exclusive uniques 20
+    sometimesgood:
+      <<: *goodunique
+      rarity: Unique
+      lookup: uniques 10
     contracts:
       <<: *goodunique
       rarity: Unique
@@ -715,6 +753,10 @@ blocks:
 
   # generate bases here
   bases:
+    d2bases:
+      <<: *gooditem
+      bases: Sorcerer Boots, Hubris Circlet, Fingerless Silk Gloves, Sorcerer Gloves, Vaal Regalia, Titanium Spirit Shield, Fossilised Spirit Shield
+      defencepercentile: 100
     trinkets:
       <<: *gooditem
       classes: Trinket
@@ -723,7 +765,6 @@ blocks:
       classes: Heist Target
     bps:
      <<: *gooditem
-     say: blueprint
      classes: Blueprint
     contracts:
       <<: *gooditem
@@ -738,9 +779,9 @@ blocks:
     maven:
       <<: *gooditem
       bases: Blizzard Crown, Winter Crown, Gale Crown, Archdemon Crown, Demon Crown, Imp Crown, Atonement Mask, Penitent Mask, Sorrow Mask, Debilitation Gauntlets, Gruelling Gauntlets, Taxing Gauntlets, Sinistral Gloves, Southswing Gloves, Gauche Gloves, Nexus Gloves, Aetherwind Gloves, Leyline Gloves, Dreamquest Slippers, Cloudwhisper Boots, Brimstone Treads, Nightwind Slippers, Windbreak Boots, Darksteel Treads, Duskwalk Slippers, Stormrider Boots, Basemetal Treads
-    # machinelearning:
-    #   <<: *greatitem
-    #   lookup: bases 40
+    machinelearning:
+      <<: *greatitem
+      lookup: bases 20
     fractured:
       <<: *gooditem
       beam: Orange
@@ -783,14 +824,14 @@ blocks:
     endgamerares:
       <<: *gooditem
       show: true
-      # ilvl: ">= 83"
-      ilvl: ">= 68"
+      ilvl: ">= 83"
+      # ilvl: ">= 68"
       rarity: Rare
       # bases: Seaglass Amulet, Blessed Boots, Apothecary's Gloves, Artillery Quiver, Iolite Ring, Convoking Wand, Imbued Wand, Opal Wand, Bone Helmet, Opal Ring, Steel Ring, Vermillion Ring, Cerulean Ring, Stygian Vise, Two-Toned Boots, Diamond Ring, Onyx Amulet, Two-Stone Ring, Amber Amulet, Citrine Amulet, Jade Amulet, Prismatic Ring, Ruby Ring, Sapphire Ring, Topaz Ring, Turquoise Amulet
-      bases: Seaglass Amulet, Blessed Boots, Apothecary's Gloves, Artillery Quiver, Iolite Ring, Imperial Buckler, Harmonic Spirit Shield, Fossilised Spirit Shield, Imbued Wand, Opal Wand, Bone Helmet, Opal Ring, Steel Ring, Vermillion Ring, Blue Pearl Amulet, Cerulean Ring, Marble Amulet, Stygian Vise, Two-Toned Boots, Vanguard Belt, Diamond Ring, Onyx Amulet, Two-Stone Ring, Amber Amulet, Agate Amulet, Citrine Amulet, Coral Ring, Gold Ring, Jade Amulet, Lapis Amulet, Leather Belt, Moonstone Ring, Prismatic Ring, Ruby Ring, Sapphire Ring, Topaz Ring, Turquoise Amulet, Unset Ring
+      bases: Seaglass Amulet, Fugitive Boots, Apothecary's Gloves, Artillery Quiver, Iolite Ring, Imperial Buckler, Harmonic Spirit Shield, Fossilised Spirit Shield, Imbued Wand, Opal Wand, Bone Helmet, Opal Ring, Steel Ring, Vermillion Ring, Blue Pearl Amulet, Cerulean Ring, Marble Amulet, Stygian Vise, Two-Toned Boots, Vanguard Belt, Diamond Ring, Onyx Amulet, Two-Stone Ring, Amber Amulet, Agate Amulet, Citrine Amulet, Coral Ring, Gold Ring, Jade Amulet, Lapis Amulet, Leather Belt, Moonstone Ring, Prismatic Ring, Ruby Ring, Sapphire Ring, Topaz Ring, Turquoise Amulet, Unset Ring
     earlygamerares:
       <<: *otheritem
-      show: true
+      show: false
       ilvl: ">= 68"
       rarity: Rare
       classes: Boots, Rings, Amulets, Belts
@@ -835,14 +876,14 @@ blocks:
 
   chromerecipes:
     chromerecipe2by2:
-      show: true
+      show: false
       <<: *currency
       links: ">= 3"
       colors: RGB
       height: 2
       width: 2
     chromerecipe3by1:
-      show: true
+      show: false
       <<: *currency
       links: ">= 3"
       colors: RGB
@@ -857,11 +898,16 @@ blocks:
       classes: Abyss Jewel
     abyss:
       <<: *otheritem
-      show: true
+      show: false
       classes: Abyss Jewel
     clusters:
       <<: *gooditem
       bases: Cluster Jewel
+    viridian:
+      <<: *otheritem
+      icon: 2 Green Moon
+      say: Corrupt Me Bitch
+      bases: Viridian Jewel
     jewels:
       <<: *otheritem
       show: true
@@ -869,6 +915,11 @@ blocks:
       bases: Cobalt Jewel, Crimson Jewel, Viridian Jewel, Prismatic Jewel
 
   div:
+    btd:
+      <<: *greatdiv
+      classes: Divination Card
+      bases: Beauty Through Death
+      customsound: beauty.mp3
     doctor:
       <<: *greatdiv
       classes: Divination Card
@@ -879,14 +930,14 @@ blocks:
       show: true
       classes: Divination Card
       bases: Acclimatisation, Void, Prejudice, Traitor, Society's Remorse, The Tinkerer's Table, The Cacophony, Akil's Prophecy, The Cache, The Dreamland, The Chains that Bind, The Encroaching Darkness, The Journey, The Messenger, The Obscured, Demigod's Wager, The Garish Power, Arrogance of the Vaal, Humility, The Gambler, Cameria's Cut, Emperor's Luck, Three Voices, The Inventor, Scholar of the Seas, The Master Artisan
-    # greatdiv:
-    #   <<: *greatdiv
-    #   classes: Divination Card
-    #   lookup: divination cards 25
-    # gooddiv:
-    #   <<: *gooddiv
-    #   classes: Divination Card
-    #   lookup: divination cards 2
+    greatdiv:
+      <<: *greatdiv
+      classes: Divination Card
+      lookup: divination cards 25
+    gooddiv:
+      <<: *gooddiv
+      classes: Divination Card
+      lookup: divination cards 2
     div:
       show: true
       <<: *div
@@ -898,7 +949,7 @@ blocks:
       altquality: true
       classes: Active Skill Gems, Support Skill Gems
     l4:
-      <<: *gooditem
+      <<: *greatitem
       classes: Active Skill Gems, Support Skill Gems
       bases: Enlighten, Enhance, Empower
     plus:
@@ -911,7 +962,7 @@ blocks:
       quality: ">= 20"
     medqual:
       <<: *otheritem
-      show: true
+      show: false
       classes: Active Skill Gems, Support Skill Gems
       quality: ">= 10"
     corrupted:
@@ -919,7 +970,7 @@ blocks:
       classes: Active Skill Gems, Support Skill Gems
       corrupted: true
     gems:
-      show: true
+      show: false
       <<: *otheritem
       classes: Active Skill Gems, Support Skill Gems
 
@@ -940,6 +991,6 @@ blocks:
     whites:
       show: false
       rarity: Normal
-      classes: One Hand Swords, One Hand Swords, One Hand Axes, Two Hand Axes, Two Hand Swords, Body Armours, Helmets, Boots, Gloves, Belts, Amulets, Rings, Shields, Claws, Daggers, Wands, One Hand Maces, Two Hand Maces, Quivers, Bows, Sceptres, Staves, Hybrid Flasks, Mana Flasks, Life Flasks, Rune Daggers, Warstaves
+      classes: One Hand Swords, Thrusting One Hand Swords, One Hand Axes, Two Hand Axes, Two Hand Swords, Body Armours, Helmets, Boots, Gloves, Belts, Amulets, Rings, Shields, Claws, Daggers, Wands, One Hand Maces, Two Hand Maces, Quivers, Bows, Sceptres, Staves, Hybrid Flasks, Mana Flasks, Life Flasks, Rune Daggers, Warstaves
     failsafe:
       <<: *failsafe
