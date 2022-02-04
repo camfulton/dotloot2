@@ -82,6 +82,7 @@ class PoeNinjaClient():
         lookup_data = self.parse_lookup(block)
         # Perform and process request(s) to the POE Ninja API to build item data info.
         item_data, low_value_bases = self.fetch_item_data_and_low_value_bases(lookup_data)
+        print(f'  | - Found {len(item_data)}')
         # Group up all the items so they can be written into actual filter blocks.
         item_groups = self.group_items(item_data, low_value_bases, lookup_data.type)
 

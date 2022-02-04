@@ -24,9 +24,11 @@ Line = namedtuple(
 
 
 class Parser():
-    def __init__(self, input_file_path, client):
+    def __init__(self, input_file_path, client, skip_lookups, leveling):
         self.input_file_path = input_file_path
+        self.skip_lookups = skip_lookups
         self.yaml = self.load_yaml()
+        self.leveling = leveling
         # TODO - Do we need this ont the object?
         self.config = self.load_config()
         self.client = client(league=self.config.league)
@@ -136,13 +138,14 @@ class Parser():
                 new_blocks.append(block)
                 continue
 
-            item_groups = self.client.get_item_groups_for_block(block)
+            if not self.skip_lookups:
+                item_groups = self.client.get_item_groups_for_block(block)
 
-            for item_group in item_groups:
-                new_block = self.generate_block_from_lookup_result(item_group, block)
+                for item_group in item_groups:
+                    new_block = self.generate_block_from_lookup_result(item_group, block)
 
-                if new_block:
-                    new_blocks.append(new_block)
+                    if new_block:
+                        new_blocks.append(new_block)
 
         return new_blocks
 
@@ -185,6 +188,7 @@ class Parser():
         is_fossil = all([frame_type == self.currency, 'fossil' in name.lower()])
         is_scarab = all([frame_type == self.normal, 'scarab' in name.lower()])
         is_essence = all([frame_type == self.currency, 'essence' in name.lower()])
+        is_oil = all([frame_type == self.currency, 'oil' in name.lower()])
 
         # Avoid things like Shaper/Hunter bases that do not naturally drop, for example.
         if self.is_unknown_variant(variant, is_normal_magic_or_rare):
@@ -214,7 +218,7 @@ class Parser():
             corrupted_value = an_item[client.QUALIFIER_SYNTAX['corrupted']]
             lines.append(Line('corrupted', corrupted_value, category_name, block_name))
 
-        elif any([frame_type == self.divination_card, is_incubator, is_lure, is_fossil, is_scarab, is_essence]):
+        elif any([frame_type == self.divination_card, is_oil, is_incubator, is_lure, is_fossil, is_scarab, is_essence]):
             items = ','.join(
                 set([item[name_key] for item in item_group if item.get(name_key)])
             )
@@ -248,7 +252,7 @@ class Parser():
                 '  |\n'
                 f'  ! Failed to parse lookup result for {block_name}.\n'
                 '  !\n'
-                '  ! This could be because the type is not supported, it could also be\n'
+                '  ! This could be a bug, it could also be\n'
                 '  ! some kind of error w/ the client API you are using.\n'
                 '  !\n'
                 '  ! The following items were skipped as a result:\n'
@@ -334,6 +338,7 @@ class Parser():
         for block_name, yaml_lines in blocks_in_category.items():
             print(f'  | - Reading lines for: {block_name}')
             lines = []
+            skip = False
             show = self.show_or_hide_and_disable_dropsound(yaml_lines)
             lookup = yaml_lines.get('lookup', False)
             nosound = self.disable_drop_sound(yaml_lines)
@@ -345,9 +350,14 @@ class Parser():
                 if parameter in ['show', 'lookup']:
                     continue
 
+                if parameter in ['leveling'] and not self.leveling:
+                    print(f'  ! Skipping block: {block_name} because it is tagged as a leveling block. Pass the --leveling flag to enable this block.')
+                    skip = True
+
                 lines.append(Line(parameter, value, category, block_name))
 
-            blocks.append(Block(lines, show, nosound, comment, category, lookup))
+            if not skip:
+                blocks.append(Block(lines, show, nosound, comment, category, lookup))
 
         return blocks
 

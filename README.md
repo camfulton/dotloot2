@@ -14,10 +14,17 @@ No idea, install WSL and follow the instructions above
 
 # Usage:
 
+## Flags:
+Blocks tagged with `leveling:` will be skipped unless you pass this flag:
+--leveling
+
+Blocks with lookups will be skipped if you pass this flag, useful for league start:
+--skip-lookups
+
 1) Set up your output path in config.py to whatever your POE filter folder is
 2) Write a filter in the filters folder
 3) Add any custom sounds to the sounds folder
-4) poetry run python3 dotloot.py filters/example.yaml
+4) `poetry run python3 dotloot.py filters/example.yaml`
 5) replace `example.yaml` above with whatever you named your filter if you didn't catch that
 6) load up your filter in poe
 

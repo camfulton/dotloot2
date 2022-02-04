@@ -130,6 +130,8 @@ blocks:
   leveling_crafts:
     lvl8_wand_craft:
       <<: *basestyle
+      # Blocks w/ this leveling: key will be skipped unless you pass the --leveling flag
+      leveling:
       rarity: Normal
       bases: Ruby Ring, Sapphire Ring, Iron Ring
       say: White Ruby or Sapphire for wand craft
@@ -137,6 +139,7 @@ blocks:
     lvl20_wand_craft:
       <<: *basestyle
       rarity: Rare
+      leveling:
       bases: Ruby Ring, Sapphire Ring, Iron Ring
       say: Rare Ruby or Sapphire for wand craft
       ilvl: "<= 30"
@@ -160,11 +163,9 @@ blocks:
     all_other_uniques:
       # This block will hide every other unique, including those that cannot naturally drop
       <<: *bad_item
-      # It should be noted: if you set a _custom_ sound, either via `customsound` or `say`
-      # and you hide that drop, it will still make a noise. This is a limitation of the poe
-      # filter system and is extremely annoying.
+      # Hiding should disable the custom drop sound, which normal ggg filters do not actually do.
       show: false
-      say: bad unique, hidden but will still play custom sounds -- blame GGG not me!
+      say: bad unique, hidden with no drop sound!
       rarity: Unique
 
   # generate bases here

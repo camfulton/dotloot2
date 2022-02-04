@@ -90,12 +90,15 @@ def get_parsed_value(line, output_file_path):
 
 
 def line_should_be_parsed(line, nosound):
-    cosmetic_lines = ['sound', 'customsound', 'positionalsound', 'icon', 'beam']
+    print(line, nosound)
+    cosmetic_lines = ['sound', 'customsound', 'positionalsound', 'icon', 'beam', 'say']
+    config_lines = ['leveling']
 
     written_from_block = line.parameter in ['show', 'nosound']
+    config = line.parameter in config_lines
     skip_when_nosound = all([nosound, line.parameter in cosmetic_lines])
 
-    if any([written_from_block, skip_when_nosound]):
+    if any([written_from_block, skip_when_nosound, config]):
         return False
 
     return True
