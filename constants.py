@@ -53,6 +53,8 @@ SYNTAX = {
     'replica': 'Replica',
     'defencepercentile': 'BaseDefencePercentile',
     'scourged': 'Scourged',
+    'exarch': 'HasSearingExarchImplicit',
+    'eater': 'HasEaterOfWorldsImplicit'
 }
 # Avoid updating both if they change the customsound syntax
 SYNTAX['say'] = SYNTAX['customsound']
