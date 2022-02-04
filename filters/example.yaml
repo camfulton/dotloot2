@@ -296,15 +296,15 @@ blocks:
     mirror:
       <<: *greatcurrency
       bases: Mirror of Kalandra
-      customsound: &mirrorsound
+      customsound: *mirrorsound
     exalt:
       <<: *greatcurrency
       bases: Exalted Orb
-      customsound: &exaltsound
+      customsound: *exaltsound
     divine:
       <<: *greatcurrency
       bases: Divine Orb
-      customsound: &divinesound
+      customsound: *divinesound
     maven:
       <<: *goodcurrency
       bases: Maven's Invitation
@@ -333,19 +333,9 @@ blocks:
       <<: *otheritem
       show: true
       bases: Rogue's Marker
-    goodprophecy:
-      <<: *gooditem
-      lookup: prophecies 2
-      classes: Currency
-      bases: Prophecy
-    prophecy:
-      <<: *otheritem
-      show: true
-      classes: Currency
-      bases: Prophecy
     badoils:
       <<: *otheritem
-      show: false
+      show: true
       classes: Currency
       bases: Clear Oil, Sepia Oil, Amber Oil, Verdant Oil, Azure Oil, Indigo Oil, Violet Oil, Crimson Oil
     badshards:
@@ -435,7 +425,7 @@ blocks:
       bases: Imprint
     chances:
       <<: *currency
-      show: false
+      show: true
       bases: Orb of Chance
     alts:
       <<: *currency
@@ -455,15 +445,15 @@ blocks:
       bases: Portal Scroll
     okcurrency:
       <<: *currency
-      show: false
+      show: true
       bases:  Jeweller's Orb, Blacksmith's Whetstone
     badcurrency:
       <<: *currency
-      show: false
+      show: true
       bases: Chromatic Orb, Blacksmith's Whetstone, Armourer's Scrap, Silver Coin, Engineer's Orb
     worsecurrency:
       <<: *currency
-      show: false
+      show: true
       bases: Orb of Transmutation, Orb of Augmentation
     currencycatch:
       <<: *goodcurrency
@@ -516,22 +506,12 @@ blocks:
       <<: *greatmap
       classes: Maps
       uberblighted: true
-    targetmap:
-      <<: *targetmap
-      say: Tropical Island
-      classes: Map
-      maptier: ">= 14"
-      bases: Tropical Island
-    # burial:
+    # targetmap:
     #   <<: *targetmap
-    #   say: Burial
+    #   say: Target Map
     #   classes: Map
-    #   bases: Burial Chamber
-    # tower:
-    #   <<: *targetmap
-    #   say: Tower
-    #   classes: Map
-    #   bases: Tower
+    #   # maptier: ">= 14"
+    #   bases: Conservatory, Relic Chambers
     t16:
       <<: *t16
       classes: Maps
@@ -539,16 +519,19 @@ blocks:
     reds:
       <<: *redmap
       classes: Maps
+      say: red
       maptier: ">= 11"
     yellows:
-      show: false
+      show: true
       <<: *yellowmap
       classes: Maps
+      say: maaaaap
       maptier: ">= 6"
     whites:
-      show: false
+      show: true
       <<: *whitemap
       classes: Maps
+      say: map
       maptier: "< 6"
 
   # All of these rules shut off by maps.
@@ -558,13 +541,13 @@ blocks:
   #     rarity: Normal
   #     bases: Ruby Ring, Sapphire Ring, Iron Ring
   #     say: White Ruby or Sapphire for wand craft
-  #     ilvl: "<= 8"
-  #   lvl20_wand_craft:
-  #     <<: *lvling
-  #     rarity: Rare
-  #     bases: Ruby Ring, Sapphire Ring, Iron Ring
-  #     say: Rare Ruby or Sapphire for wand craft
-  #     ilvl: "<= 30"
+  #     ilvl: "< 16"
+    # lvl20_wand_craft:
+    #   <<: *lvling
+    #   rarity: Rare
+    #   bases: Ruby Ring, Sapphire Ring, Iron Ring
+    #   say: Rare Ruby or Sapphire for wand craft
+    #   ilvl: "<= 30"
   #   blue_wand:
   #     <<: *lvling
   #     rarity: Magic
@@ -604,22 +587,11 @@ blocks:
   #     say: bbbb 4 link for arma brand
   #     colors: BBBB
   #     classes: Boots, Gloves, Helmets, Body Armours
-  #   gbr4link:
-  #     <<: *lvling
-  #     links: 4
-  #     say: r b g 4 link for desecrate, wave of conviction, herald of ash
-  #     colors: RBG
-  #     classes: Boots, Gloves, Helmets, Body Armours
   #   5link:
   #     <<: *lvling
   #     links: 5
   #     say: 5 link 5 link 5 link!!! wowowowowowowowow
   #     classes: Body Armours
-  #   belts:
-  #     <<: *lvling
-  #     bases: Leather Belt
-  #     rarity: Normal
-  #     say: White Leather Belt!
   #   rbelts:
   #     <<: *otheritem
   #     bases: Leather Belt
@@ -653,76 +625,76 @@ blocks:
   #     rarity: Rare
   #     ilvl: "<= 68"
 
-  leveling_flasks:
-    three:
-      <<: *lvlingflask
-      droplvl: ">= 3"
-      ilvl: "< 6"
-      classes: Life Flasks, Mana Flasks
-    six:
-      <<: *lvlingflask
-      droplvl: ">= 6"
-      ilvl: "< 12"
-      classes: Life Flasks, Mana Flasks
-    twelve:
-      <<: *lvlingflask
-      droplvl: ">= 12"
-      ilvl: "< 18"
-      classes: Life Flasks, Mana Flasks
-    eighteen:
-      <<: *lvlingflask
-      droplvl: ">= 18"
-      ilvl: "< 24"
-      classes: Life Flasks, Mana Flasks
-    twentyfour:
-      <<: *lvlingflask
-      droplvl: ">= 24"
-      ilvl: "< 30"
-      classes: Life Flasks, Mana Flasks
-    thirty:
-      <<: *lvlingflask
-      droplvl: ">= 30"
-      ilvl: "< 36"
-      classes: Life Flasks, Mana Flasks
-    thirtysix:
-      <<: *lvlingflask
-      droplvl: ">= 36"
-      ilvl: "< 42"
-      classes: Life Flasks, Mana Flasks
-    fourtytwo:
-      <<: *lvlingflask
-      droplvl: ">= 42"
-      ilvl: "< 50"
-      classes: Life Flasks, Mana Flasks
-    fifty:
-      <<: *lvlingflask
-      droplvl: ">= 50"
-      ilvl: "< 60"
-      classes: Life Flasks, Mana Flasks
-    sixty:
-      <<: *lvlingflask
-      droplvl: ">= 60"
-      ilvl: "< 68"
-      classes: Life Flasks, Mana Flasks
-    quicksilver:
-      <<: *lvlingflask
-      ilvl: "< 68"
-      bases: Quicksilver Flask
-      say: Quicksilver
-      icon: 0 Grey Moon
-    util:
-      <<: *lvlingflask
-      ilvl: "< 68"
-      classes: Utility Flasks
+  # leveling_flasks:
+  #   three:
+  #     <<: *lvlingflask
+  #     droplvl: ">= 3"
+  #     ilvl: "< 6"
+  #     classes: Life Flasks, Mana Flasks
+  #   six:
+  #     <<: *lvlingflask
+  #     droplvl: ">= 6"
+  #     ilvl: "< 12"
+  #     classes: Life Flasks, Mana Flasks
+  #   twelve:
+  #     <<: *lvlingflask
+  #     droplvl: ">= 12"
+  #     ilvl: "< 18"
+  #     classes: Life Flasks, Mana Flasks
+  #   eighteen:
+  #     <<: *lvlingflask
+  #     droplvl: ">= 18"
+  #     ilvl: "< 24"
+  #     classes: Life Flasks, Mana Flasks
+  #   twentyfour:
+  #     <<: *lvlingflask
+  #     droplvl: ">= 24"
+  #     ilvl: "< 30"
+  #     classes: Life Flasks, Mana Flasks
+  #   thirty:
+  #     <<: *lvlingflask
+  #     droplvl: ">= 30"
+  #     ilvl: "< 36"
+  #     classes: Life Flasks, Mana Flasks
+  #   thirtysix:
+  #     <<: *lvlingflask
+  #     droplvl: ">= 36"
+  #     ilvl: "< 42"
+  #     classes: Life Flasks, Mana Flasks
+  #   fourtytwo:
+  #     <<: *lvlingflask
+  #     droplvl: ">= 42"
+  #     ilvl: "< 50"
+  #     classes: Life Flasks, Mana Flasks
+  #   fifty:
+  #     <<: *lvlingflask
+  #     droplvl: ">= 50"
+  #     ilvl: "< 60"
+  #     classes: Life Flasks, Mana Flasks
+  #   sixty:
+  #     <<: *lvlingflask
+  #     droplvl: ">= 60"
+  #     ilvl: "< 68"
+  #     classes: Life Flasks, Mana Flasks
+  #   quicksilver:
+  #     <<: *lvlingflask
+  #     ilvl: "< 68"
+  #     bases: Quicksilver Flask
+  #     say: Quicksilver
+  #     icon: 0 Grey Moon
+    # util:
+    #   <<: *lvlingflask
+    #   ilvl: "< 68"
+    #   classes: Utility Flasks
 
-  leveling_blues:
-    all:
-      <<: *lvling
-      fg: *blue
-      border: *blue
-      fontsize: 24
-      rarity: Magic
-      ilvl: "<= 34"
+  # leveling_blues:
+  #   all:
+  #     <<: *lvling
+  #     fg: *blue
+  #     border: *blue
+  #     fontsize: 24
+  #     rarity: Magic
+  #     ilvl: "<= 34"
 
   uniques:
     jebait:
@@ -753,6 +725,10 @@ blocks:
 
   # generate bases here
   bases:
+    util:
+      <<: *otheritem
+      ilvl: ">= 82"
+      classes: Utility Flasks
     d2bases:
       <<: *gooditem
       bases: Sorcerer Boots, Hubris Circlet, Fingerless Silk Gloves, Sorcerer Gloves, Vaal Regalia, Titanium Spirit Shield, Fossilised Spirit Shield
@@ -831,7 +807,7 @@ blocks:
       bases: Seaglass Amulet, Fugitive Boots, Apothecary's Gloves, Artillery Quiver, Iolite Ring, Imperial Buckler, Harmonic Spirit Shield, Fossilised Spirit Shield, Imbued Wand, Opal Wand, Bone Helmet, Opal Ring, Steel Ring, Vermillion Ring, Blue Pearl Amulet, Cerulean Ring, Marble Amulet, Stygian Vise, Two-Toned Boots, Vanguard Belt, Diamond Ring, Onyx Amulet, Two-Stone Ring, Amber Amulet, Agate Amulet, Citrine Amulet, Coral Ring, Gold Ring, Jade Amulet, Lapis Amulet, Leather Belt, Moonstone Ring, Prismatic Ring, Ruby Ring, Sapphire Ring, Topaz Ring, Turquoise Amulet, Unset Ring
     earlygamerares:
       <<: *otheritem
-      show: false
+      show: true
       ilvl: ">= 68"
       rarity: Rare
       classes: Boots, Rings, Amulets, Belts
@@ -874,21 +850,21 @@ blocks:
   #     rarity: Rare
   #     ilvl: 60..74
 
-  chromerecipes:
-    chromerecipe2by2:
-      show: false
-      <<: *currency
-      links: ">= 3"
-      colors: RGB
-      height: 2
-      width: 2
-    chromerecipe3by1:
-      show: false
-      <<: *currency
-      links: ">= 3"
-      colors: RGB
-      height: 3
-      width: 1
+  # chromerecipes:
+  #   chromerecipe2by2:
+  #     show: true
+  #     <<: *currency
+  #     links: ">= 3"
+  #     colors: RGB
+  #     height: 2
+  #     width: 2
+  #   chromerecipe3by1:
+  #     show: true
+  #     <<: *currency
+  #     links: ">= 3"
+  #     colors: RGB
+  #     height: 3
+  #     width: 1
 
   jewels:
     goodabyss:
@@ -898,7 +874,7 @@ blocks:
       classes: Abyss Jewel
     abyss:
       <<: *otheritem
-      show: false
+      show: true
       classes: Abyss Jewel
     clusters:
       <<: *gooditem
@@ -939,7 +915,7 @@ blocks:
       classes: Divination Card
       lookup: divination cards 2
     div:
-      show: true
+      show: false
       <<: *div
       classes: Divination Card
 
@@ -962,7 +938,7 @@ blocks:
       quality: ">= 20"
     medqual:
       <<: *otheritem
-      show: false
+      show: true
       classes: Active Skill Gems, Support Skill Gems
       quality: ">= 10"
     corrupted:

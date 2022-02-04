@@ -57,7 +57,7 @@ def parse_line(line, output_file_path):
 
 def get_parsed_value(line, output_file_path):
     # These all need quotes.
-    if line.parameter in ['bases', 'classes', 'prophecy', 'customsound', 'explicit']:
+    if line.parameter in ['bases', 'classes', 'customsound', 'explicit']:
         return ' '.join([f'"{x.strip()}"' for x in line.value.split(',') if x.strip() not in constants.BROKEN_ITEMS])
 
     # This one is a special case.

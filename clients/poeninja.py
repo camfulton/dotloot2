@@ -31,7 +31,6 @@ class PoeNinjaClient():
             'resonators': OverviewAndType(self.ITEM_OVERVIEW, 'Resonator'),
             'essences': OverviewAndType(self.ITEM_OVERVIEW, 'Essence'),
             'divination cards': OverviewAndType(self.ITEM_OVERVIEW, 'DivinationCard'),
-            'prophecies': OverviewAndType(self.ITEM_OVERVIEW, 'Prophecy'),
             'gems': OverviewAndType(self.ITEM_OVERVIEW, 'SkillGem'),
             'helmet enchants': OverviewAndType(self.ITEM_OVERVIEW, 'HelmetEnchant'),
             'unique maps': OverviewAndType(self.ITEM_OVERVIEW, 'UniqueMap'),
@@ -197,7 +196,7 @@ class PoeNinjaClient():
 
         return (item_data, low_value_bases)
 
-    
+
     def get_matching_items(self, data, lookup_data):
         matching_items = [
             item for item in data if
@@ -217,7 +216,7 @@ class PoeNinjaClient():
                 return True
 
         return False
-    
+
     def get_low_value_bases(self, data, lookup_data):
         low_value_bases = [
             item.get('baseType', 'ITEM_HAS_NO_BASE') for item in data if
@@ -250,7 +249,7 @@ class PoeNinjaClient():
             return False
 
         return True
-    
+
     def low_confidence(self, item):
         # The poe.ninja guy on the POE Discord claimed that 5 is the cutoff for low confidence.
         if item.get('count', 0) < 5:
@@ -303,10 +302,10 @@ class PoeNinjaClient():
                             return False
 
         return True
-    
+
     def generate_url(self, lookup_data):
         return f'{self.base_url}{lookup_data.overview}Overview?league={self.league}&type={lookup_data.type}'
-    
+
     def get_item_data_from_api(self, url):
         try:
             return json.loads(requests.get(url).content)['lines']
@@ -321,10 +320,10 @@ class PoeNinjaClient():
             self.ITEM_TYPES['uniques'].type,
             self.ITEM_TYPES['exclusive uniques'].type,
         ]
-        
+
         if lookup_data.type in global_unique_lookup_types:
             return self.ALL_UNIQUE_TYPES
-        
+
         return [OverviewAndType(lookup_data.overview, lookup_data.type)]
 
     def parse_lookup(self, block):
@@ -339,7 +338,7 @@ class PoeNinjaClient():
 
             for item_type in self.ITEM_TYPES.keys():
                 msg += (f'- {item_type}\n')
-            
+
             handle(msg)
 
         overview = self.ITEM_TYPES[item_type].overview
@@ -348,7 +347,7 @@ class PoeNinjaClient():
         max_chaos = float(max_chaos) if max_chaos else None
 
         return LookupData(overview, item_type, min_chaos, max_chaos)
-    
+
     def clear_then_set_qualifiers(self, block):
         qualifiers = {}
 
@@ -356,5 +355,5 @@ class PoeNinjaClient():
             qualifier = self.QUALIFIER_SYNTAX.get(line.parameter)
             if qualifier:
                 qualifiers[qualifier] = value
-        
+
         self.qualifiers = qualifiers

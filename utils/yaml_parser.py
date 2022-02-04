@@ -12,7 +12,7 @@ Config = namedtuple(
     'Config', ['name', 'league', 'version']
 )
 
-# Used to store filter data after parsing. 
+# Used to store filter data after parsing.
 Block = namedtuple(
     'Block', ['lines', 'show', 'nosound', 'comment', 'category', 'lookup']
 )
@@ -39,7 +39,6 @@ class Parser():
         self.currency = constants.FRAME_TYPES['CURRENCY']
         self.divination_card = constants.FRAME_TYPES['DIVINATION_CARD']
         self.quest_item = constants.FRAME_TYPES['QUEST_ITEM']
-        self.prophecy = constants.FRAME_TYPES['PROPHECY']
         self.relic = constants.FRAME_TYPES['RELIC']
 
     def print_warnings(self):
@@ -60,25 +59,25 @@ class Parser():
         except yaml.scanner.ScannerError as e:
             msg = 'There is a yaml syntax error somewhere in your filter file, see above traceback for more detail.'
             handle(msg, stacktrace=True)
-        
+
         self._preflight_checks(yaml_data)
-        
+
         return yaml_data
-    
+
     def _preflight_checks(self, yaml_data):
         try:
             yaml_data['blocks']
         except KeyError:
             msg = 'You need a `blocks` section in your yaml.\n\nSee `filters/example.yaml` for example.'
             handle(msg)
-        
+
         try:
             yaml_data['config']
         except KeyError:
             msg = 'You need a `config` section in your yaml.\n\nSee `filters/example.yaml` for example.'
             handle(msg)
-        
-        for config_key in constants.CONFIG_KEYS: 
+
+        for config_key in constants.CONFIG_KEYS:
             try:
                 yaml_data['config'][config_key]
             except KeyError:
@@ -89,9 +88,9 @@ class Parser():
 
         keys = {}
 
-        for config_key in constants.CONFIG_KEYS: 
+        for config_key in constants.CONFIG_KEYS:
             keys[config_key] = yaml_config[config_key]
-        
+
         # TODO - do we actually need this on the object?
         self.config = Config(**keys)
 
@@ -181,7 +180,7 @@ class Parser():
         name = an_item.get(name_key)
         base_type = an_item.get(base_type_key)
         is_normal_magic_or_rare = frame_type in [self.normal, self.magic, self.rare]
-        is_incubator = all([frame_type == self.normal, 'incubator' in name.lower()])
+        is_incubator = all([frame_type == self.currency, 'incubator' in name.lower()])
         is_lure = all([frame_type == self.normal, 'lure' in name.lower()])
         is_fossil = all([frame_type == self.currency, 'fossil' in name.lower()])
         is_scarab = all([frame_type == self.normal, 'scarab' in name.lower()])
@@ -189,7 +188,7 @@ class Parser():
 
         # Avoid things like Shaper/Hunter bases that do not naturally drop, for example.
         if self.is_unknown_variant(variant, is_normal_magic_or_rare):
-            print(f'  ! Skipping unkown variant: Item: {name} | Type: {constants.FRAME_TYPES[frame_type]} | Variant: {variant}')
+            print(f'  ! Skipping unknown or no-drop variant: Item: {name} | Type: {constants.FRAME_TYPES[frame_type]} | Variant: {variant}')
             return None
 
         # Handle naturally occurring basetypes w/ variants or high item levels
@@ -214,15 +213,6 @@ class Parser():
 
             corrupted_value = an_item[client.QUALIFIER_SYNTAX['corrupted']]
             lines.append(Line('corrupted', corrupted_value, category_name, block_name))
-
-        elif frame_type == self.prophecy:
-            prophecies = ','.join(
-                set([item[name_key] for item in item_group if item.get(name_key)])
-            )
-
-            lines = [line for line in block.lines]
-
-            lines.append(Line('prophecy', prophecies, category_name, block_name))
 
         elif any([frame_type == self.divination_card, is_incubator, is_lure, is_fossil, is_scarab, is_essence]):
             items = ','.join(
@@ -266,7 +256,10 @@ class Parser():
             )
 
             for item in item_group:
-                msg += f'  | ~ Item: {item[name_key]} | Type: {item[frame_type_key]} | Variant: {item.get(variant_key)} | ilvl: {item[ilvl_key]}\n'
+                msg += (f'  | ~ Item: {item.get(name_key, f"No item name found at key: {name_key}")}'
+                       f' | Type: {item.get(frame_type_key, f"No item type found at key: {frame_type_key}")}'
+                       f' | Variant: {item.get(variant_key, f"No item variant found at key: {variant_key}")}'
+                       f' | ilvl: {item.get(ilvl_key, f"No item ilvl found at key: {ilvl_key}")}\n')
 
             # get rid of the final newline
             self.warnings.append(msg[:-1])
@@ -332,9 +325,9 @@ class Parser():
         for category, blocks_in_category in yaml_blocks.items():
             print(f'  + Parsing: {category}')
             blocks.extend(self.convert_category_to_blocks(category, blocks_in_category))
-        
+
         return blocks
-        
+
     def convert_category_to_blocks(self, category, blocks_in_category):
         blocks = []
 
@@ -351,19 +344,19 @@ class Parser():
                 # We write these later from the Block, do not store as lines.
                 if parameter in ['show', 'lookup']:
                     continue
-                
+
                 lines.append(Line(parameter, value, category, block_name))
-        
+
             blocks.append(Block(lines, show, nosound, comment, category, lookup))
-        
+
         return blocks
 
     def show_or_hide_and_disable_dropsound(self, yaml_lines):
         return 'Show\n' if yaml_lines.get('show', True) else 'Hide\n\tDisableDropSound\n'
-    
+
     def disable_drop_sound(self, yaml_block_lines):
         return '\tDisableDropSound\n' if yaml_block_lines.get('nosound') else None
-    
+
     def header_comment(self, category_name, block_name, extras=[]):
         line_end = ''.join([f'/{extra}' for extra in extras]) + '\n'
 
