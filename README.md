@@ -31,7 +31,7 @@ No idea, install WSL and follow the instructions above
 ^ This one also helpful, but more verbose.
 
 ## These are all of the keys you can use in your filter yaml file:
-| yaml key | ggg filter syntax key |
+| yaml key | corresponding ggg filter syntax key |
 | -------- | --------------------- |
 | ilvl | ItemLevel |
 | droplvl | DropLevel |
