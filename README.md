@@ -76,4 +76,4 @@ No idea, install WSL and follow the instructions above
 | defencepercentile | BaseDefencePercentile |
 | scourged | Scourged |
 | exarch | HasSearingExarchImplicit |
-| eater | 'HasEaterOfWorldsImplicit |
+| eater | HasEaterOfWorldsImplicit |
