@@ -38,7 +38,7 @@ Blocks with lookups will be skipped if you pass this flag, useful for league sta
 ^ This one also helpful, but more verbose.
 
 ## These are all of the keys you can use in your filter yaml file:
-| yaml key | ggg filter syntax key |
+| yaml key | corresponding ggg filter syntax key |
 | -------- | --------------------- |
 | ilvl | ItemLevel |
 | droplvl | DropLevel |
@@ -83,4 +83,4 @@ Blocks with lookups will be skipped if you pass this flag, useful for league sta
 | defencepercentile | BaseDefencePercentile |
 | scourged | Scourged |
 | exarch | HasSearingExarchImplicit |
-| eater | 'HasEaterOfWorldsImplicit |
+| eater | HasEaterOfWorldsImplicit |
