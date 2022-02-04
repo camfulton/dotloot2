@@ -56,8 +56,15 @@ def parse_line(line, output_file_path):
 
 
 def get_parsed_value(line, output_file_path):
+    # Copy sounds over to the destination sounds folder
+    if line.parameter in ['customsound']:
+        # Get existing path for custom sound, or copy it to destination_folder/sounds
+        sound_path = sounds.get_or_copy_sound_file(output_file_path, line.value)
+
+        return f'"{sound_path}"'
+
     # These all need quotes.
-    if line.parameter in ['bases', 'classes', 'customsound', 'explicit']:
+    if line.parameter in ['bases', 'classes', 'explicit']:
         return ' '.join([f'"{x.strip()}"' for x in line.value.split(',') if x.strip() not in constants.BROKEN_ITEMS])
 
     # This one is a special case.

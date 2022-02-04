@@ -1,6 +1,7 @@
 import os
 import platform
 import re
+import shutil
 import subprocess
 
 
@@ -77,5 +78,23 @@ def get_or_create_sound(base_path, tosay):
             os.makedirs(sounds_folder)
 
         generate_sound(full_path, tosay)
+
+    return rel_path
+
+
+def get_or_copy_sound_file(base_path, filename):
+    """Copies sounds from the /sounds directory to destination_folder/sounds
+    """
+
+    rel_path = f'sounds/{filename}'
+    full_path = os.path.join(base_path, rel_path)
+
+    if not os.path.exists(full_path):
+        sounds_folder = os.path.dirname(full_path)
+
+        if not os.path.exists(sounds_folder):
+            os.makedirs(sounds_folder)
+
+        shutil.copyfile(rel_path, full_path)
 
     return rel_path
