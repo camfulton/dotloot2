@@ -1,0 +1,181 @@
+# For the Miss Cleo Challenge - absolutely do not use for normal play lol.
+
+config:
+  # The name and version impact the file name of your filter
+  name: cleo_challenge
+  version: 60.9
+  # The league determines where pricing data comes from
+  # You should change it to the name of the leauge you are in, eg. Scourge
+  league: Archnemesis
+
+colors:
+  black: &black 0 0 0 255
+  white: &white 255 255 255 255
+  purple: &purple 221 198 250 255
+  yellow: &yellow 237 212 119 255
+  transparent: &transparent 255 255 255 0
+
+sounds:
+  malediction: &malediction malediction.mp3
+  goodness: &goodness goodness.mp3
+  yup: &yup yup.mp3
+  imcleo: &imcleo imcleo.mp3
+  goodday: &goodday goodday.mp3
+  ha: &ha ha.mp3
+
+styles:
+  base: &base
+    bg: *black
+    fg: *purple
+    border: *transparent
+    fontsize: 42
+    icon: 2 Purple Raindrop
+
+  200c: &200c
+    <<: *base
+    bg: *purple
+    fg: *yellow
+    border: *yellow
+    customsound: *goodness
+    beam: Purple
+    icon: 0 Purple Diamond
+
+  100c: &100c
+    <<: *base
+    fg: *yellow
+    border: *yellow
+    customsound: *goodday
+    icon: 1 Purple Diamond
+  
+  50c: &50c
+    <<: *base
+    fg: *yellow
+    customsound: *ha
+    icon: 2 Purple Diamond
+  
+  25c: &25c
+    <<: *base
+    border: *purple
+    customsound: *imcleo
+    icon: 1 Purple Circle
+  
+  5c: &5c
+    <<: *base
+    border: *purple
+    customsound: *yup
+    icon: 2 Purple Circle
+  
+  map: &map
+    <<: *base
+    bg: *purple
+    fg: *black
+    customsound: poring_move.wav
+  
+  standard: &standard
+    <<: *base
+    fg: 255 0 0 255
+    bg: 255 255 255 255
+    border: 255 0 0 255
+
+
+blocks:
+  for_standard:
+    currency:
+      <<: *standard
+      bases: Mirror of Kalandra, Mirror Shard, Exalted Orb
+      say: Save this one for standard.
+    uniques:
+      <<: *standard
+      rarity: Unique
+      bases: Leather Belt, Heavy Belt, Elegant Round Shield
+      customsound: bobby.mp3
+  currency:
+    decks:
+      <<: *5c
+      classes: Currency
+      bases: Stacked Deck
+  cards:
+    200c:
+      <<: *200c
+      classes: Divination Card
+      lookup: divination cards 200
+    100c:
+      <<: *100c
+      classes: Divination Card
+      lookup: divination cards 100
+    50c:
+      <<: *50c
+      classes: Divination Card
+      lookup: divination cards 50
+    25c:
+      <<: *25c
+      classes: Divination Card
+      lookup: divination cards 25
+    5c:
+      <<: *5c
+      classes: Divination Card
+      lookup: divination cards 5
+    other:
+      <<: *base
+      customsound: yup.mp3
+      classes: Divination Card
+  maps:
+    unique:
+      <<: *map
+      icon: 0 Orange Moon
+      rarity: Unique
+      classes: Maps
+    blighted:
+      <<: *map
+      icon: 2 Orange Moon
+      classes: Maps
+      blighted: true
+    uberblighted:
+      icon: 0 Orange Moon
+      <<: *map
+      classes: Maps
+      uberblighted: true
+    t16:
+      <<: *map
+      icon: 0 Red Moon
+      classes: Maps
+      maptier: 16
+    reds:
+      <<: *map
+      icon: 2 Red Moon
+      classes: Maps
+      maptier: ">= 11"
+    yellows:
+      <<: *map
+      icon: 2 Yellow Moon
+      classes: Maps
+      maptier: ">= 6"
+    whites:
+      <<: *map
+      icon: 2 White Moon
+      classes: Maps
+      maptier: ">= 6"
+  stuff:
+    malediction:
+      <<: *base
+      customsound: *malediction
+      nem: Malediction
+    splinters:
+      <<: *base
+      icon: 2 Green Raindrop
+      bases: Splinter
+      classes: Currency
+      customsound: poring_die.wav
+    blanket_allowable_bases:
+      <<: *base
+      icon: 2 Green Raindrop
+      bases: Scouting Report, Logbook, Blood-filled Vessel, Breachstone, Flashpowder Keg, Stone of Passage, Emblem
+      customsound: poring_die.wav
+    blanket_allowable_classes:
+      <<: *base
+      icon: 2 Green Raindrop
+      classes: Map Fragments, Labyrinth, Quest Items, Pantheon Soul, Piece, Atlas Upgrade Item, Archnemesis Mod, Misc Map Items, Trinket, Heist Target, Blueprint, Contract, Heist Cloak, Heist Brooch, Heist Tool, Heist Gear
+      customsound: poring_die.wav
+  hide_the_rest:
+    hide:
+      show: false

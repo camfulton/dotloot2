@@ -24,11 +24,13 @@ Line = namedtuple(
 
 
 class Parser():
-    def __init__(self, input_file_path, client, skip_lookups, leveling):
+    def __init__(self, input_file_path, client, skip_lookups, leveling, earlygame, include_no_variant):
         self.input_file_path = input_file_path
         self.skip_lookups = skip_lookups
         self.yaml = self.load_yaml()
         self.leveling = leveling
+        self.earlygame = earlygame
+        self.include_no_variant = include_no_variant
         # TODO - Do we need this ont the object?
         self.config = self.load_config()
         self.client = client(league=self.config.league)
@@ -196,7 +198,7 @@ class Parser():
             return None
 
         # Handle naturally occurring basetypes w/ variants or high item levels
-        if all([is_normal_magic_or_rare, any([variant, ilvl > 84])]):
+        if all([is_normal_magic_or_rare, any([variant, ilvl > 84, self.include_no_variant])]):
             lines = [line for line in block.lines if line.parameter != 'ilvl']
 
             lines.append(Line('ilvl', f'>= {ilvl}', category_name, block_name))
@@ -227,11 +229,11 @@ class Parser():
 
             lines.append(Line('bases', items, category_name, block_name))
 
-        elif all([is_normal_magic_or_rare, not variant]):
+        elif all([is_normal_magic_or_rare, not variant, not self.include_no_variant]):
             msg = (
                 '  |\n'
                 '  ! Skipping base items with no variant as they are almost always false flags.\n'
-                '  ! If this is pissing you off, you should contact me and ask me to add the option to disable this.\n'
+                '  ! If this is pissing you off, you should rerun with the --include_no_variant flag.\n'
                 '  |\n'
                 '  ! The following items were skipped as a result:\n'
                 '  |\n'
@@ -352,6 +354,10 @@ class Parser():
 
                 if parameter in ['leveling'] and not self.leveling:
                     print(f'  ! Skipping block: {block_name} because it is tagged as a leveling block. Pass the --leveling flag to enable this block.')
+                    skip = True
+                
+                if parameter in ['earlygame'] and not self.earlygame:
+                    print(f'  ! Skipping block: {block_name} because it is tagged as a leveling block. Pass the --earlygame flag to enable this block.\n\n\n\nNote to self: does this work or are you still seeing dogshit div cards etc? Might need to explicitly hide rather than not parse these blocks?')
                     skip = True
 
                 lines.append(Line(parameter, value, category, block_name))

@@ -54,7 +54,8 @@ SYNTAX = {
     'defencepercentile': 'BaseDefencePercentile',
     'scourged': 'Scourged',
     'exarch': 'HasSearingExarchImplicit',
-    'eater': 'HasEaterOfWorldsImplicit'
+    'eater': 'HasEaterOfWorldsImplicit',
+    'nem': 'ArchnemesisMod',
 }
 # Avoid updating both if they change the customsound syntax
 SYNTAX['say'] = SYNTAX['customsound']
@@ -175,6 +176,9 @@ UNDROPPABLE = [
     "self-flagellation",
     "vaal sentencing",
     "weight of sin",
+    # weird shit
+    # has item type of "Ring" which fucks up exclusive lookups
+    "kalandra's touch",
 ]
 
 ONLY_LINKED = [

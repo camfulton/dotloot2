@@ -41,22 +41,26 @@ styles:
     <<: *base
     fg: 173 203 227 222
     border: 173 203 227 222
-    icon: 2 White Raindrop
+    icon: 1 White Star
+    beam: White
     customsound: poring_die.wav
 
   redmap: &redmap
     <<: *10c
     icon: 1 Brown Square
     beam: Red
-    customsound: sb.wav
+    customsound: poring_move.wav
 
   1c: &1c
     <<: *base
+    icon: 2 White Star
     border: *white
     customsound: poring_move.wav
 
   unique: &unique
     border: 243 91 4 222
+    beam: Orange
+    icon: 2 Orange Star
 
   rare: &rare
     border: 255 203 105 222
@@ -78,6 +82,8 @@ blocks:
   overrides:
     6l:
       <<: *10c
+      beam: Green
+      icon: 2 Green Circle
       links: 6
     rods:
       <<: *100c
@@ -116,65 +122,131 @@ blocks:
     betterthanexalt:
       <<: *200c
       classes: Currency
-      bases: Orb of Dominance, Mirror Shard, Tempering Orb, Tailoring Orb, Awakener's Orb, Sacred Orb, Regrading Lens
+      bases: Orb of Conflict, Orb of Dominance, Mirror Shard, Tempering Orb, Tailoring Orb, Awakener's Orb, Sacred Orb, Regrading Lens
     exalts:
       <<: *100c
       classes: Currency
       bases: Exalted Orb
     divineish:
       <<: *10c
+      icon: 1 Yellow Star
       classes: Currency
-      bases: Divine Orb, Blessing, Ancient Orb, Orb of Unmaking, Exalted Shard, Albino Rhoa Feather, Crescent Splinter
+      bases: Emblem, Ichor, Ember, Charged Compass, Extractor, Divine Orb, Blessing, Ancient Orb, Orb of Unmaking, Exalted Shard, Albino Rhoa Feather, Crescent Splinter
     chaosish:
       <<: *1c
-      bases: Enkindling Orb, Instilling Orb, Imprint, Cartographer's Chisel, Orb of Horizons, Blessed Orb, Orb of Fusing, Veiled Chaos Orb, Catalyst, Chaos Orb, Orb of Alchemy, Gemcutter's Prism, Orb of Scouring, Orb of Regret, Vaal Orb, Sextant, Remnant of Corruption, Orb of Annulment, Harbinger's Orb, Fossil, Regal Orb, Stacked Deck, Timeless Karui Splinter, Timeless Maraketh Splinter, Timeless Eternal Empire Splinter, Timeless Templar Splinter, Timeless Vaal Splinter, Splinter of Chayula
+      classes: Currency
+      bases: Simulacrum Splinter, Surveyor's Compass, Enkindling Orb, Instilling Orb, Imprint, Cartographer's Chisel, Orb of Horizons, Blessed Orb, Orb of Fusing, Veiled Chaos Orb, Catalyst, Chaos Orb, Orb of Alchemy, Gemcutter's Prism, Orb of Scouring, Orb of Regret, Vaal Orb, Sextant, Remnant of Corruption, Orb of Annulment, Harbinger's Orb, Fossil, Regal Orb, Stacked Deck, Timeless Karui Splinter, Timeless Maraketh Splinter, Timeless Eternal Empire Splinter, Timeless Templar Splinter, Timeless Vaal Splinter, Splinter of Chayula
+    binding:
+      <<: *base
+      show: false
+      classes: Currency
+      bases: Orb of Binding
+    markers:
+      <<: *base
+      show: false
+      bases: Rogue's Marker
+    deli:
+      <<: *10c
+      bases: Delirium Orb
     chance:
       <<: *base
       classes: Currency
       bases: Orb of Chance
     jeweller:
       <<: *base
+      show: false
       classes: Currency
       bases: Jeweller's Orb
     whet:
       <<: *base
+      show: false
       classes: Currency
       bases: Blacksmith's Whetstone
     scrap:
       <<: *base
+      show: false
       classes: Currency
       bases: Armourer's Scrap
     chrome:
       <<: *base
+      show: false
       classes: Currency
       bases: Chromatic Orb
     engineer:
       <<: *base
+      show: false
       classes: Currency
       bases: Engineer's Orb
     trans:
       <<: *base
+      show: false
       classes: Currency
       bases: Orb of Transmutation
     aug:
       <<: *base
+      show: false
       classes: Currency
       bases: Orb of Augmentation
     alt:
       <<: *base
       classes: Currency
-      bases: Scroll of Wisdom
+      bases: Orb of Alteration
     portal:
       <<: *base
+      show: false
       classes: Currency
       bases: Portal Scroll
+    wisdom:
+      <<: *base
+      show: false
+      classes: Currency
+      bases: Scroll of Wisdom
     bauble:
       <<: *base
       classes: Currency
       bases: Glassblower's Bauble
+    fine_shards:
+      <<: *1c
+      icon: 0 Blue Star
+      show: true
+      classes: Currency
+      bases: Harbinger's Shard, Annulment Shard, Ancient Shard
+    bad_shards:
+      <<: *base
+      show: false
+      classes: Currency
+      bases: Regal Shard, Engineer's Shard, Binding Shard, Alteration Shard, Chaos Shard, Horizon Shard, Transmutation Shard, Alchemy Shard
 
   non_orb_currencies:
+    # Breach
+    stones:
+      <<: *10c
+      icon: 0 Purple Star
+      beam: Purple
+      bases: Breachstone
+    chayula_uul_netol:
+      <<: *1c
+      classes: Currency
+      icon: 2 Purple Star
+      beam: Purple
+      bases: Splinter of Chayula, Splinter of Uul-Netol
+    chayula:
+      <<: *base
+      show: false
+      classes: Currency
+      icon: 2 Purple Star
+      bases: Splinter of Xoph, Splinter of Tul, Splinter of Esh
     # league stuff
+    recipe:
+      <<: *10c
+      customsound: wow.mp3
+      beam: Pink
+      nem: Temporal Bubble, Juggernaut, Hexer, Arcane Buffer, Treant, Toxic, Sentinel, Steel, Rejuvenating, Vampiric, Gargantuan, Necromancer, Bombardier, Overcharged, Echoist, Chaosweaver
+    xnem07:
+      <<: *base
+      customsound: wow.mp3
+      fontsize: 42
+      classes: Archnemesis Mod
     ritual:
       <<: *1c
       classes: Currency
@@ -206,7 +278,7 @@ blocks:
       <<: *base
       classes: Currency
       bases: Whispering Essence, Muttering Essence, Weeping Essence, Wailing Essence
-      show: true
+      show: false
     essences:
       <<: *1c
       classes: Currency
@@ -214,11 +286,13 @@ blocks:
     # scarabs
     good_scarabs:
       <<: *10c
-      classes: Currency
+      icon: 0 Blue Star
+      beam: Blue
       lookup: scarabs 10
     scarabs:
       <<: *1c
-      classes: Currency
+      beam: Blue
+      icon: 2 Blue Star
       bases: Scarab
     # oils
     good_oils:
@@ -234,6 +308,9 @@ blocks:
       <<: *1c
       classes: Currency
       bases: Oil
+    scouting_reports:
+      <<: *10c
+      bases: Scouting Report
     # Catch currencies for easier debugging
     currencycatch:
         <<: *catch
@@ -241,19 +318,26 @@ blocks:
         say: CURRENCY CATCH
 
   non_currency_orbs:
+    incubators:
+      <<: *1c
+      bases: Incubator
+    voidstone:
+      <<: *10c
+      classes: Atlas Upgrade Item
     sixsocket:
       <<: *1c
-      show: true
+      show: false
       sockets: 6
     quest:
       <<: *lvling
+      beam: Green
       classes: Quest Items, Pantheon Soul, Piece
     alva:
       <<: *1c
       customsound: poring_die.wav
       bases: Flashpowder Keg, Stone of Passage
     flaskrecipe:
-      show: true
+      show: false
       <<: *1c
       classes: Utility Flasks, Hybrid Flasks, Life Flasks, Mana Flasks
       quality: ">= 10"
@@ -270,7 +354,7 @@ blocks:
       bases: Chronicle of Atzoatl, Inscribed Ultimatum
     frags:
       <<: *1c
-      classes: Map Fragments, Misc Map Items, Labyrinth, Atlas Region Upgrade Item
+      classes: Map Fragments, Labyrinth
 
   cards:
     doctor:
@@ -292,7 +376,7 @@ blocks:
       classes: Divination Card
     3c:
       <<: *1c
-      lookup: divination cards 2
+      lookup: divination cards 3
       classes: Divination Card
     # Can disable once economic data exists
     top_tier:
@@ -305,10 +389,16 @@ blocks:
       bases: Acclimatisation, Void, Prejudice, Traitor, Society's Remorse, The Tinkerer's Table, The Cacophony, Akil's Prophecy, The Cache, The Dreamland, The Chains that Bind, The Encroaching Darkness, The Journey, The Messenger, The Obscured, Demigod's Wager, The Garish Power, Arrogance of the Vaal, Humility, The Gambler, Cameria's Cut, Emperor's Luck, Three Voices, The Inventor, Scholar of the Seas, The Master Artisan
     div:
       <<: *base
-      show: true
+      show: false
       classes: Divination Card
 
   maps:
+    invitation:
+      <<: *redmap
+      say: you are cordially invited
+      classes: Misc Map Items
+      beam: Red
+      icon: 2 Red Circle
     uberblighted:
       <<: *redmap
       uberblighted: true
@@ -320,6 +410,11 @@ blocks:
       <<: *unique
       rarity: Unique
       classes: Maps
+    targets:
+      <<: *redmap
+      customsound: refine.wav
+      classes: Maps
+      bases: Cemetery
     16s:
       <<: *redmap
       classes: Maps
@@ -364,10 +459,15 @@ blocks:
       <<: *unique
       rarity: Unique
       lookup: uniques 10
+    metamorph:
+      <<: *1c
+      <<: *unique
+      rarity: Unique
+      bases: Metamorph
     other:
       <<: *base
       <<: *unique
-      show: true
+      show: false
       rarity: Unique
 
   # All of these rules shut off by maps.
@@ -395,36 +495,20 @@ blocks:
       ilvl: "< 16"
 
   leveling_links:
-    bbg:
+    bgg:
       <<: *lvling
       leveling:
       links: 3
-      colors: BBG
-      say: blue blue green 3l
+      colors: BGG
+      say: blue green green 3l
       ilvl: "< 12"
       classes: Boots, Gloves, Helmets, Body Armours
-    bbb:
-      <<: *lvling
-      leveling:
-      links: 3
-      colors: BBB
-      say: blue blue blue 3l
-      ilvl: "< 28"
-      beam: Brown Temp
-      classes: Boots, Gloves, Helmets, Body Armours
-    bbbg4link:
+    gggg4link:
       <<: *lvling
       leveling:
       links: 4
-      say: bbb g 4 link for cremation
-      colors: BBBG
-      classes: Boots, Gloves, Helmets, Body Armours
-    bbbb4link:
-      <<: *lvling
-      leveling:
-      links: 4
-      say: bbbb 4 link for arma brand
-      colors: BBBB
+      say: gggg 4 link for ice trap
+      colors: GGGG
       classes: Boots, Gloves, Helmets, Body Armours
     5link:
       <<: *lvling
@@ -545,16 +629,40 @@ blocks:
       <<: *base
       leveling:
       border: 15 15 222 222
-      fontsize: 24
       rarity: Magic
-      ilvl: "<= 34"
+      ilvl: "<= 14"
 
   items:
+    gmail:
+      <<: *10c
+      icon: 0 Purple Pentagon
+      bases: Grasping Mail
+    breach_ring:
+      <<: *10c
+      beam: Purple
+      icon: 2 Purple Pentagon
+      bases: Breach Ring
+      show: true
+    eater:
+      show: false
+      <<: *10c
+      eater: ">= 3"
+    exarch:
+      show: false
+      <<: *10c
+      exarch: ">= 3"
+    flasks:
+      <<: *10c
+      beam: Blue
+      icon: 2 Blue Star
+      classes: Utility Flasks
+      ilvl: ">= 86"
     trinket:
       <<: *1c
       classes: Trinket
     d2bases:
       <<: *1c
+      show: false
       bases: Sorcerer Boots, Hubris Circlet, Fingerless Silk Gloves, Sorcerer Gloves, Vaal Regalia, Titanium Spirit Shield, Fossilised Spirit Shield
       defencepercentile: 100
     targets:
@@ -578,7 +686,8 @@ blocks:
       bases: Blizzard Crown, Winter Crown, Gale Crown, Archdemon Crown, Demon Crown, Imp Crown, Atonement Mask, Penitent Mask, Sorrow Mask, Debilitation Gauntlets, Gruelling Gauntlets, Taxing Gauntlets, Sinistral Gloves, Southswing Gloves, Gauche Gloves, Nexus Gloves, Aetherwind Gloves, Leyline Gloves, Dreamquest Slippers, Cloudwhisper Boots, Brimstone Treads, Nightwind Slippers, Windbreak Boots, Darksteel Treads, Duskwalk Slippers, Stormrider Boots, Basemetal Treads
     machinelearning:
       <<: *10c
-      lookup: bases 20
+      beam: White
+      lookup: bases 30
     fractured:
       <<: *1c
       beam: Orange
@@ -586,6 +695,7 @@ blocks:
     synthesized:
       <<: *1c
       beam: Orange
+      classes: Amulets, Belts, Rings, Jewels, Maps, Shields, Helmets, Claw, Dagger, Wand, One Hand, Two Hand, Bow, Rune Dagger, Staff
       synthesized: true
     quanttalismans:
       <<: *10c
@@ -600,13 +710,19 @@ blocks:
       <<: *10c
       beam: Orange
       show: true
-      explicit: Catarina's Veiled, Elreon's Veiled, Leo's Veiled, Rin's Veiled, Vagan's Veiled, Vorici's Veiled
+      explicit: Catarina's, Elreon's, Leo's, Rin's, Vagan's, Vorici's, Riker's
+    veiled:
+      <<: *1c
+      show: false
+      explicit: Veiled, of the Veil
     influenced:
       <<: *1c
+      icon: 2 Blue Moon
       show: true
       influence: Shaper Elder Crusader Redeemer Hunter Warlord
     corruptedrare:
       <<: *base
+      show: false
       border: 255 0 0 222
       rarity: Rare
       corrupted: true
@@ -621,14 +737,14 @@ blocks:
       identified: true
     endgamerares:
       <<: *1c
-      show: true
-      # ilvl: ">= 83"
-      ilvl: ">= 68"
+      show: false
+      ilvl: ">= 83"
+      # ilvl: ">= 68"
       rarity: Rare
       bases: Seaglass Amulet, Fugitive Boots, Apothecary's Gloves, Artillery Quiver, Iolite Ring, Imperial Buckler, Harmonic Spirit Shield, Fossilised Spirit Shield, Imbued Wand, Opal Wand, Bone Helmet, Opal Ring, Steel Ring, Vermillion Ring, Blue Pearl Amulet, Cerulean Ring, Marble Amulet, Stygian Vise, Two-Toned Boots, Vanguard Belt, Diamond Ring, Onyx Amulet, Two-Stone Ring, Amber Amulet, Agate Amulet, Citrine Amulet, Coral Ring, Gold Ring, Jade Amulet, Lapis Amulet, Leather Belt, Moonstone Ring, Prismatic Ring, Ruby Ring, Sapphire Ring, Topaz Ring, Turquoise Amulet, Unset Ring
     earlygamerares:
       <<: *base
-      show: true
+      show: false
       ilvl: ">= 68"
       rarity: Rare
       classes: Boots, Rings, Amulets, Belts, Wands
@@ -646,7 +762,7 @@ blocks:
       classes: Abyss Jewel
     abyss:
       <<: *1c
-      show: true
+      show: false
       classes: Abyss Jewel
     # TODO: Should see if we can improve the cluster jewel filtering
     clusters:
@@ -654,7 +770,7 @@ blocks:
       bases: Cluster Jewel
     jewels:
       <<: *base
-      show: true
+      show: false
       bases: Cobalt Jewel, Crimson Jewel, Viridian Jewel, Prismatic Jewel
 
   gems:
@@ -672,11 +788,12 @@ blocks:
       bases: Awakened
     20qual:
       <<: *1c
+      show: false
       classes: Active Skill Gems, Support Skill Gems
       quality: ">= 20"
     medqual:
       <<: *base
-      show: true
+      show: false
       classes: Active Skill Gems, Support Skill Gems
       quality: ">= 10"
     corrupted:

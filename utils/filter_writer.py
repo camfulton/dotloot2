@@ -64,7 +64,7 @@ def get_parsed_value(line, output_file_path):
         return f'"{sound_path}"'
 
     # These all need quotes.
-    if line.parameter in ['bases', 'classes', 'explicit']:
+    if line.parameter in ['bases', 'classes', 'explicit', 'nem']:
         return ' '.join([f'"{x.strip()}"' for x in line.value.split(',') if x.strip() not in constants.BROKEN_ITEMS])
 
     # This one is a special case.
@@ -90,9 +90,8 @@ def get_parsed_value(line, output_file_path):
 
 
 def line_should_be_parsed(line, nosound):
-    print(line, nosound)
     cosmetic_lines = ['sound', 'customsound', 'positionalsound', 'icon', 'beam', 'say']
-    config_lines = ['leveling']
+    config_lines = ['leveling', 'earlygame']
 
     written_from_block = line.parameter in ['show', 'nosound']
     config = line.parameter in config_lines

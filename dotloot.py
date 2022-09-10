@@ -26,11 +26,25 @@ argparser.add_argument(
     help='Enables blocks with the `leveling` key.'
 )
 
+argparser.add_argument(
+    '--earlygame',
+    action='store_true',
+    help='Enables blocks with the `earlygame` key.'
+)
+
+argparser.add_argument(
+    '--include-no-variant',
+    action='store_true',
+    help='Includes items without any variant in lookups.'
+)
+
 args = argparser.parse_args()
 
 input_file_path = args.input
 skip_lookups = args.skip_lookups
 leveling = args.leveling
+earlygame = args.earlygame
+include_no_variant = args.include_no_variant
 
 try:
     output_path = config['output_path']
@@ -45,7 +59,7 @@ except KeyError as e:
     print('You must configure a client in config.py')
     exit(0)
 
-yaml_parser = Parser(input_file_path, client, skip_lookups, leveling)
+yaml_parser = Parser(input_file_path, client, skip_lookups, leveling, earlygame, include_no_variant)
 config = yaml_parser.load_config()
 parsed_yaml_blocks = yaml_parser.parse_yaml_into_blocks()
 

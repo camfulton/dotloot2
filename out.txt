@@ -1,0 +1,263 @@
+- Converting yaml
+  + Parsing: overrides
+  | - Reading lines for: longsword
+  | - Reading lines for: 6l
+  | - Reading lines for: rods
+  | - Reading lines for: jebait
+  | - Reading lines for: whet
+  ! Skipping block: whet because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: alt
+  ! Skipping block: alt because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: trans
+  ! Skipping block: trans because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: chance
+  ! Skipping block: chance because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  + Parsing: orbs
+  | - Reading lines for: mirror
+  | - Reading lines for: high
+  | - Reading lines for: medium
+  | - Reading lines for: binding
+  | - Reading lines for: markers
+  | - Reading lines for: deli
+  | - Reading lines for: chance
+  | - Reading lines for: jeweller
+  | - Reading lines for: whet
+  | - Reading lines for: scrap
+  | - Reading lines for: chrome
+  | - Reading lines for: engineer
+  | - Reading lines for: trans
+  | - Reading lines for: aug
+  | - Reading lines for: alt
+  | - Reading lines for: portal
+  | - Reading lines for: wisdom
+  | - Reading lines for: bauble
+  | - Reading lines for: fine_shards
+  | - Reading lines for: bad_shards
+  + Parsing: non_orb_currencies
+  | - Reading lines for: oshabi_lifeforce
+  | - Reading lines for: normal_lifeforce
+  | - Reading lines for: stones
+  | - Reading lines for: chayula_uul_netol
+  | - Reading lines for: good_legion_splinters
+  | - Reading lines for: bad_legion_splinters
+  | - Reading lines for: legion_emblems
+  | - Reading lines for: breach_splinters
+  | - Reading lines for: recombinators
+  | - Reading lines for: ritual
+  | - Reading lines for: logbooks
+  | - Reading lines for: rerolls
+  | - Reading lines for: good_fossils
+  | - Reading lines for: fossils
+  | - Reading lines for: good_essences
+  | - Reading lines for: bad_essences
+  | - Reading lines for: essences
+  | - Reading lines for: good_scarabs
+  | - Reading lines for: scarabs
+  | - Reading lines for: extractor
+  | - Reading lines for: good_oils
+  | - Reading lines for: bad_oils
+  | - Reading lines for: oils
+  | - Reading lines for: scouting_reports
+  | - Reading lines for: currencycatch
+  + Parsing: non_currency_orbs
+  | - Reading lines for: memories
+  | - Reading lines for: reliquary_keys
+  | - Reading lines for: incubators
+  | - Reading lines for: voidstone
+  | - Reading lines for: sixsocket
+  | - Reading lines for: quest
+  | - Reading lines for: alva
+  | - Reading lines for: flaskrecipe
+  | - Reading lines for: ultimatum
+  | - Reading lines for: mirror_zone
+  | - Reading lines for: goodfrags
+  | - Reading lines for: badfrags
+  | - Reading lines for: special
+  | - Reading lines for: frags
+  + Parsing: cards
+  | - Reading lines for: doctor
+  | - Reading lines for: apothecary
+  | - Reading lines for: 100c
+  | - Reading lines for: 10c
+  | - Reading lines for: 3c
+  | - Reading lines for: top_tier
+  | - Reading lines for: bad_but_show
+  | - Reading lines for: div
+  + Parsing: maps
+  | - Reading lines for: invitation
+  | - Reading lines for: uberblighted
+  | - Reading lines for: blighted
+  | - Reading lines for: unique
+  | - Reading lines for: targets
+  | - Reading lines for: 16s
+  | - Reading lines for: reds
+  | - Reading lines for: yellows
+  | - Reading lines for: Whites
+  + Parsing: uniques
+  | - Reading lines for: jebait
+  | - Reading lines for: 100c_uniques
+  | - Reading lines for: 10c_uniques
+  | - Reading lines for: 1c_uniques
+  | - Reading lines for: metamorph
+  | - Reading lines for: other
+  + Parsing: leveling_links
+  | - Reading lines for: RGG
+  ! Skipping block: RGG because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: RRRG4link
+  ! Skipping block: RRRG4link because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: RRRR4link
+  ! Skipping block: RRRR4link because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: 5link
+  ! Skipping block: 5link because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: rbelts
+  ! Skipping block: rbelts because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: rrings
+  ! Skipping block: rrings because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: rnecks
+  ! Skipping block: rnecks because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  + Parsing: leveling_rares
+  | - Reading lines for: good
+  ! Skipping block: good because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: all
+  ! Skipping block: all because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  + Parsing: leveling_flasks
+  | - Reading lines for: three
+  ! Skipping block: three because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: six
+  ! Skipping block: six because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: twelve
+  ! Skipping block: twelve because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: eighteen
+  ! Skipping block: eighteen because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: twentyfour
+  ! Skipping block: twentyfour because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: thirty
+  ! Skipping block: thirty because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: thirtysix
+  ! Skipping block: thirtysix because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: fourtytwo
+  ! Skipping block: fourtytwo because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: fifty
+  ! Skipping block: fifty because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: sixty
+  ! Skipping block: sixty because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: quicksilver
+  ! Skipping block: quicksilver because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  | - Reading lines for: util
+  ! Skipping block: util because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  + Parsing: leveling_Whites
+  | - Reading lines for: all
+  ! Skipping block: all because it is tagged as a leveling block. Pass the --leveling flag to enable this block.
+  + Parsing: jewels
+  | - Reading lines for: boosted_abyss
+  | - Reading lines for: i84_abyss
+  | - Reading lines for: abyss
+  | - Reading lines for: clusters
+  | - Reading lines for: jewels
+  + Parsing: items
+  | - Reading lines for: fractured
+  | - Reading lines for: synthesized
+  | - Reading lines for: anointed
+  | - Reading lines for: gmail
+  | - Reading lines for: machinelearning
+  | - Reading lines for: breach_ring
+  | - Reading lines for: eater
+  | - Reading lines for: exarch
+  | - Reading lines for: flasks
+  | - Reading lines for: trinket
+  | - Reading lines for: d2bases
+  | - Reading lines for: targets
+  | - Reading lines for: bps
+  | - Reading lines for: contracts
+  | - Reading lines for: hench_gear
+  | - Reading lines for: experimented
+  | - Reading lines for: maven
+  | - Reading lines for: quanttalismans
+  | - Reading lines for: badtalismans
+  | - Reading lines for: goodveiled
+  | - Reading lines for: veiled
+  | - Reading lines for: influenced
+  | - Reading lines for: corruptedrare
+  | - Reading lines for: enchanted
+  | - Reading lines for: identified
+  | - Reading lines for: endgamerares
+  | - Reading lines for: earlygamerarejewellery
+  | - Reading lines for: earlygamerares
+  + Parsing: gems
+  | - Reading lines for: alt
+  | - Reading lines for: l4
+  | - Reading lines for: plus
+  | - Reading lines for: 20qual
+  | - Reading lines for: medqual
+  | - Reading lines for: corrupted
+  | - Reading lines for: gems
+  + Parsing: catch
+  | - Reading lines for: flasks
+  | - Reading lines for: lifemanaflasks
+  | - Reading lines for: yellows
+  | - Reading lines for: blues
+  | - Reading lines for: whites
+  | - Reading lines for: failsafe
+  $ Looking up price data for: good_fossils on poe.ninja
+  | - Found 3
+  $ Looking up price data for: good_essences on poe.ninja
+  | - Found 2
+  $ Looking up price data for: good_scarabs on poe.ninja
+  | - Found 16
+  $ Looking up price data for: good_oils on poe.ninja
+  | - Found 3
+  $ Looking up price data for: 100c on poe.ninja
+  | - Found 16
+  $ Looking up price data for: 10c on poe.ninja
+  | - Found 56
+  $ Looking up price data for: 3c on poe.ninja
+  | - Found 118
+  $ Looking up price data for: 100c_uniques on poe.ninja
+  | - Found 58
+  $ Looking up price data for: 10c_uniques on poe.ninja
+  | - Found 208
+  $ Looking up price data for: 1c_uniques on poe.ninja
+  | - Found 208
+  $ Looking up price data for: machinelearning on poe.ninja
+  | - Found 140
+  ! Skipping unknown or no-drop variant: Item: Two-Toned Boots | Type: RARE | Variant: Redeemer/Hunter
+  ! Skipping unknown or no-drop variant: Item: Two-Toned Boots | Type: RARE | Variant: Redeemer/Hunter
+  ! Skipping unknown or no-drop variant: Item: Fugitive Boots | Type: RARE | Variant: Redeemer/Hunter
+  ! Skipping unknown or no-drop variant: Item: Bone Helmet | Type: RARE | Variant: Shaper/Elder
+  ! Skipping unknown or no-drop variant: Item: Bone Helmet | Type: RARE | Variant: Shaper/Elder
+  ! Skipping unknown or no-drop variant: Item: Sorcerer Boots | Type: RARE | Variant: Shaper/Hunter
+  ! Skipping unknown or no-drop variant: Item: Sorcerer Boots | Type: RARE | Variant: Shaper/Hunter
+  ! Skipping unknown or no-drop variant: Item: Spiked Gloves | Type: RARE | Variant: Warlord/Hunter
+  ! Skipping unknown or no-drop variant: Item: Spiked Gloves | Type: RARE | Variant: Warlord/Hunter
+  ! Skipping unknown or no-drop variant: Item: Spiked Gloves | Type: RARE | Variant: Warlord/Hunter
+  |
+  @@@ WARNINGS @@@
+  |
+  |
+  ! Skipping base items with no variant as they are almost always false flags.
+  ! If this is pissing you off, you should rerun with the --include_no_variant flag.
+  |
+  ! The following items were skipped as a result:
+  |
+  | ~ Item: Blizzard Crown | Type: 2 | Variant: None | ilvl: 82
+  | ~ Item: Pneumatic Dagger | Type: 2 | Variant: None | ilvl: 82
+  |
+  ! Skipping base items with no variant as they are almost always false flags.
+  ! If this is pissing you off, you should rerun with the --include_no_variant flag.
+  |
+  ! The following items were skipped as a result:
+  |
+  | ~ Item: Blizzard Crown | Type: 2 | Variant: None | ilvl: 83
+  | ~ Item: Pneumatic Dagger | Type: 2 | Variant: None | ilvl: 83
+  | ~ Item: Pressurised Dagger | Type: 2 | Variant: None | ilvl: 83
+  |
+  ! Skipping base items with no variant as they are almost always false flags.
+  ! If this is pissing you off, you should rerun with the --include_no_variant flag.
+  |
+  ! The following items were skipped as a result:
+  |
+  | ~ Item: Pneumatic Dagger | Type: 2 | Variant: None | ilvl: 84
+  | ~ Item: Short Bow | Type: 1 | Variant: None | ilvl: 84
+  |
+  + Converting YAML to filter syntax
+  + Filter saved at /mnt/c/Users/camfu/Documents/My Games/Path of Exile/marchfilter_Kalandra_0.1.filter
