@@ -1,0 +1,1247 @@
+# TODO: Disable all the lookups and make sure sane defaults are in place
+
+config:
+  name: marchfilter
+  version: 0.1
+  league: Necropolis
+
+sounds:
+  high: &sounds-high
+    customsound: necropolis/high3.mp3
+  currency: &sounds-currency
+    customsound: necropolis/currency.mp3
+  scarabs: &sounds-scarabs
+    customsound: necropolis/scarabs.mp3
+  unique: &sounds-unique
+    customsound: necropolis/unique.mp3
+  maps: &sounds-map
+    customsound: necropolis/map.mp3
+  target-map: &sounds-target-map
+    customsound: necropolis/targetmap.mp3
+  rares: &sounds-rare
+    customsound: necropolis/rare.mp3
+  cards: &sounds-card
+    customsound: necropolis/card.mp3
+  other: &sounds-other
+    customsound: necropolis/other.mp3
+
+colors:
+  # colors
+  black: &black 15 3 38 222
+  
+  dark-green: &dark-green 3 17 6 222
+  dark-orange: &dark-orange 17 6 17 222
+  dark-yellow: &dark-yellow 17 17 6 222
+  dark-purple: &dark-purple 41 26 50 222
+  dark-blue: &dark-blue 6 3 17 222
+  
+  white: &white 245 247 220 222
+  yellow: &yellow 255 255 130 222
+  red: &red 230 95 92 222
+  orange: &orange 255 139 85 222
+  purple: &purple 181 149 199 222
+  blue: &blue 198 212 255 222
+
+  nocolor: &nocolor 255 255 255 0
+
+  base:
+    base-bg: &base-bg
+      bg: *black
+    base-fg: &base-fg
+      bg: *white
+
+  currency:
+    currency-bg-low: &currency-bg-low
+      bg: *black
+    currency-bg-med: &currency-bg-med
+      bg: *black
+    currency-bg-high: &currency-bg-high
+      bg: *white
+
+    currency-fg-low: &currency-fg-low
+      fg: *white
+    currency-fg-med: &currency-fg-med
+      fg: *white
+    currency-fg-high: &currency-fg-high
+      fg: *black
+
+    currency-border-med: &currency-border-med
+      border: *white
+    currency-border-high: &currency-border-high
+      border: *black
+
+    currency-beam-high: &currency-beam
+      beam: White
+    currency-icon-med: &currency-icon-med
+      icon: 2 White Star
+    currency-icon-high: &currency-icon-high
+      icon: 0 White Star
+
+  scarabs:
+    scarabs-bg-low: &scarabs-bg-low
+      bg: *black
+    scarabs-bg-med: &scarabs-bg-med
+      bg: *black
+    scarabs-bg-high: &scarabs-bg-high
+      bg: *purple
+
+    scarabs-fg-low: &scarabs-fg-low
+      fg: *purple
+    scarabs-fg-med: &scarabs-fg-med
+      fg: *purple
+    scarabs-fg-high: &scarabs-fg-high
+      fg: *black
+
+    scarabs-border-med: &scarabs-border-med
+      border: *purple
+    scarabs-border-high: &scarabs-border-high
+      border: *black
+
+    scarabs-beam-high: &scarabs-beam
+      beam: Purple
+    scarabs-icon-med: &scarabs-icon-med
+      icon: 2 Purple Star
+    scarabs-icon-high: &scarabs-icon-high
+      icon: 0 Purple Star
+
+  uniques:
+    uniques-bg-low: &uniques-bg-low
+      bg: *dark-orange
+    uniques-bg-med: &uniques-bg-med
+      bg: *dark-orange
+    uniques-bg-high: &uniques-bg-high
+      bg: *orange
+
+    uniques-fg-low: &uniques-fg-low
+      fg: *orange
+    uniques-fg-med: &uniques-fg-med
+      fg: *orange
+    uniques-fg-high: &uniques-fg-high
+      fg: *dark-orange
+
+    uniques-border-med: &uniques-border-med
+      border: *orange
+    uniques-border-high: &uniques-border-high
+      border: *dark-orange
+
+    uniques-beam: &uniques-beam
+      beam: Orange
+    uniques-icon-med: &uniques-icon-med
+      icon: 2 Orange Moon
+    uniques-icon-high: &uniques-icon-high
+      icon: 0 Orange Moon
+    uniques-icon-map: &uniques-icon-map
+      icon: 0 Orange Square
+
+  maps:
+    maps-bg-white: &maps-bg-white
+      bg: *dark-green
+    maps-bg-yellow: &maps-bg-yellow
+      bg: *dark-green
+    maps-bg-red: &maps-bg-red
+      bg: *dark-green
+    maps-bg-purple: &maps-bg-purple
+      bg: *purple
+
+    maps-fg-white: &maps-fg-white
+      fg: *white
+    maps-fg-yellow: &maps-fg-yellow
+      fg: *yellow
+    maps-fg-red: &maps-fg-red
+      fg: *red
+
+    maps-border-white: &maps-border-white
+      border: *white
+    maps-border-yellow: &maps-border-yellow
+      border: *yellow
+    maps-border-red: &maps-border-red
+      border: *red
+
+    maps-beam-red: &maps-beam
+      beam: Red
+    maps-icon-red: &maps-icon
+      icon: 0 Red Square
+  
+  rares:
+    rares-bg-low: &rares-bg-low
+      bg: *dark-yellow
+    rares-bg-med: &rares-bg-med
+      bg: *dark-yellow
+    rares-bg-high: &rares-bg-high
+      bg: *yellow
+
+    rares-fg-low: &rares-fg-low
+      fg: *yellow
+    rares-fg-med: &rares-fg-med
+      fg: *yellow
+    rares-fg-high: &rares-fg-high
+      fg: *dark-yellow
+
+    rares-border-med: &rares-border-med
+      border: *yellow
+    rares-border-high: &rares-border-high
+      border: *dark-yellow
+
+    rares-beam: &rares-beam
+      beam: Yellow
+    rares-icon-med: &rares-icon-med
+      icon: 2 Yellow Triangle
+    rares-icon-high: &rares-icon-high
+      icon: 0 Yellow Triangle
+
+  cards:
+    cards-bg-low: &cards-bg-low
+      bg: *dark-purple
+    cards-bg-med: &cards-bg-med
+      bg: *dark-purple
+    cards-bg-high: &cards-bg-high
+      bg: *purple
+
+    cards-fg-low: &cards-fg-low
+      fg: *purple
+    cards-fg-med: &cards-fg-med
+      fg: *purple
+    cards-fg-high: &cards-fg-high
+      fg: *dark-purple
+
+    cards-border-med: &cards-border-med
+      border: *purple
+    cards-border-high: &cards-border-high
+      border: *dark-purple
+
+    cards-beam: &cards-beam
+      beam: Purple
+    cards-icon-med: &cards-icon-med
+      icon: 2 Purple Diamond
+    cards-icon-high: &cards-icon-high
+      icon: 0 Purple Diamond
+
+  other:
+    other-bg-low: &other-bg-low
+      bg: *dark-blue
+    other-bg-med: &other-bg-med
+      bg: *dark-blue
+    other-bg-high: &other-bg-high
+      bg: *blue
+
+    other-fg-low: &other-fg-low
+      fg: *blue
+    other-fg-med: &other-fg-med
+      fg: *blue
+    other-fg-high: &other-fg-high
+      fg: *dark-blue
+
+    other-border-med: &other-border-med
+      border: *blue
+    other-border-high: &other-border-high
+      border: *dark-blue
+
+    other-beam: &other-beam
+      beam: Blue
+    other-icon-med: &other-icon-med
+      icon: 2 Blue Cross
+    other-icon-high: &other-icon-high
+      icon: 0 Blue Cross
+
+  leveling_color: &leveling_color 122 255 122 222
+
+palettes:
+  base: &base
+    <<:
+      - *base-bg
+      - *base-fg
+    border: *nocolor
+    fontsize: 42
+
+  # Style Guide:
+  #   Low: Fg
+  #   Med: Fg / Border
+  #   High: Fg / Border / Beam / Icon
+
+  # Base goes last to fill in gaps
+
+  currency:
+    low: &currency-low
+      <<:
+        - *currency-bg-low
+        - *currency-fg-low
+        - *base
+    med: &currency-med
+      <<:
+        - *currency-bg-med
+        - *currency-fg-med
+        - *currency-border-med
+        - *currency-icon-med
+        - *sounds-currency
+        - *base
+    high: &currency-high
+      <<:
+        - *currency-bg-high
+        - *currency-fg-high
+        - *currency-border-high
+        - *currency-beam
+        - *currency-icon-high
+        - *sounds-high
+        - *base
+  scarabs:
+    low: &scarabs-low
+      <<:
+        - *scarabs-bg-low
+        - *scarabs-fg-low
+        - *base
+    med: &scarabs-med
+      <<:
+        - *scarabs-bg-med
+        - *scarabs-fg-med
+        - *scarabs-border-med
+        - *scarabs-icon-med
+        - *sounds-scarabs
+        - *base
+    high: &scarabs-high
+      <<:
+        - *scarabs-bg-high
+        - *scarabs-fg-high
+        - *scarabs-border-high
+        - *scarabs-beam
+        - *scarabs-icon-high
+        - *sounds-high
+        - *base
+  uniques:
+    low: &uniques-low
+      <<:
+      - *uniques-bg-low
+      - *uniques-fg-low
+      - *base
+    med: &uniques-med
+      <<:
+      - *uniques-bg-med
+      - *uniques-fg-med
+      - *uniques-border-med
+      - *uniques-icon-med
+      - *sounds-unique
+      - *base
+    high: &uniques-high
+      <<:
+      - *uniques-bg-high
+      - *uniques-fg-high
+      - *uniques-border-high
+      - *uniques-beam
+      - *uniques-icon-high
+      - *sounds-high
+      - *base
+    map: &uniques-map
+      <<:
+      - *uniques-bg-med
+      - *uniques-fg-med
+      - *uniques-border-med
+      - *uniques-beam
+      - *uniques-icon-map
+      - *sounds-unique
+      - *base
+  maps:
+    white: &maps-White
+      <<:
+        - *maps-bg-white
+        - *maps-fg-white
+        - *maps-border-white
+        - *base
+    yellow: &maps-yellow
+      <<:
+        - *maps-bg-yellow
+        - *maps-fg-yellow
+        - *maps-border-yellow
+        - *base
+    red: &maps-red
+      <<:
+        - *maps-bg-red
+        - *maps-fg-red
+        - *maps-border-red
+        - *maps-icon
+        - *sounds-map
+        - *base
+    t16: &maps-t16
+      <<:
+        - *maps-bg-red
+        - *maps-fg-red
+        - *maps-border-red
+        - *maps-icon
+        - *sounds-map
+        - *base
+    t17: &maps-t17
+      <<:
+        - *maps-fg-white
+        - *maps-bg-purple
+        - *maps-border-white
+        - *maps-icon
+        - *sounds-high
+        - *base
+    target: &maps-target
+      <<:
+        - *maps-bg-red
+        - *maps-fg-red
+        - *maps-border-red
+        - *maps-icon
+        - *maps-beam
+        - *sounds-target-map
+        - *base
+    special: &maps-special
+      <<:
+        - *maps-bg-red
+        - *maps-fg-red
+        - *maps-border-red
+        - *maps-icon
+        - *maps-beam
+        - *sounds-map
+        - *base
+  rares:
+    low: &rares-low
+      <<:
+      - *rares-bg-low
+      - *rares-fg-low
+      - *base
+    med: &rares-med
+      <<:
+      - *rares-bg-med
+      - *rares-fg-med
+      - *rares-border-med
+      - *rares-icon-med
+      - *sounds-rare
+      - *base
+    high: &rares-high
+      <<:
+      - *rares-bg-high
+      - *rares-fg-high
+      - *rares-border-high
+      - *rares-beam
+      - *rares-icon-high
+      - *sounds-high
+      - *base
+  cards:
+    low: &cards-low
+      <<:
+      - *cards-bg-low
+      - *cards-fg-low
+      - *base
+    med: &cards-med
+      <<:
+      - *cards-bg-med
+      - *cards-fg-med
+      - *cards-border-med
+      - *cards-icon-med
+      - *sounds-card
+      - *base
+    high: &cards-high
+      <<:
+      - *cards-bg-high
+      - *cards-fg-high
+      - *cards-border-high
+      - *cards-beam
+      - *cards-icon-high
+      - *sounds-high
+      - *base
+  other:
+    low: &other-low
+      <<:
+      - *other-bg-low
+      - *other-fg-low
+      - *base
+    med: &other-med
+      <<:
+      - *other-bg-med
+      - *other-fg-med
+      - *other-border-med
+      - *other-icon-med
+      - *sounds-other
+      - *base
+    high: &other-high
+      <<:
+      - *other-bg-high
+      - *other-fg-high
+      - *other-border-high
+      - *other-beam
+      - *other-icon-high
+      - *sounds-high
+      - *base
+  
+  lvling: &lvling
+    <<: *base
+    fg: *yellow
+    border: *leveling_color
+
+  lvling_high: &lvling_high
+    <<: *base
+    bg: *leveling_color
+    fg: *black
+    border: *yellow
+    beam: Green
+
+  hide: &hide
+    bg: 100 100 100 100
+    fg: 200 100 100 100
+    fontsize: 12
+
+  catch: &catch
+    bg: 255 0 0 255
+    fg: 0 255 0 255
+    border: 0 0 255 255
+    icon: 2 Green Star
+    beam: Green
+    say: CATCH! CATCH! CATCH! CATCH! CAAAAATTTTCCCHHHH!
+
+blocks:
+  overrides:
+    __leveling__:
+    6l:
+      <<: *other-med
+      links: 6
+    rods:
+      <<: *other-high
+      classes: Fishing Rod
+    trash_cards:
+      <<: *base
+      bases: The One With All
+      show: false
+    jebait:
+      <<: *base
+      bases: The Wolf's Shadow, The Catalyst, The Demoness
+      show: false
+    league_high:
+      <<: *currency-high
+      classes: Currency
+      bases: Hinekora's Lock
+    league:
+      <<: *currency-med
+      classes: Currency
+      bases: Tattoo, Omen
+  orbs:
+    mirror:
+      <<: *currency-high
+      customsound: mirror.mp3
+      classes: Currency
+      bases: Mirror of Kalandra
+    tainted_currency:
+      <<: *currency-med
+      bg: *red
+      icon: 0 Red Star
+      classes: Currency
+      bases: Tainted
+    high:
+      <<: *currency-high
+      classes: Currency
+      bases: Fracturing Shard, Fracturing Orb, Divine Orb, Orb of Conflict, Orb of Dominance, Mirror Shard, Tempering Orb, Tailoring Orb, Awakener's Orb, Sacred Orb, Regrading Lens, Veiled Orb
+    medium:
+      <<: *currency-med
+      classes: Currency
+      bases: Emblem, Ichor, Ember, Extractor, Exalted Orb, Blessing, Ancient Orb, Orb of Unmaking, Exalted Shard, Albino Rhoa Feather, Crescent Splinter, Simulacrum Splinter, Imprint, Cartographer's Chisel, Blessed Orb, Gemcutter's Prism, Catalyst, Chaos Orb, Orb of Scouring, Orb of Regret, Vaal Orb, Remnant of Corruption, Orb of Annulment, Harbinger's Orb, Fossil, Regal Orb, Stacked Deck, Splinter of Chayula
+    gold:
+      <<: *currency-low
+      fg: *gold
+      border: *gold
+      classes: Gold
+    binding:
+      <<: *currency-low
+      show: false
+      classes: Currency
+      bases: Orb of Binding
+    alchemy:
+      <<: *currency-med
+      show: true
+      classes: Currency
+      bases: Orb of Alchemy
+    fusing:
+      <<: *currency-med
+      show: false
+      classes: Currency
+      bases: Orb of Fusing
+    markers:
+      <<: *currency-med
+      show: false
+      bases: Rogue's Marker
+    deli:
+      <<: *currency-med
+      bases: Delirium Orb
+    chance:
+      <<: *currency-low
+      show: false
+      classes: Currency
+      bases: Orb of Chance
+    jeweller:
+      <<: *currency-low
+      show: false
+      classes: Currency
+      bases: Jeweller's Orb
+    horizon:
+      <<: *currency-low
+      show: false
+      classes: Currency
+      bases: Orb of Horizon
+    whet:
+      <<: *currency-low
+      show: true
+      classes: Currency
+      bases: Blacksmith's Whetstone
+    scrap:
+      <<: *currency-low
+      show: false
+      classes: Currency
+      bases: Armourer's Scrap
+    chrome:
+      <<: *currency-low
+      show: false
+      classes: Currency
+      bases: Chromatic Orb
+    engineer:
+      <<: *currency-low
+      show: false
+      classes: Currency
+      bases: Engineer's Orb
+    trans:
+      <<: *currency-low
+      show: false
+      classes: Currency
+      bases: Orb of Transmutation
+    aug:
+      <<: *currency-low
+      show: false
+      classes: Currency
+      bases: Orb of Augmentation
+    alt:
+      <<: *currency-low
+      show: true
+      classes: Currency
+      bases: Orb of Alteration
+    portal:
+      <<: *currency-low
+      show: true
+      classes: Currency
+      bases: Portal Scroll
+    wisdom:
+      <<: *currency-low
+      show: false
+      classes: Currency
+      bases: Scroll of Wisdom
+    bauble:
+      <<: *currency-low
+      classes: Currency
+      bases: Glassblower's Bauble
+    flask_stuff:
+      <<: *currency-low
+      classes: Currency
+      show: true
+      bases: Enkindling Orb, Instilling Orb
+    fine_shards:
+      <<: *currency-med
+      show: true
+      classes: Currency
+      bases: Harbinger's Shard, Annulment Shard, Ancient Shard, Chaos Shard, Regal Shard
+    bad_shards:
+      <<: *base
+      show: false
+      classes: Currency
+      bases: Regal Shard, Engineer's Shard, Binding Shard, Alchemy Shard, Alteration Shard, Horizon Shard, Transmutation Shard, Scroll Fragment
+
+  non_orb_currencies:
+    # Breach
+    oshabi_lifeforce:
+      <<: *currency-high
+      bases: Sacred Crystallised Lifeforce
+    normal_lifeforce:
+      <<: *currency-med
+      bases: Crystallised Lifeforce
+    stones:
+      <<: *currency-med
+      bases: Breachstone
+    chayula_uul_netol:
+      <<: *currency-med
+      classes: Currency
+      bases: Splinter of Chayula, Splinter of Uul-Netol
+    good_legion_splinters:
+      <<: *currency-med
+      bases: Timeless Maraketh Splinter, Timeless Templar Splinter
+    bad_legion_splinters:
+      <<: *currency-low
+      show: false
+      bases: Timeless Karui Splinter, Timeless Vaal Splinter, Timeless Eternal Empire Splinter
+    legion_emblems:
+      <<: *currency-med
+      bases: Emblem
+    breach_splinters:
+      <<: *currency-low
+      show: true
+      classes: Currency
+      bases: Splinter of Xoph, Splinter of Tul, Splinter of Esh
+    # league stuff
+    allflames:
+      <<: *currency-med
+      classes: Embers of the Allflame
+    divine_vessel:
+      <<: *currency-low
+      classes: Map Fragments
+      bases: Divine Vessel
+      show: true
+    ritual:
+      <<: *currency-med
+      classes: Currency
+      bases: Ritual, Blood-filled Vessel
+    logbooks:
+      <<: *other-high
+      bases: Logbook
+    rerolls:
+      <<: *currency-med
+      bases: Exotic Coinage, Burial Medallion, Astragali, Scrap Metal
+    # fossils
+    good_fossils:
+      <<: *currency-med
+      classes: Currency
+      lookup: fossils 10
+    fossils:
+      <<: *currency-low
+      classes: Currency
+      bases: Fossil
+    # essences
+    good_essences:
+      <<: *currency-med
+      classes: Currency
+      lookup: essences 5
+    bad_essences:
+      <<: *base
+      show: false
+      classes: Currency
+      bases: Whispering Essence, Muttering Essence, Weeping Essence, Wailing Essence
+    essences:
+      <<: *currency-low
+      classes: Currency
+      bases: Essence
+    # scarabs
+    great_scarabs:
+      <<: *scarabs-high
+      lookup: scarabs 50
+    good_scarabs:
+      <<: *scarabs-med
+      lookup: scarabs 10
+    # horny_scarabs:
+    #   <<: *scarabs-high
+    #   bases: Horned Scarab
+    scarabs:
+      <<: *scarabs-low
+      bases: Scarab
+    # oils
+    extractor:
+      <<: *currency-med
+      bases: Oil Extractor
+    good_oils:
+      <<: *currency-med
+      classes: Currency
+      lookup: oils 10
+    bad_oils:
+      <<: *base
+      classes: Currency
+      bases: Clear Oil, Sepia Oil
+      show: true
+    oils:
+      <<: *currency-low
+      classes: Currency
+      bases: Oil
+    scouting_reports:
+      <<: *currency-med
+      bases: Scouting Report
+    reliquary_keys:
+      <<: *other-high
+      bases: Reliquary Key, Valdo's Puzzle Box
+    # Catch currencies for easier debugging
+    currencycatch:
+      <<: *catch
+      classes: Currency
+      say: CURRENCY CATCH
+
+  non_currency_orbs:
+    uber_frags:
+      <<: *other-high
+      bases: Cosmic Fragment, Decaying Fragment, Awakening Fragment, Synthesising Fragment, Reality Fragment, Devouring Fragment, Blazing Fragment
+    memories:
+      <<: *other-med
+      bases: Niko's Memory, Alva's Memory, Kirac's Memory, Einhar's Memory
+    good_incubators:
+      <<: *other-med
+      bases: Ornate Incubator, Diviner's Incubator, Geomancer's Incubator, Kalguuran Incubator, Skittering Incubator, Foreboding Incubator, Fragmented Incubator, Infused Incubator, Maddening Incubator, Mysterious Incubator, Thaumaturge's Incubator
+    incubators:
+      <<: *other-low
+      show: false
+      bases: Incubator
+    voidstone:
+      <<: *other-med
+      classes: Atlas Upgrade Item
+    sixsocket:
+      <<: *currency-med
+      show: false
+      sockets: 6
+      rarity: "<= Rare"
+    quest:
+      <<: *lvling
+      beam: Green
+      classes: Quest Items, Pantheon Soul, Piece
+    alva:
+      <<: *other-med
+      bases: Flashpowder Keg, Stone of Passage
+    flaskrecipe:
+      show: false
+      <<: *other-low
+      classes: Utility Flasks, Hybrid Flasks, Life Flasks, Mana Flasks
+      quality: ">= 10"
+      rarity: "<= Rare"
+    ultimatum:
+      <<: *other-high
+      bases: Engraved Ultimatum
+    mirror_zone:
+      <<: *currency-med
+      bases: Mirrored Tablet
+    goodfrags:
+      <<: *other-med
+      bases: Mortal Hope, Mortal Ignorance, Sacrifice at Midnight
+    badfrags:
+      <<: *other-low
+      show: false
+      bases: Sacrifice at Dawn, Sacrifice at Dusk, Sacrifice at Noon
+    special:
+      <<: *other-med
+      bases: Chronicle of Atzoatl, Inscribed Ultimatum
+    frags:
+      <<: *other-low
+      classes: Map Fragments, Labyrinth
+    sanctum:
+      <<: *other-med
+      classes: Sanctum Research
+    sanctum_relics:
+      <<: *other-med
+      classes: Relic
+
+  cards:
+    doctor:
+      <<: *cards-high
+      customsound: doctor.mp3
+      bases: The Doctor
+      classes: Divination Card
+    apothecary:
+      <<: *cards-high
+      bases: The Apothecary
+      classes: Divination Card
+    100c:
+      <<: *cards-high
+      lookup: divination cards 100
+      classes: Divination Card
+    10c:
+      <<: *cards-med
+      lookup: divination cards 10
+      classes: Divination Card
+    4c:
+      <<: *cards-low
+      lookup: divination cards 4
+      classes: Divination Card
+    # Can disable once economic data exists
+    top_tier:
+      <<: *cards-high
+      classes: Divination Card
+      bases: The Sephirot, Fire of Unknown Origin, The Fortunate, Abandoned Wealth, Alluring Bounty, Beauty Through Death, Broken Promises, Brother's Stash, Desecrated Virtue, Eternal Bonds, Gift of Asenath, House of Mirrors, Love Through Ice, Luminous Trove, Nook's Crown, Seven Years Bad Luck, Succor of the Sinless, The Cheater, The Demon, The Doctor, The Dragon's Heart, The Enlightened, The Fiend, The Immortal, The Rusted Bard, The Nurse, The Samurai's Eye, The Scout, Unrequited Love, Wealth and Power
+    bad_but_show:
+      <<: *cards-low
+      classes: Divination Card
+      bases: Peaceful Moments, A Modest Request, Emperor of Purity, The Forgotten Treasure, Glimmer of Hope, The Wretched, The Mad King, Ever-Changing, Parasitic Passengers, The Dungeon Master, The Ethereal, The Innocent, The Offering, The Price of Prescience, The Queen, The Risk, Imperial Legacy, The Warlord, Guardian's Challenge, The Hoarder, Costly Curio, Chaotic Disposition, The Saint's Treasure, Lingering Remnants, The Price of Protection, The Tireless Extractor, Time-Lost Relic, The Union, One with All, Lucky Connections, The Wrath, The Dapper Prodigy, Tireless Extractor, The Professor, Vinia, Acclimatisation, Void, Prejudice, Traitor, Society's Remorse, The Tinkerer's Table, The Cacophony, Akil's Prophecy, The Cache, The Dreamland, The Chains that Bind, The Encroaching Darkness, The Journey, The Messenger, The Obscured, Demigod's Wager, The Garish Power, Arrogance of the Vaal, Humility, Cameria's Cut, Emperor's Luck, Three Voices, The Inventor, Scholar of the Seas, The Master Artisan
+    div:
+      <<: *cards-low
+      border: *red
+      show: false
+      classes: Divination Card
+
+  maps:
+    invitation:
+      <<: *maps-special
+      classes: Misc Map Items
+    uberblighted:
+      <<: *maps-special
+      uberblighted: true
+    blighted:
+      <<: *maps-special
+      blighted: true
+    good_unique:
+      <<: *uniques-map
+      rarity: Unique
+      bases: Maze Map, Synthesised Map, Harbinger Map, Cursed Crypt Map, Museum Map
+      classes: Maps
+    unique:
+      <<: *uniques-map
+      rarity: Unique
+      show: true
+      classes: Maps
+    targets:
+      <<: *maps-target
+      classes: Maps
+      maptier: 16
+      bases: Glacier
+    17s:
+      <<: *maps-t17
+      classes: Maps
+      maptier: 17
+    16s:
+      <<: *maps-t16
+      classes: Maps
+      maptier: 16
+    reds:
+      <<: *maps-red
+      show: false
+      classes: Maps
+      maptier: ">= 11"
+    yellows:
+      <<: *maps-yellow
+      show: true
+      classes: Maps
+      maptier: ">= 6"
+    whites:
+      <<: *maps-t17
+      show: true
+      classes: Maps
+      maptier: "< 6"
+
+  uniques:
+    fuck_em_1:
+      <<: *uniques-low
+      show: false
+      rarity: Unique
+      bases: Clutching Talisman, Rotfeather Talisman, Black Maw Talisman, Ornate Ringmail, Latticed Ringmail, Elegant Ringmail
+    ok_rings:
+      <<: *uniques-med
+      rarity: Unique
+      bases: Gold Ring
+    not_kalandras_touch:
+      <<: *uniques-low
+      show: true
+      rarity: Unique
+      bases: Topaz Ring, Moonstone Ring, Amethyst Ring, Opal Ring, Coral Ring, Iron Ring, Paua Ring, Unset Ring, Sapphire Ring, Topaz Ring, Ruby Ring, Diamond Ring, Gold Ring, Moonstone Ring, Two-Stone Ring, Bone Ring, Amethyst Ring, Prismatic Ring, Cerulean Ring, Iolite Ring, Opal Ring, Steel Ring, Vermillion Ring
+    kalandras_touch:
+      <<: *uniques-high
+      rarity: Unique
+      classes: Rings
+      bases: Ring
+    jewel:
+      <<: *uniques-high
+      rarity: Unique
+      bases: Jewel
+    jebait:
+      <<: *uniques-med
+      rarity: Unique
+      bg: *orange
+      fg: *blue
+      icon: 0 Green Moon
+      bases: Leather Belt, Heavy Belt, Elegant Round Shield, Onyx Amulet, Paua Amulet
+      customsound: bobby.mp3
+    corrupted_with_implicit:
+      <<: *uniques-med
+      border: *red
+      beam: Orange
+      rarity: Unique
+      corrupted: true
+      implicit: true
+    100c_uniques:
+      <<: *uniques-high
+      rarity: Unique
+      lookup: exclusive uniques 100
+    20c_uniques:
+      <<: *uniques-med
+      rarity: Unique
+      lookup: exclusive uniques 20
+    10c_uniques:
+      <<: *uniques-low
+      rarity: Unique
+      lookup: uniques 10
+    neversink:
+      <<: *uniques-med
+      border: *blue
+      rarity: Unique
+      bases: Gladiator Plate, Granite Flask, Amethyst Flask, Amethyst Ring, Censer Relic, Fiend Dagger, Gold Ring, Heavy Belt, Hydrascale Gauntlets, Imperial Skean, Iron Flask, Leather Belt, Magistrate Crown, Moonstone Ring, Murder Boots, Murder Mitts, Onyx Amulet, Paua Amulet, Processional Relic, Sadist Garb, Sage's Robe, Savant's Robe, Small Cluster Jewel, Spidersilk Robe, Spine Bow, Titanium Spirit Shield, Turquoise Amulet, Zodiac Leather, Blood Raiment, Champion Kite Shield, Crusader Boots, Devout Chainmail, Fencer Helm, Fluted Bascinet, Hypnotic Eye Jewel, Karui Maul, Large Cluster Jewel, Leather Hood, Majestic Plate, Medium Cluster Jewel, Murderous Eye Jewel, Ornate Quiver, Painted Tower Shield, Prophecy Wand, Raven Mask, Rawhide Boots, Reinforced Greaves, Sapphire Flask, Scholar's Robe, Searching Eye Jewel, Silk Gloves, Slaughter Knife, Steelwood Bow, Studded Belt, Timeless Jewel, Urn Relic, Wyrmscale Boots, Wyrmscale Doublet, Engraved Greatsword, Ezomyte Tower Shield, Foul Staff, Ghastly Eye Jewel, Golden Buckler, Greatwolf Talisman, Papyrus Relic, Prismatic Jewel, Ring, Riveted Boots, Ruby Flask, Siege Axe, Unset Amulet, Vaal Rapier
+    other:
+      <<: *uniques-low
+      show: true
+      rarity: Unique
+
+  jewels:
+    corrupted_with_implicit:
+      <<: *other-med
+      border: *red
+      beam: Orange
+      classes: Jewel, Abyss Jewel
+      corrupted: true
+      implicit: true
+    boosted_abyss:
+      <<: *other-med
+      show: true
+      corrupted: true
+      classes: Abyss Jewel
+    i84_abyss:
+      <<: *other-med
+      show: false
+      ilvl: ">= 84"
+      classes: Abyss Jewel
+    abyss:
+      <<: *other-low
+      show: false
+      classes: Abyss Jewel
+    # TODO: Should see if we can improve the cluster jewel filtering
+    clusters:
+      <<: *other-med
+      bases: Cluster Jewel
+    rare_jewels:
+      <<: *other-med
+      rarity: rare
+      show: false
+      bases: Cobalt Jewel, Crimson Jewel, Viridian Jewel, Prismatic Jewel
+    magic_jewels:
+      <<: *other-low
+      rarity: magic
+      show: false
+      bases: Cobalt Jewel, Crimson Jewel, Viridian Jewel, Prismatic Jewel
+
+  items:
+    identified_fractures:
+      <<: *hide
+      fontsize: 16
+      fractured: true
+      # bases: Agate Amulet, Amber Amulet, Amethyst Ring, Assassin's Mitts, Blood Raiment, Bone Bow, Bone Helmet, Bone Ring, Broadhead Arrow Quiver, Carnal Sceptre, Citrine Amulet, Convening Wand, Convoking Wand, Copper Kris, Coral Ring, Crystal Belt, Crystal Wand, Deicide Mask, Demon's Horn, Diamond Ring, Dragonscale Boots, Dragonscale Gauntlets, Feathered Arrow Quiver, Fluted Bascinet, Fugitive Boots, General's Brigandine, Golden Kris, Grove Bow, Heathen Wand, Heavy Belt, Hydrascale Boots, Hydrascale Gauntlets, Imbued Wand, Imperial Bow, Imperial Buckler, Iolite Ring, Ivory Bow, Jade Amulet, Lapis Amulet, Leather Belt, Lion Pelt, Maraketh Bow, Marble Amulet, Murder Boots, Murder Mitts, Nightmare Bascinet, Omen Wand, Onyx Amulet, Opal Ring, Opal Sceptre, Opal Wand, Pagan Wand, Pig-Faced Bascinet, Platinum Kris, Primal Arrow Quiver, Prismatic Ring, Profane Wand, Prophecy Wand, Ruby Ring, Sadist Garb, Sambar Sceptre, Sapphire Ring, Serpentscale Boots, Shagreen Boots, Shagreen Gloves, Sharkskin Boots, Short Bow, Siege Axe, Silken Hood, Sinner Tricorne, Slink Boots, Slink Gloves, Spine Bow, Stealth Boots, Stealth Gloves, Steel Ring, Stygian Vise, Thicket Bow, Topaz Ring, Tornado Wand, Triumphant Lamellar, Turquoise Amulet, Two-Stone Ring, Two-Toned Boots, Unset Ring, Vaal Sceptre, Vermillion Ring, Void Sceptre, Wyrmscale Boots, Wyrmscale Gauntlets, Zodiac Leather
+      identified: true
+    fractured_bases:
+      <<: *other-med
+      fractured: true
+      bases: Vaal Regalia, Fossilised Spirit Shield, Vaal Spirit Shield, Harmonic Spirit Shield, Titanium Spirit Shield, Thorium Spirit Shield, Supreme Spiked Shield, Mirrored Spiked Shield, Battered Foil, Agate Amulet, Amber Amulet, Amethyst Ring, Assassin's Mitts, Blood Raiment, Bone Bow, Bone Helmet, Bone Ring, Broadhead Arrow Quiver, Carnal Sceptre, Citrine Amulet, Convening Wand, Convoking Wand, Copper Kris, Coral Ring, Crystal Belt, Crystal Wand, Deicide Mask, Demon's Horn, Diamond Ring, Dragonscale Boots, Dragonscale Gauntlets, Feathered Arrow Quiver, Fluted Bascinet, Fugitive Boots, General's Brigandine, Golden Kris, Grove Bow, Heathen Wand, Heavy Belt, Hydrascale Boots, Hydrascale Gauntlets, Imbued Wand, Imperial Bow, Imperial Buckler, Iolite Ring, Ivory Bow, Jade Amulet, Lapis Amulet, Leather Belt, Lion Pelt, Maraketh Bow, Marble Amulet, Murder Boots, Murder Mitts, Nightmare Bascinet, Omen Wand, Onyx Amulet, Opal Ring, Opal Sceptre, Opal Wand, Pagan Wand, Pig-Faced Bascinet, Platinum Kris, Primal Arrow Quiver, Prismatic Ring, Profane Wand, Prophecy Wand, Ruby Ring, Sadist Garb, Sambar Sceptre, Sapphire Ring, Serpentscale Boots, Shagreen Boots, Shagreen Gloves, Sharkskin Boots, Short Bow, Siege Axe, Silken Hood, Sinner Tricorne, Slink Boots, Slink Gloves, Spine Bow, Stealth Boots, Stealth Gloves, Steel Ring, Stygian Vise, Thicket Bow, Topaz Ring, Tornado Wand, Triumphant Lamellar, Turquoise Amulet, Two-Stone Ring, Two-Toned Boots, Unset Ring, Vaal Sceptre, Vermillion Ring, Void Sceptre, Wyrmscale Boots, Wyrmscale Gauntlets, Zodiac Leather, Imperial Claw, Gemini Claw, Siege Axe, Jewelled Foil, Battered Foil, Despot Axe, Vaal Axe, Ezomyte Axe, Imperial Skean, Platinum Kris, Golden Kris, Copper Kris, Void Sceptre, Opal Sceptre, Carnal Sceptre, Vaal Sceptre, Royal Sceptre, Blood Sceptre, Lead Sceptre, Crystal Sceptre, Sekhem, Horned Sceptre, Grinning Fetish, Shadow Sceptre, Ritual Sceptre, Ochre Sceptre, Abyssal Sceptre, Platinum Sceptre, Engraved Wand
+      # bases: Battered Foil, Agate Amulet, Amber Amulet, Amethyst Ring, Assassin's Mitts, Blood Raiment, Bone Bow, Bone Helmet, Bone Ring, Broadhead Arrow Quiver, Carnal Sceptre, Citrine Amulet, Convening Wand, Convoking Wand, Copper Kris, Coral Ring, Crystal Belt, Crystal Wand, Deicide Mask, Demon's Horn, Diamond Ring, Dragonscale Boots, Dragonscale Gauntlets, Feathered Arrow Quiver, Fluted Bascinet, Fugitive Boots, General's Brigandine, Golden Kris, Grove Bow, Heathen Wand, Heavy Belt, Hydrascale Boots, Hydrascale Gauntlets, Imbued Wand, Imperial Bow, Imperial Buckler, Iolite Ring, Ivory Bow, Jade Amulet, Lapis Amulet, Leather Belt, Lion Pelt, Maraketh Bow, Marble Amulet, Murder Boots, Murder Mitts, Nightmare Bascinet, Omen Wand, Onyx Amulet, Opal Ring, Opal Sceptre, Opal Wand, Pagan Wand, Pig-Faced Bascinet, Platinum Kris, Primal Arrow Quiver, Prismatic Ring, Profane Wand, Prophecy Wand, Ruby Ring, Sadist Garb, Sambar Sceptre, Sapphire Ring, Serpentscale Boots, Shagreen Boots, Shagreen Gloves, Sharkskin Boots, Short Bow, Siege Axe, Silken Hood, Sinner Tricorne, Slink Boots, Slink Gloves, Spine Bow, Stealth Boots, Stealth Gloves, Steel Ring, Stygian Vise, Thicket Bow, Topaz Ring, Tornado Wand, Triumphant Lamellar, Turquoise Amulet, Two-Stone Ring, Two-Toned Boots, Unset Ring, Vaal Sceptre, Vermillion Ring, Void Sceptre, Wyrmscale Boots, Wyrmscale Gauntlets, Zodiac Leather
+    fractured_classes:
+      <<: *other-low
+      fractured: true
+      classes: Utility Flasks, Jewels, Amulet, Ring, Boots, Gloves, Helmets
+    fractured:
+      <<: *other-low
+      fractured: true
+      show: false
+    synthesized:
+      <<: *other-med
+      beam: Orange
+      classes: Amulets, Belts, Rings, Jewels, Maps, Shields, Helmets, Claw, Dagger, Wand, One Hand, Two Hand, Bow, Rune Dagger, Staff
+      synthesized: true
+    q_synthesized:
+      <<: *other-low
+      beam: Orange
+      synthesized: true
+    anointed:
+      <<: *other-med
+      classes: Amulet, Ring
+      enchanted: true
+      corrupted: false
+    gmail:
+      <<: *other-med
+      icon: 0 Purple Pentagon
+      bases: Grasping Mail
+    machinelearning:
+      <<: *rares-high
+      lookup: bases 100
+    breach_ring:
+      <<: *rares-low
+      beam: Purple
+      icon: 2 Purple Pentagon
+      bases: Breach Ring
+      show: false
+    eater:
+      show: true
+      <<: *rares-low
+      eater: ">= 3"
+    exarch:
+      show: true
+      <<: *rares-low
+      exarch: ">= 3"
+    flasks:
+      <<: *other-med
+      beam: White
+      classes: Utility Flasks
+      ilvl: ">= 86"
+    trinket:
+      <<: *rares-med
+      classes: Trinket
+    # d2bases:
+    #   <<: *rares-low
+    #   show: false
+    #   bases: Sorcerer Boots, Hubris Circlet, Fingerless Silk Gloves, Sorcerer Gloves, Vaal Regalia, Titanium Spirit Shield, Fossilised Spirit Shield
+    #   defencepercentile: 100
+    targets:
+      <<: *other-low
+      classes: Heist Target
+    bps:
+     <<: *other-med
+     border: *red
+     classes: Blueprint
+    contracts:
+      <<: *other-low
+      classes: Contract
+    brooches:
+      <<: *rares-med
+      show: true
+      ilvl: ">= 83"
+      classes: Heist Brooch
+      bases: Foliate brooch
+    cloaks:
+      <<: *rares-med
+      show: true
+      ilvl: ">= 82"
+      classes: Heist Cloak
+      bases: Whisper-Woven Cloak
+    gear:
+      <<: *rares-med
+      show: true
+      ilvl: ">= 81"
+      classes: Heist Gear
+      bases: Precise Arrowhead, Burst Band, Obsidian Sharpening Stone
+    huck_gear:
+      <<: *rares-med
+      say: Gear for Huck!
+      show: true
+      ilvl: ">= 75"
+      classes: Heist Gear
+      bases: Standard Sharpening Stone, Tattered Cloak, Golden Brooch
+    tools:
+      <<: *rares-med
+      show: true
+      ilvl: ">= 83"
+      classes: Heist Tool
+      bases: Regicide Disguise Kit, Grandmaster Keyring, Thaumetic Flashpowder, Thaumaturgical Sensing Charm, Thaumaturgical Ward, Silkweave Sole, Thaumetic Blowtorch, Steel Bracers, Master Lockpick
+    hench_gear:
+      <<: *rares-low
+      show: false
+      classes: Heist Cloak, Heist Brooch, Heist Tool, Heist Gear
+    experimented:
+      <<: *rares-med
+      bases: Assembler Wand, Congregator Wand, Accumulator Wand, Hollowpoint Dagger, Pressurised Dagger, Pneumatic Dagger, Flickerflame Blade, Flashfire Blade, Infernal Blade, Shadow Fangs, Malign Fangs, Void Fangs, Maltreatment Axe, Disapprobation Axe, Psychotic Axe, Fickle Spiritblade, Capricious Spiritblade, Anarchic Spiritblade, Flare Mace, Crack Mace, Boom Mace, Oscillating Sceptre, Stabilising Sceptre, Alternating Sceptre, Hedron Bow, Foundry Bow, Solarine Bow, Transformer Staff, Reciprocation Staff, Battery Staff, Capacity Rod, Potentiality Rod, Eventuality Rod, Prime Cleaver, Honed Cleaver, Apex Cleaver, Rebuking Blade, Blasting Blade, Banishing Blade, Blunt Force Condenser, Crushing Force Magnifier, Impact Force Propagator, Exhausting Spirit Shield, Subsuming Spirit Shield, Transfer-attuned Spirit Shield, Endothermic Buckler, Polar Buckler, Cold-attuned Buckler, Exothermic Tower Shield, Magmatic Tower Shield, Heat-attuned Tower Shield, Micro-Distillery Belt, Mechanical Belt, Astrolabe Amulet, Simplex Amulet, Cogwork Ring, Geodesic Ring
+    maven:
+      <<: *rares-med
+      bases: Blizzard Crown, Winter Crown, Gale Crown, Archdemon Crown, Demon Crown, Imp Crown, Atonement Mask, Penitent Mask, Sorrow Mask, Debilitation Gauntlets, Gruelling Gauntlets, Taxing Gauntlets, Sinistral Gloves, Southswing Gloves, Gauche Gloves, Nexus Gloves, Aetherwind Gloves, Leyline Gloves, Dreamquest Slippers, Cloudwhisper Boots, Brimstone Treads, Nightwind Slippers, Windbreak Boots, Darksteel Treads, Duskwalk Slippers, Stormrider Boots, Basemetal Treads
+    quanttalismans:
+      <<: *rares-med
+      bases: Spinefuse Talisman
+    badtalismans:
+      <<: *rares-low
+      show: false
+      rarity: Rare
+      classes: Amulet
+      bases: Talisman
+    goodveiled:
+      <<: *other-med
+      beam: Orange
+      show: true
+      explicit: Catarina's, Elreon's, Leo's, Rin's, Vagan's, Vorici's, Riker's, Aisling's
+    veiled:
+      <<: *other-low
+      show: true
+      explicit: Veiled, of the Veil
+    influenced:
+      <<: *other-med
+      show: true
+      influence: Shaper Elder Crusader Redeemer Hunter Warlord
+    corruptedrare:
+      <<: *rares-low
+      show: false
+      border: 255 0 0 222
+      rarity: Rare
+      corrupted: true
+    enchanted:
+      <<: *other-low
+      show: false
+      border: 0 0 222 222
+      enchanted: true
+    identified:
+      <<: *rares-low
+      rarity: Rare
+      border: 0 0 222 222
+      identified: true
+      show: false
+    endgamerares:
+      <<: *rares-med
+      show: false
+      ilvl: ">= 83"
+      # ilvl: ">= 68"
+      rarity: Rare
+      bases: Amethyst Ring, Dusk Ring, Penumbra Ring, Gloam Ring, Tenebrous Ring, Shadowed Ring, Bone Ring, Seaglass Amulet, Fugitive Boots, Apothecary's Gloves, Artillery Quiver, Iolite Ring, Imperial Buckler, Harmonic Spirit Shield, Fossilised Spirit Shield, Imbued Wand, Opal Wand, Bone Helmet, Opal Ring, Steel Ring, Vermillion Ring, Blue Pearl Amulet, Cerulean Ring, Marble Amulet, Stygian Vise, Two-Toned Boots, Vanguard Belt, Diamond Ring, Onyx Amulet, Two-Stone Ring, Amber Amulet, Agate Amulet, Citrine Amulet, Coral Ring, Gold Ring, Jade Amulet, Lapis Amulet, Leather Belt, Moonstone Ring, Prismatic Ring, Ruby Ring, Sapphire Ring, Topaz Ring, Turquoise Amulet, Unset Ring
+    earlygamerarejewellery:
+      <<: *rares-low
+      show: false
+      ilvl: ">= 68"
+      rarity: Rare
+      classes: Rings, Amulets
+    earlygamerares:
+      <<: *rares-low
+      show: false
+      ilvl: ">= 68"
+      rarity: Rare
+      classes: Boots, Rings, Amulets, Belts, Wands
+
+  gems:
+    alt:
+      <<: *other-med
+      altquality: true
+      classes: Skill Gem, Support Gem
+    l4:
+      <<: *other-high
+      classes: Skill Gem, Support Gem
+      bases: Enlighten, Enhance, Empower
+    plus:
+      <<: *other-med
+      classes: Skill Gem, Support Gem
+      bases: Awakened
+    20q20l:
+      <<: *other-med
+      show: true
+      classes: Skill Gem, Support Gem
+      gemlvl: ">= 20"
+      quality: ">= 20"
+    20level:
+      <<: *other-low
+      show: true
+      classes: Skill Gem, Support Gem
+      gemlvl: ">= 20"
+    20qual:
+      <<: *other-low
+      show: true
+      classes: Skill Gem, Support Gem
+      quality: ">= 20"
+    medqual:
+      <<: *other-low
+      show: false
+      classes: Skill Gem, Support Gem
+      quality: ">= 10"
+    corrupted:
+      <<: *other-low
+      classes: Skill Gem, Support Gem
+      corrupted: true
+      show: false
+    gems:
+      show: false
+      <<: *other-low
+      classes: Skill Gem, Support Gem
+
+  catch:
+    flasks:
+      <<: *hide
+      show: false
+      classes: Utility Flasks
+    lifemanaflasks:
+      <<: *hide
+      show: false
+      classes: Life Flasks, Mana Flasks
+    yellows:
+      <<: *hide
+      show: false
+      rarity: Rare
+    blues:
+      <<: *hide
+      show: false
+      rarity: Magic
+    whites:
+      <<: *hide
+      show: false
+      rarity: Normal
+      classes: One Hand Swords, Thrusting One Hand Swords, One Hand Axes, Two Hand Axes, Two Hand Swords, Body Armours, Helmets, Boots, Gloves, Belts, Amulets, Rings, Shields, Claws, Daggers, Wands, One Hand Maces, Two Hand Maces, Quivers, Bows, Sceptres, Staves, Hybrid Flasks, Mana Flasks, Life Flasks, Rune Daggers, Warstaves
+    failsafe:
+      <<: *catch

@@ -16,9 +16,9 @@ def generate_filename(tosay):
     Returns:
         <str>: filename
     """
-    sanitized = re.sub(r'\W+', '', tosay).strip()[:50]
+    sanitized = re.sub(r"\W+", "", tosay).strip()[:50]
 
-    return f'{sanitized}.wav'
+    return f"{sanitized}.wav"
 
 
 def generate_sound(full_path, tosay):
@@ -29,21 +29,12 @@ def generate_sound(full_path, tosay):
         tosay<str>: text to be said
     """
     # TODO - the path for espeak should be in config somewhere
-    if platform.system() == 'Windows':
-        espeak = 'C:\Program Files (x86)\eSpeak\command_line\espeak.exe'
+    if platform.system() == "Windows":
+        espeak = r"C:\Program Files (x86)\eSpeak\command_line\espeak.exe"
     else:
-        espeak = 'espeak'
+        espeak = "espeak"
 
-    subprocess.call(
-        [
-            espeak,
-            '-w',
-            full_path,
-            '-a',
-            '200',
-            tosay
-        ]
-    )
+    subprocess.call([espeak, "-w", full_path, "-a", "200", tosay])
 
 
 def get_or_create_sound(base_path, tosay):
@@ -68,7 +59,7 @@ def get_or_create_sound(base_path, tosay):
     """
 
     filename = generate_filename(tosay)
-    rel_path = f'sounds/{filename}'
+    rel_path = f"sounds/{filename}"
     full_path = os.path.join(base_path, rel_path)
 
     if not os.path.exists(full_path):
@@ -83,10 +74,9 @@ def get_or_create_sound(base_path, tosay):
 
 
 def get_or_copy_sound_file(base_path, filename):
-    """Copies sounds from the /sounds directory to destination_folder/sounds
-    """
+    """Copies sounds from the /sounds directory to destination_folder/sounds"""
 
-    rel_path = f'sounds/{filename}'
+    rel_path = f"sounds/{filename}"
     full_path = os.path.join(base_path, rel_path)
 
     if not os.path.exists(full_path):

@@ -41,6 +41,7 @@ Blocks with lookups will be skipped if you pass this flag, useful for league sta
 | yaml key | corresponding ggg filter syntax key |
 | -------- | --------------------- |
 | ilvl | ItemLevel |
+| alvl | AreaLevel |
 | droplvl | DropLevel |
 | quality | Quality |
 | rarity | Rarity |

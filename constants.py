@@ -1,96 +1,98 @@
-CONFIG_KEYS = [
-    'name',
-    'league',
-    'version'
-]
+CONFIG_KEYS = ["name", "league", "version"]
 
 # translate friendly syntax to filter syntax
 # https://www.pathofexile.com/item-filter/about
 SYNTAX = {
-    'lookup': {
-            'exclusive_uniques': 'BaseType',
-            'uniques': 'BaseType',
+    "lookup": {
+        "exclusive_uniques": "BaseType",
+        "uniques": "BaseType",
     },
-    'ilvl': 'ItemLevel',
-    'droplvl': 'DropLevel',
-    'quality': 'Quality',
-    'rarity': 'Rarity',
-    'classes': 'Class',
-    'bases': 'BaseType',
-    'sockets': 'Sockets',
-    'links': 'LinkedSockets',
-    'colors': 'SocketGroup',
-    'height': 'Height',
-    'width': 'Width',
-    'explicit': 'HasExplicitMod',
-    'enchanted': 'AnyEnchantment',
-    'enchantments': 'HasEnchantment',
-    'stacksize': 'StackSize',
-    'gemlvl': 'GemLevel',
-    'identified': 'Identified',
-    'corrupted': 'Corrupted',
-    'influence': 'HasInfluence',
-    'elder': 'ElderItem',
-    'shaper': 'ShaperItem',
-    'fractured': 'FracturedItem',
-    'synthesized': 'SynthesisedItem',
-    'synthesised': 'SynthesisedItem',
-    'shapedmap': 'ShapedMap',
-    'eldermap': 'ElderMap',
-    'blighted': 'BlightedMap',
-    'uberblighted': 'UberBlightedMap',
-    'maptier': 'MapTier',
-    'border': 'SetBorderColor',
-    'fg': 'SetTextColor',
-    'bg': 'SetBackgroundColor',
-    'fontsize': 'SetFontSize',
-    'sound': 'PlayAlertSound',
-    'positionalsound': 'PlayAlertSoundPositional',
-    'customsound': 'CustomAlertSound',
-    'icon': 'MinimapIcon',
-    'beam': 'PlayEffect',
-    'altquality': 'AlternateQuality',
-    'replica': 'Replica',
-    'defencepercentile': 'BaseDefencePercentile',
-    'scourged': 'Scourged',
-    'exarch': 'HasSearingExarchImplicit',
-    'eater': 'HasEaterOfWorldsImplicit',
-    'nem': 'ArchnemesisMod',
+    "ilvl": "ItemLevel",
+    "alvl": "AreaLevel",
+    "droplvl": "DropLevel",
+    "quality": "Quality",
+    "rarity": "Rarity",
+    "classes": "Class",
+    "bases": "BaseType",
+    "sockets": "Sockets",
+    "links": "LinkedSockets",
+    "colors": "SocketGroup",
+    "height": "Height",
+    "width": "Width",
+    "explicit": "HasExplicitMod",
+    "enchanted": "AnyEnchantment",
+    "enchantments": "HasEnchantment",
+    "stacksize": "StackSize",
+    "gemlvl": "GemLevel",
+    "identified": "Identified",
+    "corrupted": "Corrupted",
+    "influence": "HasInfluence",
+    "elder": "ElderItem",
+    "shaper": "ShaperItem",
+    "fractured": "FracturedItem",
+    "synthesized": "SynthesisedItem",
+    "synthesised": "SynthesisedItem",
+    "shapedmap": "ShapedMap",
+    "eldermap": "ElderMap",
+    "blighted": "BlightedMap",
+    "uberblighted": "UberBlightedMap",
+    "maptier": "MapTier",
+    "border": "SetBorderColor",
+    "fg": "SetTextColor",
+    "bg": "SetBackgroundColor",
+    "fontsize": "SetFontSize",
+    "sound": "PlayAlertSound",
+    "positionalsound": "PlayAlertSoundPositional",
+    "customsound": "CustomAlertSound",
+    "icon": "MinimapIcon",
+    "beam": "PlayEffect",
+    "altquality": "AlternateQuality",
+    "replica": "Replica",
+    "defencepercentile": "BaseDefencePercentile",
+    "scourged": "Scourged",
+    "exarch": "HasSearingExarchImplicit",
+    "eater": "HasEaterOfWorldsImplicit",
+    "nem": "ArchnemesisMod",
+    "implicit": "HasImplicitMod",
 }
 # Avoid updating both if they change the customsound syntax
-SYNTAX['say'] = SYNTAX['customsound']
+SYNTAX["say"] = SYNTAX["customsound"]
 
 # https://pathofexile.fandom.com/wiki/Public_stash_tab_API
 FRAME_TYPES = {
-    'NORMAL': 0,
-    'MAGIC': 1,
-    'RARE': 2,
-    'UNIQUE': 3,
-    'GEM': 4,
-    'CURRENCY': 5,
-    'DIVINATION_CARD': 6,
-    'QUEST_ITEM': 7,
-    'RELIC': 9,
-
-    0: 'NORMAL',
-    1: 'MAGIC',
-    2: 'RARE',
-    3: 'UNIQUE',
-    4: 'GEM',
-    5: 'CURRENCY',
-    6: 'DIVINATION_CARD',
-    7: 'QUEST_ITEM',
-    9: 'RELIC',
+    "NORMAL": 0,
+    "MAGIC": 1,
+    "RARE": 2,
+    "UNIQUE": 3,
+    "GEM": 4,
+    "CURRENCY": 5,
+    "DIVINATION_CARD": 6,
+    "QUEST_ITEM": 7,
+    "RELIC": 9,
+    "SUPPORTER_RELIC": 10,
+    "NECROPOLIS": 11,
+    #
+    0: "NORMAL",
+    1: "MAGIC",
+    2: "RARE",
+    3: "UNIQUE",
+    4: "GEM",
+    5: "CURRENCY",
+    6: "DIVINATION_CARD",
+    7: "QUEST_ITEM",
+    9: "RELIC",
+    10: "SUPPORTER_RELIC",
+    11: "NECROPOLIS",
 }
 
 # POE Ninja sometimes puts like 'Alva' in the variant line, which we do not care about
 VARIANTS_THAT_MATTER_FOR_FILTERS = [
-    'SHAPER',
-    'ELDER',
-    'REDEEMER',
-    'HUNTER',
-    'CRUSADER',
-    'WARLORD'
+    "SHAPER",
+    "ELDER",
+    "REDEEMER",
+    "HUNTER",
+    "CRUSADER",
+    "WARLORD",
 ]
 
 # At time of writing, doing a standard filter can brick your filter if you lookup these items
@@ -103,7 +105,6 @@ BROKEN_ITEMS = [
     "The Aesthete's Spirit",
     "The Blacksmith",
     "The Emperor's Trove",
-
 ]
 
 UNDROPPABLE = [
@@ -159,8 +160,7 @@ UNDROPPABLE = [
     "the unshattered will",
     # corruption only
     "blood of corruption",
-    "ancient waystones"
-    "atziri's reign",
+    "ancient waystones" "atziri's reign",
     "blood sacrifice",
     "brittle barrier",
     "chill of corruption",
@@ -182,8 +182,8 @@ UNDROPPABLE = [
 ]
 
 ONLY_LINKED = [
-    'tabula rasa',
-    'skin of the lords',
-    'skin of the loyal',
-    'shadowstitch',
+    "tabula rasa",
+    "skin of the lords",
+    "skin of the loyal",
+    "shadowstitch",
 ]
