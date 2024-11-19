@@ -211,6 +211,8 @@ class Parser:
         is_oil = all([frame_type == self.currency, "oil" in name.lower()])
 
         # Avoid things like Shaper/Hunter bases that do not naturally drop, for example.
+        if self.is_awakener_orb_result(variant):
+            return None
         if self.is_unknown_variant(variant, is_normal_magic_or_rare):
             # Only want to alert on things we really don't know about.
             if not self.is_awakener_orb_result(variant):
@@ -330,6 +332,8 @@ class Parser:
         return Block(lines, block.show, block.nosound, comment, block.category, True)
 
     def is_awakener_orb_result(self, variant):
+        if "/" not in variant:
+            return False
         awakener_orb_result = [
             1
             for kv in constants.VARIANTS_THAT_MATTER_FOR_FILTERS

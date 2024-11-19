@@ -3,7 +3,7 @@
 config:
   name: marchfilter
   version: 1.0
-  league: Settlers of Kalguur
+  league: Settlers
 
 sounds:
   high: &sounds-high
@@ -41,7 +41,7 @@ colors:
   orange: &orange 255 139 85 222
   purple: &purple 181 149 199 222
   blue: &blue 198 212 255 222
-  gold: &gold 255 207 64 245
+  gold: &gold 255 207 64 215
 
   nocolor: &nocolor 255 255 255 0
 
@@ -340,7 +340,7 @@ palettes:
       - *sounds-unique
       - *base
   maps:
-    white: &maps-White
+    white: &maps-white
       <<:
         - *maps-bg-white
         - *maps-fg-white
@@ -478,8 +478,8 @@ palettes:
 
   hide: &hide
     bg: 100 100 100 100
-    fg: 200 100 100 100
-    fontsize: 12
+    fg: 200 100 100 200
+    fontsize: 24
 
   catch: &catch
     bg: 255 0 0 255
@@ -490,8 +490,10 @@ palettes:
     say: CATCH! CATCH! CATCH! CATCH! CAAAAATTTTCCCHHHH!
 
 blocks:
-  overrides:
+  leveling:
     __leveling__:
+      show: true
+  overrides:
     6l:
       <<: *other-med
       links: 6
@@ -514,6 +516,11 @@ blocks:
       <<: *currency-med
       classes: Currency
       bases: Tattoo, Omen
+    bases:
+      <<: *other-med
+      bases: Engraved Greatsword
+      influence: Shaper Elder Crusader Redeemer Hunter Warlord
+      # ilvl: ">= 83"
   orbs:
     mirror:
       <<: *currency-high
@@ -530,10 +537,19 @@ blocks:
       <<: *currency-high
       classes: Currency
       bases: Fracturing Shard, Fracturing Orb, Divine Orb, Orb of Conflict, Orb of Dominance, Mirror Shard, Tempering Orb, Tailoring Orb, Awakener's Orb, Sacred Orb, Regrading Lens, Veiled Orb
+    gold:
+      <<: *currency-low
+      fontsize: 20
+      beam: Yellow
+      icon: 2 Yellow Circle
+      fg: *black
+      bg: *gold
+      border: *gold
+      classes: Gold
     medium:
       <<: *currency-med
       classes: Currency
-      bases: Emblem, Ichor, Ember, Extractor, Exalted Orb, Blessing, Ancient Orb, Orb of Unmaking, Exalted Shard, Albino Rhoa Feather, Crescent Splinter, Simulacrum Splinter, Imprint, Cartographer's Chisel, Blessed Orb, Gemcutter's Prism, Catalyst, Chaos Orb, Orb of Scouring, Orb of Regret, Vaal Orb, Remnant of Corruption, Orb of Annulment, Harbinger's Orb, Fossil, Regal Orb, Stacked Deck, Splinter of Chayula
+      bases: Emblem, Ichor, Ember, Extractor, Exalted Orb, Blessing, Ancient Orb, Orb of Unmaking, Exalted Shard, Albino Rhoa Feather, Crescent Splinter, Simulacrum Splinter, Imprint, Maven's Chisel, Cartographer's Chisel, Blessed Orb, Gemcutter's Prism, Catalyst, Chaos Orb, Orb of Scouring, Orb of Regret, Vaal Orb, Remnant of Corruption, Orb of Annulment, Harbinger's Orb, Fossil, Regal Orb, Stacked Deck, Splinter of Chayula
     binding:
       <<: *currency-low
       show: true
@@ -550,7 +566,7 @@ blocks:
       classes: Currency
       bases: Orb of Fusing
     markers:
-      <<: *currency-med
+      <<: *currency-low
       show: true
       bases: Rogue's Marker
     deli:
@@ -588,7 +604,7 @@ blocks:
       bases: Chromatic Orb
     engineer:
       <<: *currency-low
-      show: false
+      show: true
       classes: Currency
       bases: Engineer's Orb
     trans:
@@ -617,7 +633,7 @@ blocks:
       classes: Currency
       bases: Scroll of Wisdom
     bauble:
-      <<: *currency-low
+      <<: *currency-med
       classes: Currency
       bases: Glassblower's Bauble
     flask_stuff:
@@ -634,7 +650,7 @@ blocks:
       <<: *base
       show: true
       classes: Currency
-      bases: Regal Shard, Engineer's Shard, Binding Shard, Alchemy Shard, Alteration Shard, Horizon Shard, Transmutation Shard, Scroll Fragment
+      bases: Regal Shard, Engineer's Shard, Binding Shard, Alchemy Shard, Alteration Shard, Transmutation Shard, Scroll Fragment, Horizon Shard
 
   non_orb_currencies:
     # Breach
@@ -698,7 +714,7 @@ blocks:
       lookup: essences 5
     bad_essences:
       <<: *base
-      show: false
+      show: true
       classes: Currency
       bases: Whispering Essence, Muttering Essence, Weeping Essence, Wailing Essence
     essences:
@@ -734,6 +750,7 @@ blocks:
       bases: Oil
     scouting_reports:
       <<: *currency-med
+      show: true
       bases: Scouting Report
     reliquary_keys:
       <<: *other-high
@@ -815,17 +832,17 @@ blocks:
       <<: *cards-high
       bases: The Apothecary
       classes: Divination Card
-    100c:
+    100c_div:
       <<: *cards-high
       lookup: divination cards 100
       classes: Divination Card
-    10c:
+    10c_div:
       <<: *cards-med
       lookup: divination cards 10
       classes: Divination Card
-    4c:
+    2c_div:
       <<: *cards-low
-      lookup: divination cards 4
+      lookup: divination cards 2
       classes: Divination Card
     # Can disable once economic data exists
     top_tier:
@@ -886,7 +903,7 @@ blocks:
       classes: Maps
       maptier: ">= 6"
     whites:
-      <<: *maps-t17
+      <<: *maps-white
       show: true
       classes: Maps
       maptier: "< 6"
@@ -967,7 +984,7 @@ blocks:
       classes: Abyss Jewel
     i84_abyss:
       <<: *other-med
-      show: false
+      show: true
       ilvl: ">= 84"
       classes: Abyss Jewel
     abyss:
@@ -991,7 +1008,8 @@ blocks:
 
   items:
     tinctures:
-      <<: *other-med
+      <<: *other-low
+      show: false
       classes: Tincture
     identified_fractures:
       <<: *hide
@@ -1011,18 +1029,18 @@ blocks:
     fractured:
       <<: *other-low
       fractured: true
-      show: false
+      show: true
     synthesized:
       <<: *other-med
       beam: Orange
-      classes: Amulets, Belts, Rings, Jewels, Maps, Shields, Helmets, Claw, Dagger, Wand, One Hand, Two Hand, Bow, Rune Dagger, Staff
+      classes: Amulets, Belts, Rings, Jewels, Maps, Shields, Helmets, Claw, Dagger, Wand, One Hand, Two Hand, Bow, Rune Dagger, Staff, Abyss Jewels
       synthesized: true
     q_synthesized:
       <<: *other-low
       beam: Orange
       synthesized: true
     anointed:
-      <<: *other-med
+      <<: *other-high
       classes: Amulet, Ring
       enchanted: true
       corrupted: false
@@ -1055,7 +1073,9 @@ blocks:
     trinket:
       <<: *rares-med
       classes: Trinket
-    # d2bases:
+    27quality:
+      <<: *rares-high
+      quality: ">= 27"
     #   <<: *rares-low
     #   show: false
     #   bases: Sorcerer Boots, Hubris Circlet, Fingerless Silk Gloves, Sorcerer Gloves, Vaal Regalia, Titanium Spirit Shield, Fossilised Spirit Shield
@@ -1069,6 +1089,7 @@ blocks:
      classes: Blueprint
     contracts:
       <<: *other-low
+      show: true
       classes: Contract
     brooches:
       <<: *rares-med
@@ -1103,7 +1124,7 @@ blocks:
       bases: Regicide Disguise Kit, Grandmaster Keyring, Thaumetic Flashpowder, Thaumaturgical Sensing Charm, Thaumaturgical Ward, Silkweave Sole, Thaumetic Blowtorch, Steel Bracers, Master Lockpick
     hench_gear:
       <<: *rares-low
-      show: false
+      show: true
       classes: Heist Cloak, Heist Brooch, Heist Tool, Heist Gear
     experimented:
       <<: *rares-med
@@ -1129,13 +1150,48 @@ blocks:
       <<: *other-low
       show: true
       explicit: Veiled, of the Veil
-    influenced:
+    crusader:
       <<: *other-med
+      show: true
+      influence: Crusader
+      bases: Amethyst Ring, Apothecary's Gloves, Blue Pearl Amulet, Bone Helmet, Calling Wand, Cerulean Ring, Crystal Belt, Fugitive Boots, Gripped Gloves, Marble Amulet, Opal Ring, Pagan Wand, Sage Wand, Seaglass Amulet, Spiked Gloves, Stag Sceptre, Steel Ring, Stygian Vise, Vermillion Ring, Warlock Boots, Iolite Ring, Penumbra Ring, Dusk Ring, Crystal Belt, Stygian Vise, Cerulean Ring, Opal Ring, Vermillion Ring, Warlock Boots
+    warlord:
+      <<: *other-med
+      show: true
+      influence: Warlord
+      bases: Amethyst Ring, Apothecary's Gloves, Astral Plate, Bone Helmet, Cardinal Round Shield, Cerulean Ring, Crystal Belt, Dusk Ring, Fugitive Boots, Giantslayer Helmet, Gripped Gloves, Leviathan Gauntlets, Leviathan Greaves, Lich's Circlet, Marble Amulet, Opal Ring, Precursor Gauntlets, Profane Wand, Reaver Axe, Royal Plate, Runic Hatchet, Spiked Gloves, Steel Ring, Stygian Vise, Twin Claw, Vanguard Belt, Velour Gloves, Wyvernscale Gauntlets, Iolite Ring, Sacrificial Garb, Vermillion Ring, Dusk Ring, Steel Ring, Stygian Vise, Amethyst Ring, Apothecary's Gloves, Fugitive Boots, Iolite Ring, Marble Amulet, Velour Gloves
+    redeemer:
+      <<: *other-med
+      show: true
+      influence: Redeemer
+      bases: Amethyst Ring, Apothecary's Gloves, Battle Buckler, Courtesan Sword, Crystal Belt, Dusk Ring, Fingerless Silk Gloves, Fugitive Boots, Imperial Buckler, Iolite Ring, Lacquered Buckler, Opal Ring, Prismatic Ring, Sage Wand, Spiked Gloves, Steel Ring, Stygian Vise, Twilight Regalia, Two-Toned Boots, Vanguard Belt, Vermillion Ring, Wyvernscale Boots, Dusk Ring, Spiked Gloves, Stygian Vise, Fugitive Boots, Opal Ring, Two-Toned Boots, Vermillion Ring
+    hunter:
+      <<: *other-med
+      show: true
+      influence: Hunter
+      bases: Vermillion Ring, Fugitive Boots, Gripped Gloves, Iolite Ring, Stygian Vise, Apothecary's Gloves, Broadhead Arrow Quiver, Crystal Belt, Opal Ring, Phantom Boots, Steel Ring, Vanguard Belt, Amethyst Ring, Apothecary's Gloves, Artillery Quiver, Astral Plate, Blue Pearl Amulet, Broadhead Arrow Quiver, Conquest Lamellar, Crystal Belt, Engraved Wand, Fingerless Silk Gloves, Fugitive Boots, Giantslayer Helmet, Gripped Gloves, Horned Sceptre, Iolite Ring, Marble Amulet, Opal Ring, Pagan Wand, Phantom Boots, Reaver Sword, Sage Wand, Spiked Gloves, Stygian Vise, Syndicate's Garb, Twilight Regalia, Two-Toned Boots, Vanguard Belt, Velour Gloves, Wyvernscale Gauntlets
+    shaper:
+      <<: *other-med
+      show: true
+      influence: Shaper
+      bases: Cardinal Round Shield, Lacquered Buckler, Colossal Tower Shield, Ezomyte Tower Shield, Pinnacle Tower Shield, Spiked Gloves, Stygian Vise, Battle Buckler, Bone Helmet, Bronze Tower Shield, Cerulean Ring, Colossal Tower Shield, Crusader Buckler, Crystal Belt, Ebony Tower Shield, Ezomyte Tower Shield, Fingerless Silk Gloves, Fossilised Spirit Shield, Fugitive Boots, Giantslayer Helmet, Imperial Buckler, Iolite Ring, Lacquered Buckler, Pinnacle Tower Shield, Spiked Gloves, Steel Ring, Stygian Vise, Supreme Spiked Shield, Vermillion Ring
+    elder:
+      <<: *other-med
+      show: true
+      influence: Elder
+      bases: Fingerless Silk Gloves, Giantslayer Helmet, Sacrificial Garb, Spiked Gloves, Stygian Vise, Conqueror's Helmet, Crystal Belt, Fugitive Boots, Iolite Ring, Reaver Axe, Vanguard Belt, Vermillion Ring, Apothecary's Gloves, Bone Helmet, Calling Wand, Cerulean Ring, Conqueror's Helmet, Crystal Belt, Eternal Burgonet, Ezomyte Burgonet, Fugitive Boots, General's Helmet, Giantslayer Helmet, Gripped Gloves, Haunted Bascinet, Iolite Ring, Leviathan Greaves, Marble Amulet, Opal Ring, Pagan Wand, Phantom Boots, Reaver Helmet, Royal Burgonet, Sacrificial Garb, Siege Helmet, Spiked Gloves, Steel Ring, Stygian Vise, Vanguard Belt, Wyvernscale Gauntlets
+    influenced_jewellery:
+      <<: *other-low
+      show: true
+      classes: Amulets, Rings, Belts
+      influence: Shaper Elder Crusader Redeemer Hunter Warlord
+    influenced_jewellery:
+      <<: *other-low
       show: true
       influence: Shaper Elder Crusader Redeemer Hunter Warlord
     corruptedrare:
       <<: *rares-low
-      show: false
+      show: true
       border: 255 0 0 222
       rarity: Rare
       corrupted: true
@@ -1149,12 +1205,12 @@ blocks:
       rarity: Rare
       border: 0 0 222 222
       identified: true
-      show: false
+      show: true
     endgamerares:
       <<: *rares-med
       show: true
-      # ilvl: ">= 83"
-      ilvl: ">= 68"
+      ilvl: ">= 83"
+      # ilvl: ">= 68"
       rarity: Rare
       bases: Amethyst Ring, Dusk Ring, Penumbra Ring, Gloam Ring, Tenebrous Ring, Shadowed Ring, Bone Ring, Seaglass Amulet, Fugitive Boots, Apothecary's Gloves, Artillery Quiver, Iolite Ring, Imperial Buckler, Harmonic Spirit Shield, Fossilised Spirit Shield, Imbued Wand, Opal Wand, Bone Helmet, Opal Ring, Steel Ring, Vermillion Ring, Blue Pearl Amulet, Cerulean Ring, Marble Amulet, Stygian Vise, Two-Toned Boots, Vanguard Belt, Diamond Ring, Onyx Amulet, Two-Stone Ring, Amber Amulet, Agate Amulet, Citrine Amulet, Coral Ring, Gold Ring, Jade Amulet, Lapis Amulet, Leather Belt, Moonstone Ring, Prismatic Ring, Ruby Ring, Sapphire Ring, Topaz Ring, Turquoise Amulet, Unset Ring
     earlygamerarejewellery:
@@ -1208,9 +1264,9 @@ blocks:
       <<: *other-low
       classes: Skill Gem, Support Gem
       corrupted: true
-      show: false
+      show: true
     gems:
-      show: false
+      show: true
       <<: *other-low
       classes: Skill Gem, Support Gem
 

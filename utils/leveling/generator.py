@@ -321,7 +321,7 @@ def generate_rare_items():
 def generate_links(links, output_file_path):
     link_output = ""
 
-    for link in links:
+    for link in links or []:
         link_output += (
             f"# leveling/links/{link}\n"
             "Show\n"
@@ -353,7 +353,7 @@ def generate_leveling_filter_blocks(block, output_file_path):
         )
 
     # show iron rings and belts if we are dealing with attacky weapons
-    for weapon in weapons:
+    for weapon in weapons or []:
         if weapon.strip().lower() in LIKELY_ATTACKING:
             the_leveling_filter += generate_attacking_stuff()
         else:
