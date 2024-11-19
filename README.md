@@ -1,3 +1,7 @@
+# What
+
+The project is my personal filter generator for Path of Exile. Think of it like filterblade but with yaml instead of a GUI.
+
 # Installation:
 
 ## Linux/WSL:
