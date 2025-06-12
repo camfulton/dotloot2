@@ -51,6 +51,12 @@ argparser.add_argument(
     help="Includes items without any variant in lookups. Defaults to False.",
 )
 
+argparser.add_argument(
+    "--poe2",
+    action="store_true",
+    help="Output a poe2 filter",
+)
+
 args = argparser.parse_args()
 
 input_file_path = args.input
@@ -60,11 +66,15 @@ weapons = args.weapon
 links = args.links
 earlygame = args.earlygame
 include_no_variant = args.include_no_variant
+poe2 = args.poe2
 
 try:
-    output_path = config["output_path"]
+    if poe2:
+        output_path = config["poe2_output_path"]
+    else:
+        output_path = config["poe1_output_path"]
 except KeyError:
-    print("You must configure an output_path in config.py")
+    print("You must configure an output path in config.py")
     exit(0)
 
 try:

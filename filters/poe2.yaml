@@ -1,0 +1,393 @@
+config:
+  name: poe2filter
+  version: 0.1
+  league: Standard
+
+colors:
+  black: &black 15 3 38 222
+  white: &white 245 247 220 222
+  grey: &grey 192 192 192 222
+  beige: &beige 255 240 219 222
+  yellow: &yellow 255 255 130 222
+  red: &red 230 95 92 222
+  orange: &orange 255 139 85 222
+  purple: &purple 181 149 199 222
+  blue: &blue 198 212 255 222
+  gold: &gold 255 207 64 215
+  nocolor: &nocolor 255 255 255 0
+
+sounds:
+  tink: &tink 6 300
+  currency: &currency 16 300
+  map: &map 15 300
+  item: &item 16 300
+
+styles:
+  basestyle: &basestyle
+    bg: *black
+    fontsize: 42
+    border: *nocolor
+
+  # Currency ==============================================
+  currency_tink: &currency_tink
+    <<: *basestyle
+    bg: *white
+    fg: *black
+    border: *white
+    sound: *tink
+    beam: White
+    icon: 0 White Star
+
+  currency_med: &currency_med
+    <<: *basestyle
+    fg: *white
+    border: *white
+    sound: *currency
+    icon: 2 White Star
+
+  currency_low: &currency_low
+    <<: *basestyle
+    fg: *white
+
+  # Maps ==================================================
+  t15s: &t15s
+    <<: *basestyle
+    fg: *red
+    border: *grey
+    sound: *map
+    beam: Red
+    icon: 0 Red Square
+
+  reds: &reds
+    <<: *basestyle
+    border: *grey
+    fg: *red
+    sound: *map
+    icon: 2 Red Square
+
+  yellows: &yellows
+    <<: *basestyle
+    fg: *yellow
+    border: *grey
+    icon: 2 Yellow Square
+
+  whites: &whites
+    <<: *basestyle
+    fg: *grey
+    border: *grey
+  
+  # Gear ==================================================
+  unique_tink: &unique_tink
+    <<: *basestyle
+    fg: *black
+    bg: *orange
+    border: *black
+    sound: *tink
+    beam: Orange
+    icon: 0 Orange Circle
+
+  unique_highlight: &unique_highlight
+    <<: *basestyle
+    fg: *orange
+    border: *orange
+    sound: *item
+    icon: 1 Orange Circle
+
+  unique: &unique
+    <<: *basestyle
+    fg: *orange
+    sound: *item
+    icon: 2 Orange Circle
+
+  rare_highlight: &rare_highlight
+    <<: *basestyle
+    fg: *yellow
+    border: *yellow
+
+  magic_highlight: &magic_highlight
+    <<: *basestyle
+    fg: *blue
+    border: *blue
+  
+  normal_highlight: &normal_highlight
+    <<: *basestyle
+    fg: *beige
+    border: *beige
+
+  rare: &rare
+    <<: *basestyle
+    fg: *yellow
+
+  magic: &magic
+    <<: *basestyle
+    fg: *blue
+  
+  normal: &normal
+    <<: *basestyle
+    fg: *beige
+
+  # Other =================================================
+  gold_big: &gold_big
+    <<: *basestyle
+    fg: *yellow
+  
+  gold_small: &gold_small
+    <<: *basestyle
+    fg: *yellow
+    fontsize: 28
+  
+  other_item_tink: &other_item_tink
+    <<: *basestyle
+    bg: *purple
+    fg: *white
+    border: *white
+    sound: *tink
+    beam: Purple
+    icon: 0 Purple Hexagon
+  
+  other_item_highlight: &other_item_highlight
+    <<: *basestyle
+    fg: *purple
+    border: *purple
+    sound: *item
+    icon: 2 Purple Hexagon
+
+  other_item: &other_item
+    <<: *basestyle
+    fg: *purple
+    sound: *item
+
+  catch: &catch
+    bg: 255 0 0 255
+    fg: 0 255 0 255
+    border: 0 0 255 255
+    icon: 2 Green UpsideDownHouse
+    beam: Pink
+    sound: 5 300
+
+blocks:
+  overrides:
+    sanctum:
+      <<: *other_item_highlight
+      bases: Bronze Key, Silver Key, Gold Key
+  # league:
+  currency:
+    hide:
+      <<: *currency_low
+      show: false
+      bases: Orb of Augmentation, Orb of Transmutation, Regal Shard
+      classes: Currency
+    high:
+      <<: *currency_tink
+      bases: Mirror of Kalandra, Perfect Jeweller's Orb, Greater Jeweller's Orb, Divine Orb
+      classes: Currency
+    med:
+      <<: *currency_med
+      bases: Jeweller's Orb, Orb of Chance, Orb of Alchemy, Chaos Orb, Vaal Orb, Exalted Orb, Orb of Annulment, Glassblower's Bauble, Gemcutter's Prism
+      classes: Currency
+    low:
+      <<: *currency_low
+      bases: Orb of Transmutation, Orb of Augmentation, Regal Orb, Artificer's Orb, Armourer's Scrap, Blacksmith's Whetstone, Arcanist's Etcher, Artificer's Shard, Chance Shard, Regal Shard
+      classes: Currency
+    gold_lg:
+      <<: *gold_big
+      stacksize: ">= 999"
+      bases: Gold
+      classes: Currency
+    gold_sm:
+      <<: *gold_small
+      bases: Gold
+      classes: Currency
+    hidden:
+      show: false
+      <<: *currency_low
+      bases: Scroll of Wisdom, Transmutation Shard
+  
+  waystones:
+    15s:
+      <<: *t15s
+      bases: Waystone
+      waystonetier: 15
+    reds:
+      <<: *reds
+      bases: Waystone
+      waystonetier: ">= 11"
+    yellows:
+      show: true
+      <<: *yellows
+      bases: Waystone
+      waystonetier: ">= 6"
+    whites:
+      show: true
+      <<: *whites
+      bases: Waystone
+    tablets:
+      <<: *other_item_highlight
+      bases: " Tablet"
+
+  stuff:
+    trials:
+      <<: *other_item_highlight
+      bases: Barya, Ultimatum
+    uncut_highlight:
+      <<: *other_item_tink
+      bases: "Uncut "
+      ilvl: 20..20
+    uncut:
+      show: true
+      <<: *other_item
+      bases: Uncut Skill, Uncut Spirit
+      ilvl: 18..20
+    uncut:
+      show: false
+      <<: *other_item
+      bases: "Uncut "
+    splinters:
+      <<: *other_item_highlight
+      bases: Breach Splinter, Simulacrum Splinter
+    invites:
+      <<: *other_item_tink
+      bases: Simulacrum, An Audience with the King, Cowardly Fate, Deadly Fate, Victorious Fate
+    runes:
+      show: false
+      <<: *other_item
+      bases: Desert Rune, Glacial Rune, Storm Rune, Iron Rune, Body Rune, Mind Rune, Rebirth Rune, Inspiration Rune, Stone Rune, Vision Rune
+    soul_cores:
+      <<: *other_item_highlight
+      bases: Soul Core
+    high_essence:
+      <<: *other_item_highlight
+      bases: Greater Essence
+    essence:
+      <<: *other_item
+      bases: Essence
+    catalysts:
+      <<: *other_item
+      bases: Catalyst
+    expedition_high:
+      <<: *other_item_highlight
+      bases: Logbook
+    expedition:
+      <<: *other_item
+      bases: Exotic Coinage, Broken Circle Artifact, Black Scythe Artifact, Order Artifact, Sun Artifact
+    omens:
+      <<: *other_item
+      bases: "Omen of "
+    distillations_high:
+      <<: *other_item_tink
+      bases: Distilled Isolation, Distilled Suffering, Distilled Fear
+    distillations_med:
+      <<: *other_item_highlight
+      bases: Distilled Despair, Distilled Disgust
+    distillations_low:
+      <<: *other_item
+      bases: Distilled
+    relics:
+      <<: *other_item_highlight
+      classes: Relic
+  
+  gear:
+    # At time of writing, exclusive base high value (20ex) uniques only 
+    uniques_tink:
+      <<: *unique_tink
+      rarity: Unique
+      bases: Heavy Belt, Utility Belt, Mana Flask, Ornate Belt, Smuggler Coat
+    uniques_highlight:
+      <<: *unique_highlight
+      rarity: Unique
+      classes: Amulets, Rings
+    uniques:
+      <<: *unique
+      rarity: Unique
+    rare_base_highlights:
+      <<: *rare_highlight
+      rarity: Rare
+      bases: Breach Ring, Expert Leaden Greathammer, Expert Forge Maul, Expert Bombard Crossbow, Expert Forlorn Crossbow, Expert Dualstring Bow, Attuned Wand, Siphoning Wand, Expert Feathered Tiara, Expert Chain Tiara, Expert Wicker Tiara, Expert Hexer's Robe, Expert Feathered Sandals, Expert Wrapped Sandals, Expert Silk Slippers, Expert Jewelled Gloves, Expert Intricate Gloves, Expert Sombre Gloves
+    magic_base_highlights:
+      <<: *magic_highlight
+      rarity: Magic
+      bases: Breach Ring, Expert Leaden Greathammer, Expert Forge Maul, Expert Bombard Crossbow, Expert Forlorn Crossbow, Expert Dualstring Bow, Attuned Wand, Siphoning Wand, Expert Feathered Tiara, Expert Chain Tiara, Expert Wicker Tiara, Expert Hexer's Robe, Expert Feathered Sandals, Expert Wrapped Sandals, Expert Silk Slippers, Expert Jewelled Gloves, Expert Intricate Gloves, Expert Sombre Gloves
+    normal_base_highlights:
+      <<: *normal_highlight
+      rarity: Normal
+      bases: Heavy Belt, Breach Ring, Expert Leaden Greathammer, Expert Forge Maul, Expert Bombard Crossbow, Expert Forlorn Crossbow, Expert Dualstring Bow, Attuned Wand, Siphoning Wand, Expert Feathered Tiara, Expert Chain Tiara, Expert Wicker Tiara, Expert Hexer's Robe, Expert Feathered Sandals, Expert Wrapped Sandals, Expert Silk Slippers, Expert Jewelled Gloves, Expert Intricate Gloves, Expert Sombre Gloves
+    rare_charms:
+      <<: *rare
+      bases: " Charm"
+      rarity: Rare
+    magic_charms:
+      <<: *magic
+      bases: " Charm"
+      rarity: Magic
+    normal_charms:
+      <<: *normal
+      bases: " Charm"
+      rarity: Normal
+    rare_jewel:
+      <<: *rare_highlight
+      classes: Jewel
+      rarity: Rare
+    magic_jewel:
+      <<: *magic_highlight
+      classes: Jewel
+      rarity: Magic
+    normal_jewel:
+      <<: *normal_highlight
+      classes: Jewel
+      rarity: Normal
+    rare_jewellery:
+      <<: *rare_highlight
+      classes: Rings, Amulets, Belts
+      rarity: Rare
+    magic_jewellery:
+      <<: *magic_highlight
+      classes: Rings, Amulets
+      rarity: Magic
+    normal_jewellery:
+      <<: *normal_highlight
+      classes: Rings, Amulets
+      rarity: Normal
+    expert_martial_weapons:
+      <<: *rare
+      rarity: Rare
+      bases: "Expert "
+      classes: Mace, Quarter, Bow, Crossbow
+    other_rares:
+      <<: *rare
+      rarity: Rare
+      classes: Belts, Focus, Flask, Body, Helmet, Boots, Gloves, Shield, Quiver, Staff, Wand, Sceptre
+    hidden_rare:
+      show: false
+      <<: *rare
+      rarity: Rare
+      alvl: ">= 65"
+      classes: Mace, Staff, Quarter, Bow, Crossbow
+    hidden_magic:
+      show: false
+      <<: *magic
+      rarity: Magic
+      alvl: ">= 45"
+      classes: Belts, Focus, Flask, Body, Helmet, Boots, Gloves, Shield, Quiver, Mace, Staff, Quarter, Bow, Crossbow, Wand, Sceptre
+    hidden_normal:
+      show: false
+      <<: *normal
+      rarity: Normal
+      alvl: ">= 25"
+      classes: Belts, Focus, Flask, Body, Helmet, Boots, Gloves, Shield, Quiver, Mace, Staff, Quarter, Bow, Crossbow, Wand, Sceptre
+    leveling_rare:
+      <<: *rare
+      rarity: Rare
+      alvl: "< 65"
+      classes: Mace, Staff, Quarter, Bow, Crossbow
+    leveling_magic:
+      <<: *magic
+      rarity: Magic
+      alvl: "< 45"
+      classes: Belts, Focus, Flask, Body, Helmet, Boots, Gloves, Shield, Quiver, Mace, Staff, Quarter, Bow, Crossbow, Wand, Sceptre
+    leveling_normal:
+      <<: *normal
+      rarity: Normal
+      alvl: "< 25"
+      classes: Belts, Focus, Flask, Body, Helmet, Boots, Gloves, Shield, Quiver, Mace, Staff, Quarter, Bow, Crossbow, Wand, Sceptre
+    failsafe:
+      <<: *catch

@@ -3,7 +3,7 @@
 config:
   name: marchfilter
   version: 1.0
-  league: Settlers
+  league: Phrecia
 
 sounds:
   high: &sounds-high
@@ -490,9 +490,18 @@ palettes:
     say: CATCH! CATCH! CATCH! CATCH! CAAAAATTTTCCCHHHH!
 
 blocks:
-  leveling:
-    __leveling__:
-      show: true
+  # leveling:
+  #   __leveling__:
+  #     show: true
+  lvling:
+    rares:
+      <<: *lvling
+      rarity: rare
+      leveling: true
+    # blues:
+      # <<: *lvling
+      # rarity: magic
+      # leveling: true
   overrides:
     6l:
       <<: *other-med
@@ -509,8 +518,12 @@ blocks:
       bases: The Wolf's Shadow, The Catalyst, The Demoness
       show: false
     idols:
+      <<: *other-high
+      rarity: Unique
+      classes: Idol
+    idols:
       <<: *other-med
-      bases: Idol
+      classes: Idol
     league_high:
       <<: *currency-high
       classes: Currency
@@ -651,7 +664,7 @@ blocks:
       bases: Harbinger's Shard, Annulment Shard, Ancient Shard, Chaos Shard, Regal Shard
     bad_shards:
       <<: *base
-      show: true
+      show: false
       classes: Currency
       bases: Regal Shard, Engineer's Shard, Binding Shard, Alchemy Shard, Alteration Shard, Transmutation Shard, Scroll Fragment, Horizon Shard
 
@@ -859,7 +872,7 @@ blocks:
     div:
       <<: *cards-low
       border: *red
-      show: true
+      show: false
       classes: Divination Card
 
   maps:
@@ -974,14 +987,14 @@ blocks:
 
   jewels:
     corrupted_with_implicit:
-      <<: *other-med
+      <<: *other-high
       border: *red
       beam: Orange
       classes: Jewel, Abyss Jewel
       corrupted: true
       implicit: true
     boosted_abyss:
-      <<: *other-med
+      <<: *other-high
       show: true
       corrupted: true
       classes: Abyss Jewel
@@ -1010,15 +1023,9 @@ blocks:
       bases: Cobalt Jewel, Crimson Jewel, Viridian Jewel, Prismatic Jewel
 
   items:
-    ssf:
-      <<: *rares-high
-      beam: White
-      show: true
-      ilvl: ">= 68"
-      bases: Despot Axe, Vaal Axe, Ezomyte Axe, Sundering Axe, Royal Plate, Legion Plate, Titan Plate, Leviathan Greaves, Precursor Greaves, Titan Greaves, Vaal Greaves, Goliath Greaves, Leviathan Gauntlets, Precursor Gauntlets, Spiked Gloves, Titan Gauntlet, Giantslayer Helmet, Conqueror's Helmet, General's Helmet, Eternal Burgonet, Royal Burgonet  
     tinctures:
       <<: *other-low
-      show: false
+      show: true
       classes: Tincture
     identified_fractures:
       <<: *hide
@@ -1215,11 +1222,18 @@ blocks:
       border: 0 0 222 222
       identified: true
       show: true
+    ssf:
+      <<: *rares-med
+      show: true
+      icon: 2 White Square
+      beam: White
+      ilvl: ">= 68"
+      bases: Despot Axe, Vaal Axe, Karui Chopper, Royal Plate, Legion Plate, Leviathan Greaves, Precursor Greaves, Leviathan Gauntlets, Precursor Gauntlets, Giantslayer Helmet, Conqueror's Helmet 
     endgamerares:
       <<: *rares-med
       show: true
-      ilvl: ">= 83"
-      # ilvl: ">= 68"
+      # ilvl: ">= 83"
+      ilvl: ">= 68"
       rarity: Rare
       bases: Amethyst Ring, Dusk Ring, Penumbra Ring, Gloam Ring, Tenebrous Ring, Shadowed Ring, Bone Ring, Seaglass Amulet, Fugitive Boots, Apothecary's Gloves, Artillery Quiver, Iolite Ring, Imperial Buckler, Harmonic Spirit Shield, Fossilised Spirit Shield, Imbued Wand, Opal Wand, Bone Helmet, Opal Ring, Steel Ring, Vermillion Ring, Blue Pearl Amulet, Cerulean Ring, Marble Amulet, Stygian Vise, Two-Toned Boots, Vanguard Belt, Diamond Ring, Onyx Amulet, Two-Stone Ring, Amber Amulet, Agate Amulet, Citrine Amulet, Coral Ring, Gold Ring, Jade Amulet, Lapis Amulet, Leather Belt, Moonstone Ring, Prismatic Ring, Ruby Ring, Sapphire Ring, Topaz Ring, Turquoise Amulet, Unset Ring
     earlygamerarejewellery:
@@ -1275,14 +1289,14 @@ blocks:
       corrupted: true
       show: true
     gems:
-      show: false
+      show: true
       <<: *other-low
       classes: Skill Gem, Support Gem
 
   catch:
     flasks:
-      <<: *hide
-      show: false
+      <<: *other-low
+      show: true
       classes: Utility Flasks
     lifemanaflasks:
       <<: *hide

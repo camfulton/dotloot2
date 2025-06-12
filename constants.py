@@ -54,6 +54,8 @@ SYNTAX = {
     "eater": "HasEaterOfWorldsImplicit",
     "nem": "ArchnemesisMod",
     "implicit": "HasImplicitMod",
+    # POE 2 SHIT HERE ================================
+    "waystonetier": "WaystoneTier",
 }
 # Avoid updating both if they change the customsound syntax
 SYNTAX["say"] = SYNTAX["customsound"]
