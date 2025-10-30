@@ -7,23 +7,23 @@ config:
 
 sounds:
   high: &sounds-high
-    customsound: necropolis/high3.mp3
+    customsound: boosted/diablo2/conversion.wav
   currency: &sounds-currency
-    customsound: necropolis/currency.mp3
+    customsound: boosted/diablo2/gold.wav
   scarabs: &sounds-scarabs
-    customsound: necropolis/scarabs.mp3
+    customsound: boosted/diablo2/amulet.wav
   unique: &sounds-unique
-    customsound: necropolis/unique.mp3
+    customsound: boosted/diablo2/gem.wav
   maps: &sounds-map
-    customsound: necropolis/map.mp3
+    customsound: boosted/diablo2/flippy.wav
   target-map: &sounds-target-map
-    customsound: necropolis/targetmap.mp3
+    customsound: boosted/diablo2/identify.wav
   rares: &sounds-rare
-    customsound: necropolis/rare.mp3
+    customsound: boosted/diablo2/charm.wav
   cards: &sounds-card
-    customsound: necropolis/card.mp3
+    customsound: boosted/diablo2/key.wav
   other: &sounds-other
-    customsound: necropolis/other.mp3
+    customsound: boosted/diablo2/jewel.wav
 
 colors:
   # colors
@@ -490,9 +490,9 @@ palettes:
     say: CATCH! CATCH! CATCH! CATCH! CAAAAATTTTCCCHHHH!
 
 blocks:
-  # leveling:
-  #   __leveling__:
-  #     show: true
+  leveling:
+    __leveling__:
+      show: true
   lvling:
     rares:
       <<: *lvling
@@ -730,7 +730,7 @@ blocks:
       lookup: essences 5
     bad_essences:
       <<: *base
-      show: true
+      show: false
       classes: Currency
       bases: Whispering Essence, Muttering Essence, Weeping Essence, Wailing Essence
     essences:

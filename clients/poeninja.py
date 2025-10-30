@@ -255,7 +255,7 @@ class PoeNinjaClient:
 
         if not chaos_value:
             print(f"""
-                    poe.ninja didn\'t have a buy price for {item['name']}
+                    poe.ninja didn\'t have a buy price for {item["name"]}
                     You will probably want to figure out if it should be in your filter.
                 """)
 
@@ -298,7 +298,7 @@ class PoeNinjaClient:
             if not item_value:
                 # Alert to make sure ppl know there might be an issue, but show the item anyway bc its better to see it than not  # noqa
                 print(
-                    f'  ! Item: {item["name"]} is being looked up with qualifier: {qual_key} but poe.ninja does not track that qualifier for that item type'  # noqa
+                    f"  ! Item: {item['name']} is being looked up with qualifier: {qual_key} but poe.ninja does not track that qualifier for that item type"  # noqa
                 )
                 return True
 

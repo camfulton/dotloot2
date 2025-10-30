@@ -32,8 +32,8 @@ def generate_currency(output_file_path):
         f"\t{constants.SYNTAX['fontsize']} {lvling_constants.LVLING_FONT_SIZE}\n"
         f"\t{constants.SYNTAX['alvl']} <= 68\n"
         f"\t{constants.SYNTAX['classes']} Currency\n"
-        f"\t{constants.SYNTAX['bases']} \"Blacksmith's Whetstone\"\n"
-        f"\t{constants.SYNTAX['say']} \"{sounds.get_or_create_sound(output_file_path, 'whet...')}\"\n"
+        f'\t{constants.SYNTAX["bases"]} "Blacksmith\'s Whetstone"\n'
+        f'\t{constants.SYNTAX["say"]} "{sounds.get_or_create_sound(output_file_path, "whet...")}"\n'
         f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['border']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n\n\n"
@@ -45,8 +45,8 @@ def generate_currency(output_file_path):
         f"\t{constants.SYNTAX['fontsize']} {lvling_constants.LVLING_FONT_SIZE}\n"
         f"\t{constants.SYNTAX['alvl']} <= 68\n"
         f"\t{constants.SYNTAX['classes']} Currency\n"
-        f"\t{constants.SYNTAX['bases']} \"Armourer's Scrap\"\n"
-        f"\t{constants.SYNTAX['say']} \"{sounds.get_or_create_sound(output_file_path, 'scrap...')}\"\n"
+        f'\t{constants.SYNTAX["bases"]} "Armourer\'s Scrap"\n'
+        f'\t{constants.SYNTAX["say"]} "{sounds.get_or_create_sound(output_file_path, "scrap...")}"\n'
         f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['border']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n\n\n"
@@ -58,8 +58,8 @@ def generate_currency(output_file_path):
         f"\t{constants.SYNTAX['fontsize']} {lvling_constants.LVLING_FONT_SIZE}\n"
         f"\t{constants.SYNTAX['alvl']} <= 68\n"
         f"\t{constants.SYNTAX['classes']} Currency\n"
-        f"\t{constants.SYNTAX['bases']} \"Orb of Alteration\"\n"
-        f"\t{constants.SYNTAX['say']} \"{sounds.get_or_create_sound(output_file_path, 'alt...')}\"\n"
+        f'\t{constants.SYNTAX["bases"]} "Orb of Alteration"\n'
+        f'\t{constants.SYNTAX["say"]} "{sounds.get_or_create_sound(output_file_path, "alt...")}"\n'
         f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['border']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n\n\n"
@@ -71,8 +71,8 @@ def generate_currency(output_file_path):
         f"\t{constants.SYNTAX['fontsize']} {lvling_constants.LVLING_FONT_SIZE}\n"
         f"\t{constants.SYNTAX['alvl']} <= 68\n"
         f"\t{constants.SYNTAX['classes']} Currency\n"
-        f"\t{constants.SYNTAX['bases']} \"Orb of Transmutation\"\n"
-        f"\t{constants.SYNTAX['say']} \"{sounds.get_or_create_sound(output_file_path, 'trans...')}\"\n"
+        f'\t{constants.SYNTAX["bases"]} "Orb of Transmutation"\n'
+        f'\t{constants.SYNTAX["say"]} "{sounds.get_or_create_sound(output_file_path, "trans...")}"\n'
         f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['border']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n\n\n"
@@ -84,8 +84,8 @@ def generate_currency(output_file_path):
         f"\t{constants.SYNTAX['fontsize']} {lvling_constants.LVLING_FONT_SIZE}\n"
         f"\t{constants.SYNTAX['alvl']} <= 68\n"
         f"\t{constants.SYNTAX['classes']} Currency\n"
-        f"\t{constants.SYNTAX['bases']} \"Orb of Chance\"\n"
-        f"\t{constants.SYNTAX['say']} \"{sounds.get_or_create_sound(output_file_path, 'chance...')}\"\n"
+        f'\t{constants.SYNTAX["bases"]} "Orb of Chance"\n'
+        f'\t{constants.SYNTAX["say"]} "{sounds.get_or_create_sound(output_file_path, "chance...")}"\n'
         f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['border']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n\n\n"
@@ -98,7 +98,7 @@ def generate_currency(output_file_path):
         f"\t{constants.SYNTAX['alvl']} <= 68\n"
         f"\t{constants.SYNTAX['classes']} Currency\n"
         f"\t{constants.SYNTAX['bases']} Essence\n"
-        f"\t{constants.SYNTAX['say']} \"{sounds.get_or_create_sound(output_file_path, 'essence...')}\"\n"
+        f'\t{constants.SYNTAX["say"]} "{sounds.get_or_create_sound(output_file_path, "essence...")}"\n'
         f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_FG}\n"
         f"\t{constants.SYNTAX['border']} {lvling_constants.LVLING_FG}\n"
         f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n\n\n"
@@ -137,7 +137,7 @@ def generate_currency(output_file_path):
         f"\t{constants.SYNTAX['fontsize']} {lvling_constants.LVLING_FONT_SIZE}\n"
         f"\t{constants.SYNTAX['alvl']} <= 68\n"
         f"\t{constants.SYNTAX['classes']} Currency\n"
-        f"\t{constants.SYNTAX['bases']} \"Scroll of Wisdom\" \"Portal Scroll\" \"Orb of Augmentation\"\n"
+        f'\t{constants.SYNTAX["bases"]} "Scroll of Wisdom" "Portal Scroll" "Orb of Augmentation"\n'
         f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['border']} {lvling_constants.LVLING_NORMAL_FG}\n"
         f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n\n\n"
@@ -194,9 +194,9 @@ def generate_misc_items(output_file_path):
         f"\t{constants.SYNTAX['fontsize']} {lvling_constants.LVLING_FONT_SIZE}\n"
         f"\t{constants.SYNTAX['alvl']} <= 68\n"
         f"\t{constants.SYNTAX['icon']} 1 Red Diamond\n"
-        f"\t{constants.SYNTAX['classes']} \"Utility Flasks\"\n"
+        f'\t{constants.SYNTAX["classes"]} "Utility Flasks"\n'
         f"\t{constants.SYNTAX['bases']} Quicksilver\n"
-        f"\t{constants.SYNTAX['say']} \"{sounds.get_or_create_sound(output_file_path, 'quicksilver...')}\"\n"
+        f'\t{constants.SYNTAX["say"]} "{sounds.get_or_create_sound(output_file_path, "quicksilver...")}"\n'
         f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_FG}\n"
         f"\t{constants.SYNTAX['border']} {lvling_constants.LVLING_BORDER}\n"
         f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n\n\n"
@@ -207,7 +207,7 @@ def generate_misc_items(output_file_path):
         "Show\n"
         f"\t{constants.SYNTAX['fontsize']} {lvling_constants.LVLING_FONT_SIZE}\n"
         f"\t{constants.SYNTAX['alvl']} <= 68\n"
-        f"\t{constants.SYNTAX['classes']} \"Utility Flasks\"\n"
+        f'\t{constants.SYNTAX["classes"]} "Utility Flasks"\n'
         f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_FG}\n"
         f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n\n\n"
     )
@@ -217,7 +217,7 @@ def generate_misc_items(output_file_path):
         "Show\n"
         f"\t{constants.SYNTAX['fontsize']} {lvling_constants.LVLING_FONT_SIZE}\n"
         f"\t{constants.SYNTAX['alvl']} <= 68\n"
-        f"\t{constants.SYNTAX['classes']} \"Gem\"\n"
+        f'\t{constants.SYNTAX["classes"]} "Gem"\n'
         f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_FG}\n"
         f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n\n\n"
     )
@@ -331,9 +331,23 @@ def generate_links(links, output_file_path):
             f"\t{constants.SYNTAX['icon']} 1 Blue Diamond\n"
             f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_RARE_FG}\n"
             f"\t{constants.SYNTAX['border']} {lvling_constants.LVLING_RARE_FG}\n"
-            f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n\n\n"
-            f"\t{constants.SYNTAX['say']} \"{sounds.get_or_create_sound(output_file_path, f'{link}...')}\"\n"
+            f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n"
+            f'\t{constants.SYNTAX["say"]} "{sounds.get_or_create_sound(output_file_path, f"{link}...")}"\n\n\n'
         )
+
+    link_output += (
+        f"# leveling/links/generic_4l\n"
+        "Show\n"
+        f"\t{constants.SYNTAX['fontsize']} {lvling_constants.LVLING_FONT_SIZE}\n"
+        f"\t{constants.SYNTAX['links']} >= 4\n"
+        f"\t{constants.SYNTAX['alvl']} <= 68\n"
+        f"\t{constants.SYNTAX['icon']} 1 Blue Diamond\n"
+        f"\t{constants.SYNTAX['fg']} {lvling_constants.LVLING_RARE_FG}\n"
+        f"\t{constants.SYNTAX['border']} {lvling_constants.LVLING_RARE_FG}\n"
+        f"\t{constants.SYNTAX['bg']} {lvling_constants.LVLING_BG}\n"
+        f'\t{constants.SYNTAX["classes"]} "Body Armours" "Boots" "Gloves" "Helmets"\n'
+        f'\t{constants.SYNTAX["say"]} "{sounds.get_or_create_sound(output_file_path, "four link...")}"\n\n\n'
+    )
 
     return link_output
 
@@ -366,5 +380,7 @@ def generate_leveling_filter_blocks(block, output_file_path):
     the_leveling_filter += generate_rare_items()
     the_leveling_filter += generate_magic_items()
     the_leveling_filter += generate_normal_items()
+
+    the_leveling_filter += "# :: END LEVELING SECTION ::\n"
 
     return the_leveling_filter

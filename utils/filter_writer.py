@@ -62,7 +62,7 @@ def convert_blocks_to_filter_blocks(blocks, output_file_path):
 def convert_block_to_filter_block(block, output_file_path):
     nosound = any([block.nosound, "DisableDropSound" in block.show])
     filter_block = (
-        f'{block.comment}{block.show}{block.nosound if block.nosound else ""}'
+        f"{block.comment}{block.show}{block.nosound if block.nosound else ''}"
     )
 
     if "__leveling__" in block.comment:
@@ -100,7 +100,14 @@ def get_parsed_value(line, output_file_path):
         return f'"{sound_path}"'
 
     # These all need quotes.
-    if line.parameter in ["bases", "classes", "explicit", "nem"]:
+    if line.parameter in [
+        "bases",
+        "classes",
+        "explicit",
+        "nem",
+        "clusterenchant",
+        "influence",
+    ]:
         return " ".join(
             [
                 f'"{x.strip()}"'

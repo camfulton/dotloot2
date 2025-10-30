@@ -22,6 +22,8 @@ SYNTAX = {
     "explicit": "HasExplicitMod",
     "enchanted": "AnyEnchantment",
     "enchantments": "HasEnchantment",
+    "clusterenchant": "EnchantmentPassiveNode",
+    "clustersize": "EnchantmentPassiveNum",
     "stacksize": "StackSize",
     "gemlvl": "GemLevel",
     "identified": "Identified",
@@ -54,6 +56,8 @@ SYNTAX = {
     "eater": "HasEaterOfWorldsImplicit",
     "nem": "ArchnemesisMod",
     "implicit": "HasImplicitMod",
+    "memory": "ZanaMemory",
+    "strands": "MemoryStrands",
     # POE 2 SHIT HERE ================================
     "waystonetier": "WaystoneTier",
 }
@@ -162,7 +166,7 @@ UNDROPPABLE = [
     "the unshattered will",
     # corruption only
     "blood of corruption",
-    "ancient waystones" "atziri's reign",
+    "ancient waystonesatziri's reign",
     "blood sacrifice",
     "brittle barrier",
     "chill of corruption",
